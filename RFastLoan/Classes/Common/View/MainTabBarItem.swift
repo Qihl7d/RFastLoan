@@ -39,7 +39,7 @@ class MainTabBarItem: UIControl {
         self.selectImage = selectImage
         
         //布局使用的参数
-        let defaulutLabelH:CGFloat = 20.0 + tabbarSafeBottomMargin //文字的高度
+        let defaulutLabelH:CGFloat = 20.0 + kTabbarSafeBottomMargin //文字的高度
         var imgTop:CGFloat = 3
         var imgWidth:CGFloat = 25
         //中间的按钮的布局参数做特殊处理

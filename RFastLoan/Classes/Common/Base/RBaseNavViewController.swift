@@ -22,6 +22,7 @@ class RBaseNavViewController: UINavigationController, UIGestureRecognizerDelegat
             super.pushViewController(viewController, animated: true)
         }
         else {
+            self.navigationController?.tabBarController?.tabBar.isHidden = true
             viewController.hidesBottomBarWhenPushed         = true
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: R.image.通用右箭头()?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), style: .plain, target: self, action: #selector(back))
             super.pushViewController(viewController, animated: animated)

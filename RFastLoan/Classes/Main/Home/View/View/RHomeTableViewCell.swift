@@ -11,8 +11,8 @@ import UIKit
 class RHomeTableViewCell: UITableViewCell {
     
     var titleLabel = UILabel()
-    var detailLabel = UILabel()
-    var nameLabel = UILabel()
+    var timeLabel  = UILabel()
+    var nameLabel  = UILabel()
     var priceLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -30,7 +30,7 @@ class RHomeTableViewCell: UITableViewCell {
             make.right.equalTo(-10)
             make.centerY.equalTo(self)
             make.height.equalTo(20)
-            make.width.greaterThanOrEqualTo(0)
+            make.width.equalTo(0)
         }
         
         titleLabel.textColor = hexColor333
@@ -38,7 +38,38 @@ class RHomeTableViewCell: UITableViewCell {
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
             make.left.equalTo(10)
-            make.top.equalTo(15)
+            make.top.equalTo(13)
+            make.right.equalTo(self.snp.centerX).offset(-10)
+            make.height.equalTo(20);
+        }
+        
+        timeLabel.textColor = hexColor999
+        timeLabel.font = systemFont(13)
+        addSubview(timeLabel)
+        timeLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(titleLabel)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.bottom.equalTo(-13)
+//            make.right.equalTo(self.snp.centerX).offset(-10)
+        }
+        
+        nameLabel.textColor = hexColor333
+        nameLabel.font = systemFont(16)
+        nameLabel.textAlignment = .center
+        addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { (make) in
+            make.center.equalTo(self)
+            make.width.equalTo(100)
+            make.height.equalTo(20)
+        }
+        
+        
+        titleLabel.text = "房屋装修"
+        priceLabel.text = "20000元"
+        timeLabel.text  = "刚刚"
+        nameLabel.text  = "海***月"
+        priceLabel.snp.updateConstraints { (make) in
+            make.width.equalTo(priceLabel.rpk_textWith(height: 20))
         }
     }
     

@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import RxSwift
 
 class RMainTabBarViewController: UITabBarController, MainTabBarDelegate {
+    
+    var mainTabBarView : MainTabBarView!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBar.isHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createController()
         createMainTabBarView()
-        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -26,12 +32,27 @@ class RMainTabBarViewController: UITabBarController, MainTabBarDelegate {
     }
     
     private func createMainTabBarView() {
-        let tabBarRect = CGRect.init(x: 0, y: RscreenHeight - tabbarHeight, width: RscreenWidth, height: tabbarHeight);
-        self.tabBar.isHidden = true;
+        self.tabBar.isHidden = true
+        
+        
+        let tabBarRect = CGRect.init(x: 0, y: kScreenHeight - kTabbarHeight, width: kScreenWidth, height: kTabbarHeight);
         //3.使用得到的frame，和plist数据创建自定义标签栏
-        let mainTabBarView = MainTabBarView(frame: tabBarRect);
+        mainTabBarView = MainTabBarView(frame: tabBarRect);
         mainTabBarView.delegateTabbar = self
         self.view.addSubview(mainTabBarView)
+        
+        self.rx.observe(Bool.self, "tabBar.isHidden")
+            .subscribe(onNext:{ (isHidden) in
+                self.mainTabBarView.isHidden = isHidden ?? false
+            })
+        .dispose()
+        
+        self.rx.observe(Bool.self, "tabBarController.tabBar.isHidden")
+            .subscribe(onNext:{ (isHidden) in
+                self.mainTabBarView.isHidden = isHidden ?? false
+            })
+            .dispose()
+        
     }
     
     func didChooseItem(itemIndex: Int) {

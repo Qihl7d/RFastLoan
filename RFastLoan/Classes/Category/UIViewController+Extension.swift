@@ -12,6 +12,7 @@ extension UIViewController {
     
     private struct kNavigationColorKey {
         static var kNavigationKey: String = "kNavigationColorKey"
+        static var kFontColorKey : String = "kFontColorKey"
     }
     
     var kNavigationColor: UIColor {
@@ -26,7 +27,22 @@ extension UIViewController {
         }
     }
     
+    var kTitleFontColor : UIColor {
+        get {
+            guard let theName = objc_getAssociatedObject(self, &kNavigationColorKey.kFontColorKey) as? UIColor else {
+                return UIColor.white
+            }
+            return theName
+        }
+        set {
+            objc_setAssociatedObject(self, &kNavigationColorKey.kFontColorKey, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+    
+    
+    
     func setNavigationColor() {
+        self.view.backgroundColor = UIColor.white
         //设置导航栏背景风格
         self.navigationController?.navigationBar.barStyle = UIBarStyle.default
         
@@ -45,11 +61,15 @@ extension UIViewController {
         //设置图片作为导航栏的背景,设置了背景图片，导航栏就不透明
         
         var image = UIImage.imageWithColor(color: kNavigationColor)
-        UIGraphicsBeginImageContext(CGSize.init(width: RscreenWidth, height: navigationBarAndStatusHeight))
-        image.draw(in: CGRect.init(x: 0, y: 0, width: RscreenWidth, height: navigationBarAndStatusHeight))
+        UIGraphicsBeginImageContext(CGSize.init(width: kScreenWidth, height: kNavigationBarAndStatusHeight))
+        image.draw(in: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: kNavigationBarAndStatusHeight))
         image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         navigationController?.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+        let attributes = NSMutableDictionary()
+        attributes[NSAttributedString.Key.foregroundColor] = kTitleFontColor
+        attributes[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: 17)
+        navigationController?.navigationBar.titleTextAttributes = attributes as? [NSAttributedString.Key : Any]
     }
 }

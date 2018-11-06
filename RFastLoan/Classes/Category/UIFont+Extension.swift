@@ -42,5 +42,8 @@ extension UIFont {
         return UIFont.systemFont(ofSize: scale(fontSize))
     }
     
+    open class func boldSystemFontWithScale(ofSize fontSize: CGFloat) -> UIFont {
+        return UIFont.boldSystemFont(ofSize:scale(fontSize))
+    }
 
 }

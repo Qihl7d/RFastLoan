@@ -13,7 +13,7 @@ protocol MainTabBarDelegate {
     func didChooseItem(itemIndex:Int)
 }
 
-class MainTabBarView: UITabBar {
+class MainTabBarView: UIView {
     var delegateTabbar  : MainTabBarDelegate? //代理,点击item
     var itemArray : [MainTabBarItem] = [] //标签Item数组
     var centerButton : MainTabBarItem!

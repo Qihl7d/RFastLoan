@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16393758218F1C1900D2794D /* RMineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16393757218F1C1900D2794D /* RMineHeaderView.swift */; };
+		1639375A218F26AC00D2794D /* RButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16393759218F26AC00D2794D /* RButton.swift */; };
 		163CAA512188A27F00A6F834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAA502188A27F00A6F834 /* AppDelegate.swift */; };
 		163CAA532188A27F00A6F834 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAA522188A27F00A6F834 /* ViewController.swift */; };
 		163CAA562188A27F00A6F834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163CAA542188A27F00A6F834 /* Main.storyboard */; };
@@ -34,12 +36,13 @@
 		163EF8FA218A073A0070B814 /* Observable+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8EF218A073A0070B814 /* Observable+ObjectMapper.swift */; };
 		163EF8FB218A073A0070B814 /* ConstraintRelatableTarget+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8F0218A073A0070B814 /* ConstraintRelatableTarget+Extension.swift */; };
 		163EF8FC218A073A0070B814 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8F1218A073A0070B814 /* UIButton+Extension.swift */; };
-		163EF8FE218A073A0070B814 /* String+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8F3218A073A0070B814 /* String+Height.swift */; };
+		163EF8FE218A073A0070B814 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8F3218A073A0070B814 /* String+Extension.swift */; };
 		163EF8FF218A073A0070B814 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8F4218A073A0070B814 /* UIImage+Extension.swift */; };
 		163EF900218A073A0070B814 /* MoyaProvider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8F5218A073A0070B814 /* MoyaProvider+Extension.swift */; };
 		164485DB218B57C50005124F /* RHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DA218B57C50005124F /* RHomeViewController.swift */; };
 		164485DD218B59620005124F /* RHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DC218B59620005124F /* RHomeHeaderView.swift */; };
 		164485DF218B5CC10005124F /* RHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DE218B5CC10005124F /* RHomeTableViewCell.swift */; };
+		1694691C2191F57A00AA6503 /* RSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1694691B2191F57A00AA6503 /* RSettingViewController.swift */; };
 		5C4E5C399ABFA73CD571A913 /* Pods_RFastLoanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1656ED2694F6EA835F72F599 /* Pods_RFastLoanTests.framework */; };
 		6536E155CD516BF33F9DBB55 /* Pods_RFastLoanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819ADEBE2BF4FD877264FE84 /* Pods_RFastLoanUITests.framework */; };
 		C96212B04DB46244C226F5DF /* Pods_RFastLoan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F47CBC36829F114A632CAC2 /* Pods_RFastLoan.framework */; };
@@ -64,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		10DD111FC1682C58ABCD0075 /* Pods-RFastLoan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoan/Pods-RFastLoan.debug.xcconfig"; sourceTree = "<group>"; };
+		16393757218F1C1900D2794D /* RMineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMineHeaderView.swift; sourceTree = "<group>"; };
+		16393759218F26AC00D2794D /* RButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RButton.swift; sourceTree = "<group>"; };
 		163CAA4D2188A27F00A6F834 /* RFastLoan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RFastLoan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		163CAA502188A27F00A6F834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		163CAA522188A27F00A6F834 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,13 +102,14 @@
 		163EF8EF218A073A0070B814 /* Observable+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+ObjectMapper.swift"; sourceTree = "<group>"; };
 		163EF8F0218A073A0070B814 /* ConstraintRelatableTarget+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintRelatableTarget+Extension.swift"; sourceTree = "<group>"; };
 		163EF8F1218A073A0070B814 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
-		163EF8F3218A073A0070B814 /* String+Height.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Height.swift"; sourceTree = "<group>"; };
+		163EF8F3218A073A0070B814 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		163EF8F4218A073A0070B814 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		163EF8F5218A073A0070B814 /* MoyaProvider+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Extension.swift"; sourceTree = "<group>"; };
 		164485DA218B57C50005124F /* RHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeViewController.swift; sourceTree = "<group>"; };
 		164485DC218B59620005124F /* RHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeHeaderView.swift; sourceTree = "<group>"; };
 		164485DE218B5CC10005124F /* RHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeTableViewCell.swift; sourceTree = "<group>"; };
 		1656ED2694F6EA835F72F599 /* Pods_RFastLoanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RFastLoanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1694691B2191F57A00AA6503 /* RSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSettingViewController.swift; sourceTree = "<group>"; };
 		24C5E82D31C19BFD5B4A43E6 /* Pods-RFastLoanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoanUITests/Pods-RFastLoanUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3EE0D1D477C09B915350A308 /* Pods-RFastLoan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoan.release.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoan/Pods-RFastLoan.release.xcconfig"; sourceTree = "<group>"; };
 		44DEF383712466C12032942E /* Pods-RFastLoanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoanUITests/Pods-RFastLoanUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -232,7 +238,7 @@
 				163EF8F0218A073A0070B814 /* ConstraintRelatableTarget+Extension.swift */,
 				163EF8F5218A073A0070B814 /* MoyaProvider+Extension.swift */,
 				163EF8EF218A073A0070B814 /* Observable+ObjectMapper.swift */,
-				163EF8F3218A073A0070B814 /* String+Height.swift */,
+				163EF8F3218A073A0070B814 /* String+Extension.swift */,
 				163EF8F1218A073A0070B814 /* UIButton+Extension.swift */,
 				163EF8ED218A07390070B814 /* UIFont+Extension.swift */,
 				163EF8F4218A073A0070B814 /* UIImage+Extension.swift */,
@@ -364,6 +370,7 @@
 		163CAA992188AC0500A6F834 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				16393757218F1C1900D2794D /* RMineHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -372,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				163CAA9B2188AC0500A6F834 /* RMineViewController.swift */,
+				1694691B2191F57A00AA6503 /* RSettingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -494,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				163CAACD2188B1F100A6F834 /* RTabBar.swift */,
+				16393759218F26AC00D2794D /* RButton.swift */,
 				163EF8E52189F06B0070B814 /* MainTabBarItem.swift */,
 				163EF8E72189FD390070B814 /* MainTabBarView.swift */,
 			);
@@ -590,6 +599,7 @@
 		163CAA452188A27F00A6F834 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = R;
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = RPK;
@@ -800,12 +810,15 @@
 				163EF8EA218A06A90070B814 /* PrefixHeader.swift in Sources */,
 				163EF8FB218A073A0070B814 /* ConstraintRelatableTarget+Extension.swift in Sources */,
 				163EF8E62189F06B0070B814 /* MainTabBarItem.swift in Sources */,
+				1694691C2191F57A00AA6503 /* RSettingViewController.swift in Sources */,
 				164485DF218B5CC10005124F /* RHomeTableViewCell.swift in Sources */,
-				163EF8FE218A073A0070B814 /* String+Height.swift in Sources */,
+				163EF8FE218A073A0070B814 /* String+Extension.swift in Sources */,
 				163CAABB2188AC0600A6F834 /* RBaseNavViewController.swift in Sources */,
 				163CAABA2188AC0600A6F834 /* UIColor+Extension.swift in Sources */,
 				163EF8E82189FD390070B814 /* MainTabBarView.swift in Sources */,
+				16393758218F1C1900D2794D /* RMineHeaderView.swift in Sources */,
 				163CAABC2188AC0600A6F834 /* RBaseViewController.swift in Sources */,
+				1639375A218F26AC00D2794D /* RButton.swift in Sources */,
 				163CAABE2188AC0600A6F834 /* RMainTabBarViewController.swift in Sources */,
 				163EF8FF218A073A0070B814 /* UIImage+Extension.swift in Sources */,
 				163EF8F9218A073A0070B814 /* UIViewController+Extension.swift in Sources */,

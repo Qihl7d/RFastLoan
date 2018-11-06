@@ -22,6 +22,23 @@ class RBaseViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if !viewController.isKind(of: RHomeViewController.classForCoder()) && !viewController.isKind(of: RMineViewController.classForCoder()) {
+            let tabbarController = viewController.tabBarController
+            for view in (tabbarController?.view.subviews)! {
+                if view.isKind(of: MainTabBarView.classForCoder()) {
+                    view.isHidden = true
+                }
+            }
+        }
+        else {
+            let tabbarController = viewController.tabBarController
+            for view in (tabbarController?.view.subviews)! {
+                if view.isKind(of: MainTabBarView.classForCoder()) {
+                    view.isHidden = false
+                }
+            }
+        }
+        viewController.tabBarController?.tabBar.isHidden = true
         navigationController.setNavigationBarHidden(needHiddenBarInViewController(viewController), animated: animated)
         viewController.setNavigationColor()
     }
