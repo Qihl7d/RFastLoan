@@ -16,7 +16,7 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.image` struct is generated, and contains static references to 26 images.
+  /// This `R.image` struct is generated, and contains static references to 27 images.
   struct image {
     /// Image `个人中心-个人信息`.
     static let 个人中心个人信息 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-个人信息")
@@ -54,6 +54,8 @@ struct R: Rswift.Validatable {
     static let 注册验证码 = Rswift.ImageResource(bundle: R.hostingBundle, name: "注册-验证码")
     /// Image `登录-密码`.
     static let 登录密码 = Rswift.ImageResource(bundle: R.hostingBundle, name: "登录-密码")
+    /// Image `登录页面logo`.
+    static let 登录页面logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "登录页面logo")
     /// Image `通用-右箭头`.
     static let 通用右箭头 = Rswift.ImageResource(bundle: R.hostingBundle, name: "通用-右箭头")
     /// Image `通用返回箭头`.
@@ -161,6 +163,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.登录密码, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "登录页面logo", bundle: ..., traitCollection: ...)`
+    static func 登录页面logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.登录页面logo, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "通用-右箭头", bundle: ..., traitCollection: ...)`
     static func 通用右箭头(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.通用右箭头, compatibleWith: traitCollection)
@@ -244,8 +251,8 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try main.validate()
       try launchScreen.validate()
+      try main.validate()
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {

@@ -42,6 +42,12 @@
 		164485DB218B57C50005124F /* RHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DA218B57C50005124F /* RHomeViewController.swift */; };
 		164485DD218B59620005124F /* RHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DC218B59620005124F /* RHomeHeaderView.swift */; };
 		164485DF218B5CC10005124F /* RHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DE218B5CC10005124F /* RHomeTableViewCell.swift */; };
+		1651BA922197FFD00054D7F3 /* RTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA912197FFD00054D7F3 /* RTextField.swift */; };
+		1651BA94219800DA0054D7F3 /* RChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA93219800DA0054D7F3 /* RChangePasswordViewController.swift */; };
+		1651BA96219801410054D7F3 /* RCommonProblemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA95219801410054D7F3 /* RCommonProblemViewController.swift */; };
+		1651BA98219805940054D7F3 /* RAnnouncementNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA97219805940054D7F3 /* RAnnouncementNoticeViewController.swift */; };
+		1651BA9A219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA99219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift */; };
+		1651BA9C219851540054D7F3 /* RLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA9B219851540054D7F3 /* RLoanViewController.swift */; };
 		1694691C2191F57A00AA6503 /* RSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1694691B2191F57A00AA6503 /* RSettingViewController.swift */; };
 		5C4E5C399ABFA73CD571A913 /* Pods_RFastLoanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1656ED2694F6EA835F72F599 /* Pods_RFastLoanTests.framework */; };
 		6536E155CD516BF33F9DBB55 /* Pods_RFastLoanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819ADEBE2BF4FD877264FE84 /* Pods_RFastLoanUITests.framework */; };
@@ -108,6 +114,12 @@
 		164485DA218B57C50005124F /* RHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeViewController.swift; sourceTree = "<group>"; };
 		164485DC218B59620005124F /* RHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeHeaderView.swift; sourceTree = "<group>"; };
 		164485DE218B5CC10005124F /* RHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeTableViewCell.swift; sourceTree = "<group>"; };
+		1651BA912197FFD00054D7F3 /* RTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTextField.swift; sourceTree = "<group>"; };
+		1651BA93219800DA0054D7F3 /* RChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RChangePasswordViewController.swift; sourceTree = "<group>"; };
+		1651BA95219801410054D7F3 /* RCommonProblemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCommonProblemViewController.swift; sourceTree = "<group>"; };
+		1651BA97219805940054D7F3 /* RAnnouncementNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAnnouncementNoticeViewController.swift; sourceTree = "<group>"; };
+		1651BA99219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAnnouncementNoticeTableViewCell.swift; sourceTree = "<group>"; };
+		1651BA9B219851540054D7F3 /* RLoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanViewController.swift; sourceTree = "<group>"; };
 		1656ED2694F6EA835F72F599 /* Pods_RFastLoanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RFastLoanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1694691B2191F57A00AA6503 /* RSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSettingViewController.swift; sourceTree = "<group>"; };
 		24C5E82D31C19BFD5B4A43E6 /* Pods-RFastLoanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoanUITests/Pods-RFastLoanUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -371,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				16393757218F1C1900D2794D /* RMineHeaderView.swift */,
+				1651BA99219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,6 +393,8 @@
 			children = (
 				163CAA9B2188AC0500A6F834 /* RMineViewController.swift */,
 				1694691B2191F57A00AA6503 /* RSettingViewController.swift */,
+				1651BA95219801410054D7F3 /* RCommonProblemViewController.swift */,
+				1651BA97219805940054D7F3 /* RAnnouncementNoticeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -420,6 +435,7 @@
 		163CAAB42188AC0500A6F834 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1651BA912197FFD00054D7F3 /* RTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -429,6 +445,7 @@
 			children = (
 				163CAAB62188AC0500A6F834 /* RRegisterViewController.swift */,
 				163CAAB72188AC0500A6F834 /* RLoginViewController.swift */,
+				1651BA93219800DA0054D7F3 /* RChangePasswordViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -469,6 +486,7 @@
 		163CAAC82188AC8B00A6F834 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1651BA9B219851540054D7F3 /* RLoanViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -799,6 +817,7 @@
 				163CAABD2188AC0600A6F834 /* RTableViewViewController.swift in Sources */,
 				163CAAC32188AC0600A6F834 /* RRegisterViewController.swift in Sources */,
 				164485DD218B59620005124F /* RHomeHeaderView.swift in Sources */,
+				1651BA922197FFD00054D7F3 /* RTextField.swift in Sources */,
 				163CAA532188A27F00A6F834 /* ViewController.swift in Sources */,
 				164485DB218B57C50005124F /* RHomeViewController.swift in Sources */,
 				163EF8FC218A073A0070B814 /* UIButton+Extension.swift in Sources */,
@@ -809,10 +828,15 @@
 				163EF8F6218A073A0070B814 /* UILabel+Extension.swift in Sources */,
 				163EF8EA218A06A90070B814 /* PrefixHeader.swift in Sources */,
 				163EF8FB218A073A0070B814 /* ConstraintRelatableTarget+Extension.swift in Sources */,
+				1651BA94219800DA0054D7F3 /* RChangePasswordViewController.swift in Sources */,
 				163EF8E62189F06B0070B814 /* MainTabBarItem.swift in Sources */,
 				1694691C2191F57A00AA6503 /* RSettingViewController.swift in Sources */,
+				1651BA9C219851540054D7F3 /* RLoanViewController.swift in Sources */,
+				1651BA96219801410054D7F3 /* RCommonProblemViewController.swift in Sources */,
 				164485DF218B5CC10005124F /* RHomeTableViewCell.swift in Sources */,
 				163EF8FE218A073A0070B814 /* String+Extension.swift in Sources */,
+				1651BA9A219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift in Sources */,
+				1651BA98219805940054D7F3 /* RAnnouncementNoticeViewController.swift in Sources */,
 				163CAABB2188AC0600A6F834 /* RBaseNavViewController.swift in Sources */,
 				163CAABA2188AC0600A6F834 /* UIColor+Extension.swift in Sources */,
 				163EF8E82189FD390070B814 /* MainTabBarView.swift in Sources */,

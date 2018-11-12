@@ -47,7 +47,7 @@ extension RLoginViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         
-        let logoImageView = UIImageView.init(image: UIImage())
+        let logoImageView = UIImageView.init(image: R.image.登录页面logo())
         view.addSubview(logoImageView)
         logoImageView.snp.makeConstraints { (make) in
             make.centerX.equalTo(view)

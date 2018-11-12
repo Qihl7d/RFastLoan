@@ -50,16 +50,17 @@ extension RMineViewController {
 //        self.modalPresentationCapturesStatusBarAppearance = false
 //        self.automaticallyAdjustsScrollViewInsets = false
         
-        let headerView = RMineHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 200 + 100 + 10))
+        let headerView = RMineHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 200 + 100 + 10 + kStatusBarHeight))
 
         tableView.tableHeaderView = headerView
         tableView.rowHeight       = 50
         tableView.delegate        = self
         tableView.dataSource      = self
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = RbackgroundColor
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.edges.equalTo(UIEdgeInsets.init(top: -kNavigationBarAndStatusHeight, left: 0, bottom: kTabbarHeight, right: 0))
+            make.edges.equalTo(UIEdgeInsets.init(top: -kNavigationBarAndStatusHeight, left: 0, bottom: -kTabbarHeight, right: 0))
         }
     }
 }
@@ -95,10 +96,14 @@ extension RMineViewController {
         tableView .deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
+            let announcementNotice = RAnnouncementNoticeViewController()
+            self.navigationController?.pushViewController(announcementNotice, animated: true)
             break;
         case 1:
             break
         case 2:
+            let commonProblem = RCommonProblemViewController()
+            self.navigationController?.pushViewController(commonProblem, animated: true)
             break
         case 3:
             let setting = RSettingViewController()

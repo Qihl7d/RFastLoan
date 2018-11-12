@@ -21,7 +21,7 @@ class MainTabBarView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.hexInt(0xF3F3F3)
+        self.backgroundColor = .white//UIColor.hexInt(0xF3F3F3)
         
         let screenW      = UIScreen.main.bounds.size.width
         let titles       = ["首页", "借款", "个人中心"]

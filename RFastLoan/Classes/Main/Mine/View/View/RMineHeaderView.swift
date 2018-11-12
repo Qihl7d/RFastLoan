@@ -24,6 +24,8 @@ class RMineHeaderView: UIView {
     
     private func initView() {
         
+        self.backgroundColor = RbackgroundColor
+        
         let backgroundView = UIImageView.init(image: UIImage())
         self.addSubview(backgroundView)
         backgroundView.backgroundColor = RbackgroundColor
@@ -57,6 +59,15 @@ class RMineHeaderView: UIView {
             make.height.equalTo(16)
         }
         
+        let middleView = UIView()
+        middleView.backgroundColor = .white
+        addSubview(middleView)
+        middleView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(backgroundView.snp.bottom)
+            make.height.equalTo(100)
+        }
+        
         let images : [UIImage] = [R.image.个人中心实名认证()!, R.image.个人中心账单明细()!, R.image.个人中心借款申请记录()!]
         let titles = ["实名认证", "账单明细", "借款申请记录"]
         
@@ -64,10 +75,11 @@ class RMineHeaderView: UIView {
             let button = RButton.init(frame: CGRect.zero)
             button.setTitle(titles[i])
             button.setImage(images[i])
-            addSubview(button)
+            middleView.addSubview(button)
             button.snp.makeConstraints { (make) in
-                make.top.equalTo(backgroundView.snp.bottom)
-                make.bottom.equalTo(-10)
+                make.top.equalTo(0)
+                make.bottom.equalTo(0)
+//                make.centerY.equalTo(middleView)
                 make.width.equalTo(kScreenWidth/3.0)
                 make.left.equalTo(CGFloat(i) * kScreenWidth/3.0)
             }

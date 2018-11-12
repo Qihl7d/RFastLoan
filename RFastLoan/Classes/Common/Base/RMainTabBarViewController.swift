@@ -57,7 +57,10 @@ class RMainTabBarViewController: UITabBarController, MainTabBarDelegate {
     
     func didChooseItem(itemIndex: Int) {
         if itemIndex == 1 {
-            print("---------------")
+            let viewController = self.viewControllers![selectedIndex]
+            let loanViewController = RLoanViewController()
+            let loanViewControllerNav = RBaseNavViewController.init(rootViewController: loanViewController)
+            viewController.present(loanViewControllerNav, animated: true, completion: nil)
         }
         else if itemIndex == 0 {
             self.selectedIndex = 0
