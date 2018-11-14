@@ -8,6 +8,9 @@
 
 import UIKit
 
+import Photos
+import PhotosUI
+
 class RLoanViewController: RBaseViewController {
 
     let scrollView   = UIScrollView()
@@ -17,7 +20,8 @@ class RLoanViewController: RBaseViewController {
     let bottomView   = UIView()
     let protocolTips = UIButton()
     let loanRule     = UIButton()
-    
+    // 一行显示的图片张数
+    let rowCount = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,8 +104,9 @@ extension RLoanViewController {
             textField.textColor = hexColor999
             textField.font = systemFont(16)
             if i == 2 {
-                let rightBut = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 50))
+                let rightBut = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
                 rightBut.setImage(R.image.通用右箭头(), for: UIControl.State.normal)
+                rightBut.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 5)
                 textField.rightView = rightBut
                 textField.rightViewMode = .always
             }
@@ -126,12 +131,14 @@ extension RLoanViewController {
             }
         }
         
+        let height = (kScreenWidth - CGFloat((rowCount + 1) * 10))/CGFloat(rowCount);
+        
         middleView.backgroundColor = .white
         contentView.addSubview(middleView)
         middleView.snp.makeConstraints { (make) in
             make.left.right.equalTo(0)
             make.top.equalTo(topView.snp.bottom).offset(10)
-            make.height.equalTo(120)
+            make.height.equalTo(46 + height)
         }
         
         let label = UILabel()
@@ -146,8 +153,20 @@ extension RLoanViewController {
             make.height.equalTo(20)
         }
         
+        let uploadBtn = UIButton()
+        uploadBtn.setImage(R.image.我要借款添加图片加号(), for: UIControl.State.normal)
+        middleView.addSubview(uploadBtn)
+        uploadBtn.layer.borderColor   = UIColor.hexInt(0xCCCCCC).cgColor;
+        uploadBtn.layer.borderWidth   = 1
+        uploadBtn.layer.cornerRadius  = 2
+        uploadBtn.layer.masksToBounds = true
+        uploadBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(10)
+            make.top.equalTo(label.snp.bottom).offset(8)
+            make.width.height.equalTo(height)
+        }
         
-        
+
         bottomView.backgroundColor = .white
         contentView.addSubview(bottomView)
         bottomView.snp.makeConstraints { (make) in
@@ -157,7 +176,7 @@ extension RLoanViewController {
         }
         
         let label1 = UILabel()
-        label1.text = "材料上传"
+        label1.text = "借款描述"
         label1.textColor = hexColor999
         label1.font = systemFont(16)
         bottomView.addSubview(label1)
@@ -182,7 +201,8 @@ extension RLoanViewController {
         }
         
 
-        protocolTips.setImage(R.image.我要借款同意(), for: UIControl.State.normal)
+        protocolTips.setImage(R.image.我要借款未选择灰(), for: UIControl.State.normal)
+        protocolTips.setImage(R.image.我要借款同意(), for: UIControl.State.selected)
         protocolTips.titleLabel?.font = systemFont(13)
         protocolTips.setTitle("我已仔细阅读", for: UIControl.State.normal)
         protocolTips.setTitleColor(hexColor999, for: UIControl.State.normal)

@@ -56,14 +56,14 @@ extension RSettingViewController {
             make.edges.equalTo(UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0))
         }
         
-        logout.rx.tap.subscribe(onNext: { (_) in
+        logout.rx.tap
+            .subscribe(onNext: { [weak self] (_) in
             
-        })
-        .dispose()
+            })
+            .dispose()
     
     }
 }
-
 
 extension RSettingViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,7 +91,8 @@ extension RSettingViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == 0 {
-            
+            let changePassword = RChangePasswordViewController()
+            self.navigationController?.pushViewController(changePassword, animated: true)
         }
         else {
             let alertController = UIAlertController.init(title: "提示", message: "是否清理缓存？", preferredStyle: UIAlertController.Style.alert)

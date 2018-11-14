@@ -16,8 +16,10 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.image` struct is generated, and contains static references to 27 images.
+  /// This `R.image` struct is generated, and contains static references to 29 images.
   struct image {
+    /// Image `blueRightArrow`.
+    static let blueRightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "blueRightArrow")
     /// Image `个人中心-个人信息`.
     static let 个人中心个人信息 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-个人信息")
     /// Image `个人中心-借款申请记录`.
@@ -32,8 +34,6 @@ struct R: Rswift.Validatable {
     static let 个人中心账单明细 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-账单明细")
     /// Image `个人中心-通知公告`.
     static let 个人中心通知公告 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-通知公告")
-    /// Image `修改密码-上方步骤箭头`.
-    static let 修改密码上方步骤箭头 = Rswift.ImageResource(bundle: R.hostingBundle, name: "修改密码-上方步骤箭头")
     /// Image `实名认证-上传身份证反面`.
     static let 实名认证上传身份证反面 = Rswift.ImageResource(bundle: R.hostingBundle, name: "实名认证-上传身份证反面")
     /// Image `实名认证-上传身份证正面`.
@@ -46,6 +46,10 @@ struct R: Rswift.Validatable {
     static let 我要借款上传材料 = Rswift.ImageResource(bundle: R.hostingBundle, name: "我要借款-上传材料")
     /// Image `我要借款-同意`.
     static let 我要借款同意 = Rswift.ImageResource(bundle: R.hostingBundle, name: "我要借款-同意")
+    /// Image `我要借款-未选择-灰`.
+    static let 我要借款未选择灰 = Rswift.ImageResource(bundle: R.hostingBundle, name: "我要借款-未选择-灰")
+    /// Image `我要借款-添加图片加号`.
+    static let 我要借款添加图片加号 = Rswift.ImageResource(bundle: R.hostingBundle, name: "我要借款-添加图片加号")
     /// Image `注册-同意`.
     static let 注册同意 = Rswift.ImageResource(bundle: R.hostingBundle, name: "注册-同意")
     /// Image `注册-手机号码`.
@@ -72,6 +76,11 @@ struct R: Rswift.Validatable {
     static let 首页1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "首页1")
     /// Image `首页2`.
     static let 首页2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "首页2")
+    
+    /// `UIImage(named: "blueRightArrow", bundle: ..., traitCollection: ...)`
+    static func blueRightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.blueRightArrow, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "个人中心-个人信息", bundle: ..., traitCollection: ...)`
     static func 个人中心个人信息(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -108,11 +117,6 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.个人中心通知公告, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "修改密码-上方步骤箭头", bundle: ..., traitCollection: ...)`
-    static func 修改密码上方步骤箭头(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.修改密码上方步骤箭头, compatibleWith: traitCollection)
-    }
-    
     /// `UIImage(named: "实名认证-上传身份证反面", bundle: ..., traitCollection: ...)`
     static func 实名认证上传身份证反面(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.实名认证上传身份证反面, compatibleWith: traitCollection)
@@ -141,6 +145,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "我要借款-同意", bundle: ..., traitCollection: ...)`
     static func 我要借款同意(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.我要借款同意, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "我要借款-未选择-灰", bundle: ..., traitCollection: ...)`
+    static func 我要借款未选择灰(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.我要借款未选择灰, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "我要借款-添加图片加号", bundle: ..., traitCollection: ...)`
+    static func 我要借款添加图片加号(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.我要借款添加图片加号, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "注册-同意", bundle: ..., traitCollection: ...)`

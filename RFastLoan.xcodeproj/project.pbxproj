@@ -48,6 +48,7 @@
 		1651BA98219805940054D7F3 /* RAnnouncementNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA97219805940054D7F3 /* RAnnouncementNoticeViewController.swift */; };
 		1651BA9A219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA99219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift */; };
 		1651BA9C219851540054D7F3 /* RLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA9B219851540054D7F3 /* RLoanViewController.swift */; };
+		1652D093219B1C5100A501D4 /* UILabel+RPK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652D092219B1C5100A501D4 /* UILabel+RPK.swift */; };
 		1694691C2191F57A00AA6503 /* RSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1694691B2191F57A00AA6503 /* RSettingViewController.swift */; };
 		5C4E5C399ABFA73CD571A913 /* Pods_RFastLoanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1656ED2694F6EA835F72F599 /* Pods_RFastLoanTests.framework */; };
 		6536E155CD516BF33F9DBB55 /* Pods_RFastLoanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819ADEBE2BF4FD877264FE84 /* Pods_RFastLoanUITests.framework */; };
@@ -120,6 +121,7 @@
 		1651BA97219805940054D7F3 /* RAnnouncementNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAnnouncementNoticeViewController.swift; sourceTree = "<group>"; };
 		1651BA99219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAnnouncementNoticeTableViewCell.swift; sourceTree = "<group>"; };
 		1651BA9B219851540054D7F3 /* RLoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanViewController.swift; sourceTree = "<group>"; };
+		1652D092219B1C5100A501D4 /* UILabel+RPK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+RPK.swift"; sourceTree = "<group>"; };
 		1656ED2694F6EA835F72F599 /* Pods_RFastLoanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RFastLoanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1694691B2191F57A00AA6503 /* RSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSettingViewController.swift; sourceTree = "<group>"; };
 		24C5E82D31C19BFD5B4A43E6 /* Pods-RFastLoanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoanUITests/Pods-RFastLoanUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				163EF8EE218A07390070B814 /* UIViewController+Extension.swift */,
 				163CAA842188AC0500A6F834 /* UIDevice+Extension.swift */,
 				163CAA852188AC0500A6F834 /* UIColor+Extension.swift */,
+				1652D092219B1C5100A501D4 /* UILabel+RPK.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1652D093219B1C5100A501D4 /* UILabel+RPK.swift in Sources */,
 				163EF900218A073A0070B814 /* MoyaProvider+Extension.swift in Sources */,
 				163CAAC02188AC0600A6F834 /* RMineViewController.swift in Sources */,
 				163CAAD02188B2F700A6F834 /* R.generated.swift in Sources */,

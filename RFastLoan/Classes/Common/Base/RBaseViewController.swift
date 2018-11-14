@@ -8,7 +8,12 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class RBaseViewController: UIViewController, UINavigationControllerDelegate {
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
