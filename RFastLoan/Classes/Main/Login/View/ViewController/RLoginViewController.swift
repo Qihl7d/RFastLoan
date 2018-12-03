@@ -20,6 +20,7 @@ class RLoginViewController: RBaseViewController {
         super.viewDidLoad()
         
         initView()
+//        bindingEvent()
         // Do any additional setup after loading the view.
     }
     
@@ -137,6 +138,7 @@ extension RLoginViewController {
         registerBtn.setTitle("注册", for: UIControl.State.normal)
         registerBtn.setTitleColor(themeColor, for: UIControl.State.normal)
         registerBtn.titleLabel?.font = systemFont(14)
+        registerBtn.addTarget(self, action: #selector(intoRegister), for: UIControl.Event.touchUpInside)
         view.addSubview(registerBtn)
         registerBtn.snp.makeConstraints { (make) in
             make.left.equalTo(noAccount.snp.right)
@@ -147,6 +149,21 @@ extension RLoginViewController {
     }
 }
 
-
+extension RLoginViewController {
+    
+    @objc func intoRegister() {
+        print("sdfasdkfhasdjkfasdklfjasdfkas")
+        let viewController = RRegisterViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+//    func bindingEvent() {
+//        registerBtn.rx.tap
+//            .subscribe(onNext:{ _ in
+//
+//            })
+//            .disposed(by: disposeBag)
+//    }
+}
 
 

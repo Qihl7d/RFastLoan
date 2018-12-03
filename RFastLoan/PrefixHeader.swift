@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import Realm
+import RxRealm
 import Foundation
+import RealmSwift
 
 
 //MARK: - 系统高度
@@ -27,9 +30,18 @@ let kNavigationBarAndStatusHeight : CGFloat = UIDevice.isIphoneXLater() ? 88.0 :
 
 // 线宽或高
 let lineHeight = 0.7
+let indicator = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.whiteLarge)
 
+let secretKey = "*&x2xzn12jsdF`XS12seNsa#Xal$s82sa234*%@!)a-=/-1azc12aaAL4JDXSFSA"
+
+let realmKey : Data = secretKey.data(using: String.Encoding.utf8)!
+
+//    存在用户信息
+let accountRealm = URL(fileURLWithPath: RLMRealmPathForFile("account.realm"), isDirectory: false)
+
+let accountConfig = Realm.Configuration.init(fileURL:accountRealm , inMemoryIdentifier: nil, syncConfiguration: nil, encryptionKey: realmKey, readOnly: false, schemaVersion: 0, migrationBlock: nil, deleteRealmIfMigrationNeeded: false, shouldCompactOnLaunch: nil, objectTypes: nil)
 //MARK: - 请求部分
-let host = URL.init(string: "")
+let hostUrl = URL.init(string: "http://dk.shoux.net:9999/")!
 // 请求成功时，返回结果
 let requestSuccess = 200
 

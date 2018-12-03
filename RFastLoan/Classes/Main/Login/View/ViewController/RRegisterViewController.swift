@@ -5,7 +5,6 @@
 //  Created by RPK on 2018/10/26.
 //  Copyright © 2018 RPK. All rights reserved.
 //
-
 import UIKit
 
 import RxSwift
@@ -13,30 +12,37 @@ import RxSwift
 class RRegisterViewController: RBaseViewController {
     
     var phoneNumber        = UITextField()
+    var verificationCode   = UITextField()
     var passwordInput      = UITextField()
     var registerProtocol   = UIButton()
     var registerBtn        = UIButton()
     var selecteProtocol    = UIButton()
+    let sendVerificationCode = UIButton()
+    let viewModel = RUserRegisterViewModel()
+    // 发送验证码计时器
+    var timer : Timer?
+    // 倒计时时间
+    var countdown = Variable(60)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         initView()
         initData()
+        attachEvent()
         // Do any additional setup after loading the view.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension RRegisterViewController {
@@ -96,7 +102,7 @@ extension RRegisterViewController {
         }
         
         let rightView = UIView.init(frame: .init(x: 0, y: 0, width: 100, height: 48))
-        let sendVerificationCode = UIButton()
+        
         sendVerificationCode.setTitle("获取验证码", for: UIControl.State.normal)
         sendVerificationCode.setTitleColor(themeColor, for: UIControl.State.normal)
         sendVerificationCode.titleLabel?.font = systemFont(12)
@@ -114,10 +120,40 @@ extension RRegisterViewController {
             make.bottom.equalTo(-10)
         }
         
-        passwordInput.leftView            = leftView1
+        verificationCode.leftView            = leftView1
+        verificationCode.leftViewMode        = .always
+        verificationCode.rightView           = rightView
+        verificationCode.rightViewMode       = .always
+        verificationCode.backgroundColor     = UIColor.hexInt(0xF4F4F4)
+        verificationCode.textColor           = hexColor666
+        verificationCode.font                = systemFont(16)
+        verificationCode.isSecureTextEntry   = true
+        verificationCode.layer.cornerRadius  = 2;
+        verificationCode.layer.masksToBounds = true
+        verificationCode.placeholder         = "请输入密码"
+        view.addSubview(verificationCode)
+        verificationCode.snp.makeConstraints { (make) in
+            make.left.equalTo(25)
+            make.right.equalTo(-25)
+            make.height.equalTo(48)
+            make.top.equalTo(phoneNumber.snp.bottom).offset(15)
+        }
+        
+        let leftView2    = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 50, height: 48))
+        let imageView2   = UIImageView()
+        imageView2.image = R.image.登录密码()
+        imageView2.sizeToFit()
+        leftView2.addSubview(imageView2)
+        imageView2.snp.makeConstraints { (make) in
+            make.centerX.equalTo(leftView2)
+            make.centerY.equalTo(leftView2)
+            make.size.equalTo(imageView2.mj_size)
+        }
+        
+        passwordInput.leftView            = leftView2
         passwordInput.leftViewMode        = .always
-        passwordInput.rightView           = rightView
-        passwordInput.rightViewMode       = .always
+//        passwordInput.rightView           = rightView
+//        passwordInput.rightViewMode       = .always
         passwordInput.backgroundColor     = UIColor.hexInt(0xF4F4F4)
         passwordInput.textColor           = hexColor666
         passwordInput.font                = systemFont(16)
@@ -130,7 +166,7 @@ extension RRegisterViewController {
             make.left.equalTo(25)
             make.right.equalTo(-25)
             make.height.equalTo(48)
-            make.top.equalTo(phoneNumber.snp.bottom).offset(15)
+            make.top.equalTo(verificationCode.snp.bottom).offset(15)
         }
         
         selecteProtocol.setImage(R.image.注册同意(), for: UIControl.State.normal)
@@ -181,8 +217,34 @@ extension RRegisterViewController {
     private func initData() {
         
     }
+
+    func attachEvent() {
+        sendVerificationCode.rx.tap
+            .subscribe(onNext: { (_) in
+                self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.countdownCountDegressive), userInfo: nil, repeats: true )
+                self.timer?.fireDate = NSDate.distantPast
+                self.viewModel.sendVerificationCode(self.phoneNumber.text!)
+                    .subscribe(onNext:{ (success, msg) in
+                        if success {
+                            BAProgressHUD.showSuccess(msg)
+                        }
+                        else {
+                            BAProgressHUD.showError(msg)
+                        }
+                    })
+                    .disposed(by: self.disposeBag)
+            })
+            .disposed(by: disposeBag)
+        
+        registerBtn.rx.tap
+            .subscribe(onNext:{ _ in
+                
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    //MARK: 倒计时数字递减
+    @objc func countdownCountDegressive() {
+        countdown.value = countdown.value - 1
+    }
 }
-
-
-
-

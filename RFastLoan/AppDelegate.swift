@@ -15,12 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        NotificationCenter.default.addObserver(self, selector: #selector(setMainController), name: alreadyLogin, object: nil)
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
-        window?.rootViewController = RMainTabBarViewController()
+//        window?.rootViewController = RMainTabBarViewController()
+        window?.rootViewController = RBaseNavViewController.init(rootViewController: RLoginViewController())
         // Override point for customization after application launch.
         return true
+    }
+    
+    @objc func setMainController() {
+        window?.rootViewController = RMainTabBarViewController()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

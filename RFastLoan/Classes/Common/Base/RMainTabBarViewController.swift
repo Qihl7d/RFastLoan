@@ -34,7 +34,6 @@ class RMainTabBarViewController: UITabBarController, MainTabBarDelegate {
     private func createMainTabBarView() {
         self.tabBar.isHidden = true
         
-        
         let tabBarRect = CGRect.init(x: 0, y: kScreenHeight - kTabbarHeight, width: kScreenWidth, height: kTabbarHeight);
         //3.使用得到的frame，和plist数据创建自定义标签栏
         mainTabBarView = MainTabBarView(frame: tabBarRect);

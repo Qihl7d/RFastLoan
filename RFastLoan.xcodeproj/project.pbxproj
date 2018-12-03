@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160B59D621A2F6C40084E4E0 /* RAllBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59D521A2F6C40084E4E0 /* RAllBillsViewController.swift */; };
+		160B59D821A2F7170084E4E0 /* RRepaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59D721A2F7170084E4E0 /* RRepaymentViewController.swift */; };
+		160B59DA21A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59D921A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift */; };
+		160B59DC21A2FA640084E4E0 /* RBillsCommonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59DB21A2FA640084E4E0 /* RBillsCommonTableViewCell.swift */; };
+		160B59DE21A300940084E4E0 /* RLoanApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59DD21A300940084E4E0 /* RLoanApplicationViewController.swift */; };
+		160B59E021A303A00084E4E0 /* RAllLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59DF21A303A00084E4E0 /* RAllLoanViewController.swift */; };
+		160B59E221A3066A0084E4E0 /* RApplicationPassedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59E121A3066A0084E4E0 /* RApplicationPassedViewController.swift */; };
+		160B59E421A306F10084E4E0 /* RApplicationFailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59E321A306F10084E4E0 /* RApplicationFailedViewController.swift */; };
+		163567DB219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163567DA219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift */; };
+		163567DD219DCF4B00E8DD81 /* RBillingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163567DC219DCF4B00E8DD81 /* RBillingDetailsViewController.swift */; };
 		16393758218F1C1900D2794D /* RMineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16393757218F1C1900D2794D /* RMineHeaderView.swift */; };
 		1639375A218F26AC00D2794D /* RButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16393759218F26AC00D2794D /* RButton.swift */; };
 		163CAA512188A27F00A6F834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAA502188A27F00A6F834 /* AppDelegate.swift */; };
-		163CAA532188A27F00A6F834 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAA522188A27F00A6F834 /* ViewController.swift */; };
 		163CAA562188A27F00A6F834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163CAA542188A27F00A6F834 /* Main.storyboard */; };
 		163CAA582188A28000A6F834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 163CAA572188A28000A6F834 /* Assets.xcassets */; };
 		163CAA5B2188A28000A6F834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163CAA592188A28000A6F834 /* LaunchScreen.storyboard */; };
@@ -27,6 +36,14 @@
 		163CAAC42188AC0600A6F834 /* RLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAAB72188AC0500A6F834 /* RLoginViewController.swift */; };
 		163CAACE2188B1F100A6F834 /* RTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAACD2188B1F100A6F834 /* RTabBar.swift */; };
 		163CAAD02188B2F700A6F834 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAACF2188B2F700A6F834 /* R.generated.swift */; };
+		163D58D521B39AB100377013 /* RUserLoginDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D58CE21B39AB100377013 /* RUserLoginDataSource.swift */; };
+		163D58D621B39AB100377013 /* RUserLoginLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D58D021B39AB100377013 /* RUserLoginLocalDataSource.swift */; };
+		163D58D821B39AB100377013 /* RUserLoginRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D58D321B39AB100377013 /* RUserLoginRemoteDataSource.swift */; };
+		163D58DA21B39AE600377013 /* RUserLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D58D921B39AE600377013 /* RUserLoginRepository.swift */; };
+		163D58DC21B39B7500377013 /* RUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D58DB21B39B7500377013 /* RUserInfo.swift */; };
+		163D58DE21B3AA9F00377013 /* RRequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D58DD21B3AA9F00377013 /* RRequestResult.swift */; };
+		163D58E421B3CA7000377013 /* RRegisterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D58E321B3CA7000377013 /* RRegisterDataSource.swift */; };
+		163D58E621B3D00700377013 /* RRegisterLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D58E521B3D00700377013 /* RRegisterLocalDataSource.swift */; };
 		163EF8E62189F06B0070B814 /* MainTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8E52189F06B0070B814 /* MainTabBarItem.swift */; };
 		163EF8E82189FD390070B814 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8E72189FD390070B814 /* MainTabBarView.swift */; };
 		163EF8EA218A06A90070B814 /* PrefixHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8E9218A06A90070B814 /* PrefixHeader.swift */; };
@@ -49,7 +66,16 @@
 		1651BA9A219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA99219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift */; };
 		1651BA9C219851540054D7F3 /* RLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA9B219851540054D7F3 /* RLoanViewController.swift */; };
 		1652D093219B1C5100A501D4 /* UILabel+RPK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652D092219B1C5100A501D4 /* UILabel+RPK.swift */; };
+		1680BD1C219C611900464434 /* RAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1680BD1B219C611900464434 /* RAuthViewController.swift */; };
+		1680BD1E219C65F400464434 /* RAuthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1680BD1D219C65F400464434 /* RAuthTableViewCell.swift */; };
 		1694691C2191F57A00AA6503 /* RSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1694691B2191F57A00AA6503 /* RSettingViewController.swift */; };
+		16B7054721B3D26D00273CF3 /* RRegisterRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7054621B3D26D00273CF3 /* RRegisterRemoteDataSource.swift */; };
+		16B7054921B3D44D00273CF3 /* RRegisterRepositoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7054821B3D44D00273CF3 /* RRegisterRepositoryDataSource.swift */; };
+		16B7054B21B3D63100273CF3 /* RUserRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7054A21B3D63100273CF3 /* RUserRegisterViewModel.swift */; };
+		16B7054D21B3DEF200273CF3 /* RNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7054C21B3DEF200273CF3 /* RNotificationName.swift */; };
+		16B7054F21B3DFCD00273CF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7054E21B3DFCD00273CF3 /* ViewController.swift */; };
+		16B7055121B4244500273CF3 /* BAProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7055021B4244500273CF3 /* BAProgressHUD.swift */; };
+		16B7055321B424E700273CF3 /* RCommonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7055221B424E700273CF3 /* RCommonRequest.swift */; };
 		5C4E5C399ABFA73CD571A913 /* Pods_RFastLoanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1656ED2694F6EA835F72F599 /* Pods_RFastLoanTests.framework */; };
 		6536E155CD516BF33F9DBB55 /* Pods_RFastLoanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819ADEBE2BF4FD877264FE84 /* Pods_RFastLoanUITests.framework */; };
 		C96212B04DB46244C226F5DF /* Pods_RFastLoan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F47CBC36829F114A632CAC2 /* Pods_RFastLoan.framework */; };
@@ -74,11 +100,20 @@
 
 /* Begin PBXFileReference section */
 		10DD111FC1682C58ABCD0075 /* Pods-RFastLoan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoan/Pods-RFastLoan.debug.xcconfig"; sourceTree = "<group>"; };
+		160B59D521A2F6C40084E4E0 /* RAllBillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAllBillsViewController.swift; sourceTree = "<group>"; };
+		160B59D721A2F7170084E4E0 /* RRepaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRepaymentViewController.swift; sourceTree = "<group>"; };
+		160B59D921A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRepaymentCompletedViewController.swift; sourceTree = "<group>"; };
+		160B59DB21A2FA640084E4E0 /* RBillsCommonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBillsCommonTableViewCell.swift; sourceTree = "<group>"; };
+		160B59DD21A300940084E4E0 /* RLoanApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanApplicationViewController.swift; sourceTree = "<group>"; };
+		160B59DF21A303A00084E4E0 /* RAllLoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAllLoanViewController.swift; sourceTree = "<group>"; };
+		160B59E121A3066A0084E4E0 /* RApplicationPassedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RApplicationPassedViewController.swift; sourceTree = "<group>"; };
+		160B59E321A306F10084E4E0 /* RApplicationFailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RApplicationFailedViewController.swift; sourceTree = "<group>"; };
+		163567DA219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUploadIDCardTableViewCell.swift; sourceTree = "<group>"; };
+		163567DC219DCF4B00E8DD81 /* RBillingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBillingDetailsViewController.swift; sourceTree = "<group>"; };
 		16393757218F1C1900D2794D /* RMineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMineHeaderView.swift; sourceTree = "<group>"; };
 		16393759218F26AC00D2794D /* RButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RButton.swift; sourceTree = "<group>"; };
 		163CAA4D2188A27F00A6F834 /* RFastLoan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RFastLoan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		163CAA502188A27F00A6F834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		163CAA522188A27F00A6F834 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		163CAA552188A27F00A6F834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		163CAA572188A28000A6F834 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		163CAA5A2188A28000A6F834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,6 +135,14 @@
 		163CAAB72188AC0500A6F834 /* RLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLoginViewController.swift; sourceTree = "<group>"; };
 		163CAACD2188B1F100A6F834 /* RTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTabBar.swift; sourceTree = "<group>"; };
 		163CAACF2188B2F700A6F834 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		163D58CE21B39AB100377013 /* RUserLoginDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUserLoginDataSource.swift; sourceTree = "<group>"; };
+		163D58D021B39AB100377013 /* RUserLoginLocalDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUserLoginLocalDataSource.swift; sourceTree = "<group>"; };
+		163D58D321B39AB100377013 /* RUserLoginRemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUserLoginRemoteDataSource.swift; sourceTree = "<group>"; };
+		163D58D921B39AE600377013 /* RUserLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUserLoginRepository.swift; sourceTree = "<group>"; };
+		163D58DB21B39B7500377013 /* RUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUserInfo.swift; sourceTree = "<group>"; };
+		163D58DD21B3AA9F00377013 /* RRequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRequestResult.swift; sourceTree = "<group>"; };
+		163D58E321B3CA7000377013 /* RRegisterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRegisterDataSource.swift; sourceTree = "<group>"; };
+		163D58E521B3D00700377013 /* RRegisterLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRegisterLocalDataSource.swift; sourceTree = "<group>"; };
 		163EF8E52189F06B0070B814 /* MainTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarItem.swift; sourceTree = "<group>"; };
 		163EF8E72189FD390070B814 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 		163EF8E9218A06A90070B814 /* PrefixHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefixHeader.swift; sourceTree = "<group>"; };
@@ -123,7 +166,16 @@
 		1651BA9B219851540054D7F3 /* RLoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanViewController.swift; sourceTree = "<group>"; };
 		1652D092219B1C5100A501D4 /* UILabel+RPK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+RPK.swift"; sourceTree = "<group>"; };
 		1656ED2694F6EA835F72F599 /* Pods_RFastLoanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RFastLoanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1680BD1B219C611900464434 /* RAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAuthViewController.swift; sourceTree = "<group>"; };
+		1680BD1D219C65F400464434 /* RAuthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAuthTableViewCell.swift; sourceTree = "<group>"; };
 		1694691B2191F57A00AA6503 /* RSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSettingViewController.swift; sourceTree = "<group>"; };
+		16B7054621B3D26D00273CF3 /* RRegisterRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRegisterRemoteDataSource.swift; sourceTree = "<group>"; };
+		16B7054821B3D44D00273CF3 /* RRegisterRepositoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRegisterRepositoryDataSource.swift; sourceTree = "<group>"; };
+		16B7054A21B3D63100273CF3 /* RUserRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUserRegisterViewModel.swift; sourceTree = "<group>"; };
+		16B7054C21B3DEF200273CF3 /* RNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNotificationName.swift; sourceTree = "<group>"; };
+		16B7054E21B3DFCD00273CF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		16B7055021B4244500273CF3 /* BAProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAProgressHUD.swift; sourceTree = "<group>"; };
+		16B7055221B424E700273CF3 /* RCommonRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCommonRequest.swift; sourceTree = "<group>"; };
 		24C5E82D31C19BFD5B4A43E6 /* Pods-RFastLoanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoanUITests/Pods-RFastLoanUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3EE0D1D477C09B915350A308 /* Pods-RFastLoan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoan.release.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoan/Pods-RFastLoan.release.xcconfig"; sourceTree = "<group>"; };
 		44DEF383712466C12032942E /* Pods-RFastLoanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoanUITests/Pods-RFastLoanUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -217,8 +269,9 @@
 			children = (
 				163CAACF2188B2F700A6F834 /* R.generated.swift */,
 				163CAA502188A27F00A6F834 /* AppDelegate.swift */,
-				163CAA522188A27F00A6F834 /* ViewController.swift */,
 				163EF8E9218A06A90070B814 /* PrefixHeader.swift */,
+				16B7054E21B3DFCD00273CF3 /* ViewController.swift */,
+				16B7054C21B3DEF200273CF3 /* RNotificationName.swift */,
 				163CAA542188A27F00A6F834 /* Main.storyboard */,
 				163CAA572188A28000A6F834 /* Assets.xcassets */,
 				163CAA592188A28000A6F834 /* LaunchScreen.storyboard */,
@@ -268,6 +321,7 @@
 		163CAA862188AC0500A6F834 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				16B7055021B4244500273CF3 /* BAProgressHUD.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -387,6 +441,9 @@
 			children = (
 				16393757218F1C1900D2794D /* RMineHeaderView.swift */,
 				1651BA99219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift */,
+				1680BD1D219C65F400464434 /* RAuthTableViewCell.swift */,
+				163567DA219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift */,
+				160B59DB21A2FA640084E4E0 /* RBillsCommonTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -398,6 +455,15 @@
 				1694691B2191F57A00AA6503 /* RSettingViewController.swift */,
 				1651BA95219801410054D7F3 /* RCommonProblemViewController.swift */,
 				1651BA97219805940054D7F3 /* RAnnouncementNoticeViewController.swift */,
+				1680BD1B219C611900464434 /* RAuthViewController.swift */,
+				163567DC219DCF4B00E8DD81 /* RBillingDetailsViewController.swift */,
+				160B59D521A2F6C40084E4E0 /* RAllBillsViewController.swift */,
+				160B59D721A2F7170084E4E0 /* RRepaymentViewController.swift */,
+				160B59D921A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift */,
+				160B59DD21A300940084E4E0 /* RLoanApplicationViewController.swift */,
+				160B59DF21A303A00084E4E0 /* RAllLoanViewController.swift */,
+				160B59E121A3066A0084E4E0 /* RApplicationPassedViewController.swift */,
+				160B59E321A306F10084E4E0 /* RApplicationFailedViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -405,6 +471,7 @@
 		163CAAB02188AC0500A6F834 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				163D58CA21B39AB100377013 /* DataSource */,
 				163CAAB12188AC0500A6F834 /* ViewModel */,
 				163CAAB22188AC0500A6F834 /* Model */,
 				163CAAB32188AC0500A6F834 /* View */,
@@ -415,6 +482,7 @@
 		163CAAB12188AC0500A6F834 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				16B7054A21B3D63100273CF3 /* RUserRegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -422,6 +490,7 @@
 		163CAAB22188AC0500A6F834 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				163D58DB21B39B7500377013 /* RUserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -515,6 +584,7 @@
 				163CAA8A2188AC0500A6F834 /* RBaseViewController.swift */,
 				163CAA8B2188AC0500A6F834 /* RTableViewViewController.swift */,
 				163CAA8C2188AC0500A6F834 /* RMainTabBarViewController.swift */,
+				163D58DD21B3AA9F00377013 /* RRequestResult.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -528,6 +598,54 @@
 				163EF8E72189FD390070B814 /* MainTabBarView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		163D58CA21B39AB100377013 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				163D58CB21B39AB100377013 /* Repository */,
+				163D58CD21B39AB100377013 /* Protocol */,
+				163D58CF21B39AB100377013 /* Local */,
+				163D58D121B39AB100377013 /* Remote */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		163D58CB21B39AB100377013 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				16B7055221B424E700273CF3 /* RCommonRequest.swift */,
+				163D58D921B39AE600377013 /* RUserLoginRepository.swift */,
+				16B7054821B3D44D00273CF3 /* RRegisterRepositoryDataSource.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		163D58CD21B39AB100377013 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				163D58CE21B39AB100377013 /* RUserLoginDataSource.swift */,
+				163D58E321B3CA7000377013 /* RRegisterDataSource.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		163D58CF21B39AB100377013 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				163D58D021B39AB100377013 /* RUserLoginLocalDataSource.swift */,
+				163D58E521B3D00700377013 /* RRegisterLocalDataSource.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		163D58D121B39AB100377013 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				163D58D321B39AB100377013 /* RUserLoginRemoteDataSource.swift */,
+				16B7054621B3D26D00273CF3 /* RRegisterRemoteDataSource.swift */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		805B1084E809215246281078 /* Pods */ = {
@@ -814,44 +932,70 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16B7055321B424E700273CF3 /* RCommonRequest.swift in Sources */,
+				163D58E421B3CA7000377013 /* RRegisterDataSource.swift in Sources */,
 				1652D093219B1C5100A501D4 /* UILabel+RPK.swift in Sources */,
 				163EF900218A073A0070B814 /* MoyaProvider+Extension.swift in Sources */,
 				163CAAC02188AC0600A6F834 /* RMineViewController.swift in Sources */,
 				163CAAD02188B2F700A6F834 /* R.generated.swift in Sources */,
 				163CAABD2188AC0600A6F834 /* RTableViewViewController.swift in Sources */,
+				16B7054D21B3DEF200273CF3 /* RNotificationName.swift in Sources */,
 				163CAAC32188AC0600A6F834 /* RRegisterViewController.swift in Sources */,
 				164485DD218B59620005124F /* RHomeHeaderView.swift in Sources */,
+				16B7054921B3D44D00273CF3 /* RRegisterRepositoryDataSource.swift in Sources */,
 				1651BA922197FFD00054D7F3 /* RTextField.swift in Sources */,
-				163CAA532188A27F00A6F834 /* ViewController.swift in Sources */,
 				164485DB218B57C50005124F /* RHomeViewController.swift in Sources */,
+				160B59DC21A2FA640084E4E0 /* RBillsCommonTableViewCell.swift in Sources */,
+				163D58D521B39AB100377013 /* RUserLoginDataSource.swift in Sources */,
 				163EF8FC218A073A0070B814 /* UIButton+Extension.swift in Sources */,
 				163CAAB92188AC0600A6F834 /* UIDevice+Extension.swift in Sources */,
 				163CAA512188A27F00A6F834 /* AppDelegate.swift in Sources */,
 				163CAACE2188B1F100A6F834 /* RTabBar.swift in Sources */,
 				163EF8FA218A073A0070B814 /* Observable+ObjectMapper.swift in Sources */,
+				163D58DE21B3AA9F00377013 /* RRequestResult.swift in Sources */,
 				163EF8F6218A073A0070B814 /* UILabel+Extension.swift in Sources */,
+				163567DD219DCF4B00E8DD81 /* RBillingDetailsViewController.swift in Sources */,
+				163D58DA21B39AE600377013 /* RUserLoginRepository.swift in Sources */,
 				163EF8EA218A06A90070B814 /* PrefixHeader.swift in Sources */,
+				160B59E221A3066A0084E4E0 /* RApplicationPassedViewController.swift in Sources */,
+				163D58DC21B39B7500377013 /* RUserInfo.swift in Sources */,
+				16B7054721B3D26D00273CF3 /* RRegisterRemoteDataSource.swift in Sources */,
+				160B59DA21A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift in Sources */,
 				163EF8FB218A073A0070B814 /* ConstraintRelatableTarget+Extension.swift in Sources */,
 				1651BA94219800DA0054D7F3 /* RChangePasswordViewController.swift in Sources */,
+				160B59DE21A300940084E4E0 /* RLoanApplicationViewController.swift in Sources */,
 				163EF8E62189F06B0070B814 /* MainTabBarItem.swift in Sources */,
 				1694691C2191F57A00AA6503 /* RSettingViewController.swift in Sources */,
 				1651BA9C219851540054D7F3 /* RLoanViewController.swift in Sources */,
+				16B7054B21B3D63100273CF3 /* RUserRegisterViewModel.swift in Sources */,
 				1651BA96219801410054D7F3 /* RCommonProblemViewController.swift in Sources */,
+				163567DB219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift in Sources */,
+				163D58D821B39AB100377013 /* RUserLoginRemoteDataSource.swift in Sources */,
 				164485DF218B5CC10005124F /* RHomeTableViewCell.swift in Sources */,
 				163EF8FE218A073A0070B814 /* String+Extension.swift in Sources */,
+				16B7054F21B3DFCD00273CF3 /* ViewController.swift in Sources */,
+				160B59D821A2F7170084E4E0 /* RRepaymentViewController.swift in Sources */,
 				1651BA9A219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift in Sources */,
+				1680BD1C219C611900464434 /* RAuthViewController.swift in Sources */,
+				163D58D621B39AB100377013 /* RUserLoginLocalDataSource.swift in Sources */,
 				1651BA98219805940054D7F3 /* RAnnouncementNoticeViewController.swift in Sources */,
+				163D58E621B3D00700377013 /* RRegisterLocalDataSource.swift in Sources */,
 				163CAABB2188AC0600A6F834 /* RBaseNavViewController.swift in Sources */,
 				163CAABA2188AC0600A6F834 /* UIColor+Extension.swift in Sources */,
 				163EF8E82189FD390070B814 /* MainTabBarView.swift in Sources */,
 				16393758218F1C1900D2794D /* RMineHeaderView.swift in Sources */,
 				163CAABC2188AC0600A6F834 /* RBaseViewController.swift in Sources */,
 				1639375A218F26AC00D2794D /* RButton.swift in Sources */,
+				1680BD1E219C65F400464434 /* RAuthTableViewCell.swift in Sources */,
+				16B7055121B4244500273CF3 /* BAProgressHUD.swift in Sources */,
 				163CAABE2188AC0600A6F834 /* RMainTabBarViewController.swift in Sources */,
+				160B59E421A306F10084E4E0 /* RApplicationFailedViewController.swift in Sources */,
 				163EF8FF218A073A0070B814 /* UIImage+Extension.swift in Sources */,
+				160B59E021A303A00084E4E0 /* RAllLoanViewController.swift in Sources */,
 				163EF8F9218A073A0070B814 /* UIViewController+Extension.swift in Sources */,
 				163EF8F8218A073A0070B814 /* UIFont+Extension.swift in Sources */,
 				163CAAC42188AC0600A6F834 /* RLoginViewController.swift in Sources */,
+				160B59D621A2F6C40084E4E0 /* RAllBillsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,8 +9,11 @@
 import UIKit
 
 class RMineHeaderView: UIView {
+    //返回值是String
+    typealias ClickButtonAction = (RButton) -> Void
     
     let balanceLabel = UILabel()
+    var clickButtonAction : ClickButtonAction!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,6 +79,7 @@ class RMineHeaderView: UIView {
             button.setTitle(titles[i])
             button.setImage(images[i])
             middleView.addSubview(button)
+            button.addTarget(self, action: #selector(buttonAction(_:)), for: UIControl.Event.touchUpInside)
             button.snp.makeConstraints { (make) in
                 make.top.equalTo(0)
                 make.bottom.equalTo(0)
@@ -83,6 +87,7 @@ class RMineHeaderView: UIView {
                 make.width.equalTo(kScreenWidth/3.0)
                 make.left.equalTo(CGFloat(i) * kScreenWidth/3.0)
             }
+                
         }
         
         let emptyView = UIView()
@@ -95,6 +100,11 @@ class RMineHeaderView: UIView {
         
     }
     
+    @objc func buttonAction(_ sender:RButton) {
+        if (self.clickButtonAction != nil) {
+            self.clickButtonAction(sender)
+        }
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

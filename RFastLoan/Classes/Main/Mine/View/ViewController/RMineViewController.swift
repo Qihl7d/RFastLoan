@@ -20,10 +20,6 @@ class RMineViewController: RBaseViewController, UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let login = RRegisterViewController()//RLoginViewController()
-        self.navigationController?.pushViewController(login, animated: true)
-    }
     /*
     // MARK: - Navigation
 
@@ -51,6 +47,22 @@ extension RMineViewController {
 //        self.automaticallyAdjustsScrollViewInsets = false
         
         let headerView = RMineHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 200 + 100 + 10 + kStatusBarHeight))
+        
+    
+        headerView.clickButtonAction = { [weak self] (button) in
+            if button.titleLabel.text == "实名认证" {
+                let viewController = RAuthViewController()
+                self?.navigationController?.pushViewController(viewController, animated: true)
+            }
+            else if (button.titleLabel.text == "账单明细") {
+                let billingDetails = RBillingDetailsViewController()
+                self?.navigationController?.pushViewController(billingDetails, animated: true)
+            }
+            else {
+                let loanApplication = RLoanApplicationViewController()
+                self?.navigationController?.pushViewController(loanApplication, animated: true)
+            }
+        }
 
         tableView.tableHeaderView = headerView
         tableView.rowHeight       = 50
@@ -100,6 +112,8 @@ extension RMineViewController {
             self.navigationController?.pushViewController(announcementNotice, animated: true)
             break;
         case 1:
+            let login = RRegisterViewController()//RLoginViewController()
+            self.navigationController?.pushViewController(login, animated: true)
             break
         case 2:
             let commonProblem = RCommonProblemViewController()
