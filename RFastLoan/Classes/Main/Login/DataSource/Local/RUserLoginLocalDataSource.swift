@@ -37,7 +37,7 @@ class RUserLoginLocalDataSource: RUserLoginDataSource {
                 let result = realm.objects(RUserInfo.self).first
                 try! realm.write {
                     if result != nil {
-
+                        
                         observable.onNext(result!)
                     }
                     else {
@@ -55,4 +55,19 @@ class RUserLoginLocalDataSource: RUserLoginDataSource {
         })
     }
     
+    func userRegister(userPhone: String, authCode: String, password: String) -> Observable<RRequestResult> {
+        return Observable.empty()
+    }
+    
+    func logout() -> Observable<RRequestResult> {
+        return Observable.empty()
+    }
+    
+    func changePassword(oldPsw: String, newPsw: String) -> Observable<RMemberInfo> {
+        return Observable.empty()
+    }
+    
+    func resetPassword(oldPsw: String, newPsw: String, phoneCode: String) -> Observable<RMemberInfo> {
+        return Observable.empty()
+    }
 }

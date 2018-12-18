@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class RBillsCommonTableViewCell: UITableViewCell {
 
@@ -50,7 +51,7 @@ class RBillsCommonTableViewCell: UITableViewCell {
             make.left.equalTo(titleLabel)
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.bottom.equalTo(-13)
-            //            make.right.equalTo(self.snp.centerX).offset(-10)
+            make.right.equalTo(self.snp.centerX).offset(-10)
         }
         
         nameLabel.textColor = hexColor333
@@ -62,12 +63,68 @@ class RBillsCommonTableViewCell: UITableViewCell {
             make.width.equalTo(100)
             make.height.equalTo(20)
         }
+    }
+    
+    public func setDataModel(_ model:RBillingItem) {
+        titleLabel.text = model.loanPurpose
+        // 申请记录的状态值：0-待审核；1-审批通过；2-审批未过;3-打款完成
+        var str = ""
+        var color = UIColor()
+        if model.status == "0" {
+            str = "待审核"
+            color = UIColor.init(red: 216.0/255.0, green: 101.0/255.0, blue: 21.0/255.0, alpha: 1)
+        }
+        else if model.status == "1" {
+            str = "审核通过"
+            color = UIColor.init(red: 24.0/255.0, green: 191.0/255.0, blue: 110.0/255.0, alpha: 1)
+        }
+        else if model.status == "2" {
+            str = "审核未过"
+            color = UIColor.init(red: 236.0/255.0, green: 0.0, blue: 27.0/255.0, alpha: 1)
+        }
+        else {
+            str = "打款完成"
+            color = UIColor.init(red: 117.0/255.0, green: 117.0/255.0, blue: 117.0/255.0, alpha: 1)
+        }
+        priceLabel.text = str
+        priceLabel.textColor = color
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-DD HH:mm:ss"
+        let currentTime = dateFormatter.string(from: Date())
+        let time = SystemPublic.publicManage()?.timeInterval(fromLastTime: model.updateDate, lastTimeFormat: "yyyy-MM-DD HH:mm:ss", toCurrentTime: currentTime, currentTimeFormat: "yyyy-MM-DD HH:mm:ss")
         
+        timeLabel.text  = time
+        nameLabel.text  = model.cost! + "元"
+        priceLabel.snp.updateConstraints { (make) in
+            make.width.equalTo(priceLabel.rpk_textWith(height: 20))
+        }
+    }
+    
+    func setModel(_ model:RLoanItem) {
+        titleLabel.text = model.loanPurpose
+        var str = ""
+        var color = UIColor()
+        if model.status == "0" {
+            str = "待审核"
+            color = UIColor.init(red: 216.0/255.0, green: 101.0/255.0, blue: 21.0/255.0, alpha: 1)
+        }
+        else if model.status == "1" {
+            str = "审核通过"
+            color = UIColor.init(red: 24.0/255.0, green: 191.0/255.0, blue: 110.0/255.0, alpha: 1)
+        }
+        else if model.status == "2" {
+            str = "审核未过"
+            color = UIColor.init(red: 236.0/255.0, green: 0.0, blue: 27.0/255.0, alpha: 1)
+        }
+        else {
+            str = "打款完成"
+            color = UIColor.init(red: 117.0/255.0, green: 117.0/255.0, blue: 117.0/255.0, alpha: 1)
+        }
+        priceLabel.text = str
+        priceLabel.textColor = color
+        timeLabel.text  = model.updateDate
+        nameLabel.text  = model.cost! + "元"
         
-        titleLabel.text = "房屋装修"
-        priceLabel.text = "20000元"
-        timeLabel.text  = "刚刚"
-        nameLabel.text  = "海***月"
         priceLabel.snp.updateConstraints { (make) in
             make.width.equalTo(priceLabel.rpk_textWith(height: 20))
         }

@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import MJRefresh
 
 class RAnnouncementNoticeViewController: RTableViewViewController {
 
     let identifier = "RAnnouncementNoticeTableViewCell"
+    var dataSource : Array<RAnnouncement>!
+    let pageSize = 20
+    var pageIndex = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initView()
+        initData()
         // Do any additional setup after loading the view.
     }
     
@@ -35,6 +41,7 @@ extension RAnnouncementNoticeViewController {
     func initView() {
         
         self.title = "通知公告"
+        self.dataSource = Array()
         tableView.backgroundColor = RbackgroundColor
         tableView.delegate   = self
         tableView.dataSource = self
@@ -49,18 +56,32 @@ extension RAnnouncementNoticeViewController {
     }
 }
 
+extension RAnnouncementNoticeViewController {
+    func initData() {
+        
+        let viewModel = RMineViewModel()
+        viewModel.getAnnouncement(code: "notice", readeStatus: 0)
+            .subscribe(onNext:{ list in
+                self.dataSource = list.toArray()
+                self.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+}
+
 extension RAnnouncementNoticeViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return self.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-        if cell == nil {
-            cell = RAnnouncementNoticeTableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: identifier)
-        }
-        
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! RAnnouncementNoticeTableViewCell
+//        if cell == nil {
+//            cell = RAnnouncementNoticeTableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: identifier)
+//        }
+        cell.settingData(self.dataSource[indexPath.row])
+        return cell
     }
     
     

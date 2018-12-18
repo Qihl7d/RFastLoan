@@ -28,8 +28,8 @@ class RChangePasswordViewController: RBaseViewController {
 
         initView()
         authenticationView()
-        smsVerification()
-        successfulView()
+//        smsVerification()
+//        successfulView()
         // Do any additional setup after loading the view.
     }
     
@@ -51,59 +51,59 @@ extension RChangePasswordViewController {
     private func initView() {
         
         self.title = "修改登录密码"
-        middleLabel.text = "短信验证"
-        middleLabel.textColor = hexColor999
-        middleLabel.textAlignment = .center
-        middleLabel.font = systemFont(16)
-        view.addSubview(middleLabel)
-        middleLabel.snp.makeConstraints { (make) in
-            make.centerX.equalTo(view)
-            make.top.equalTo(18)
-            make.width.equalTo(middleLabel.rpk_textWith() + 10)
-            make.height.equalTo(20)
-        }
-        
-        leftArrow.image = R.image.通用右箭头()
-        leftArrow.sizeToFit()
-        view.addSubview(leftArrow)
-        leftArrow.snp.makeConstraints { (make) in
-            make.right.equalTo(middleLabel.snp.left).offset(-5)
-            make.centerY.equalTo(middleLabel)
-            make.size.equalTo(leftArrow.mj_size)
-        }
-        
-        rightArrow.image = R.image.通用右箭头()
-        rightArrow.sizeToFit()
-        view.addSubview(rightArrow)
-        rightArrow.snp.makeConstraints { (make) in
-            make.left.equalTo(middleLabel.snp.right).offset(5)
-            make.centerY.equalTo(middleLabel)
-            make.size.equalTo(rightArrow.mj_size)
-        }
-        
-        leftLabel.textColor = themeColor
-        leftLabel.text = "身份证验证"
-        leftLabel.textAlignment = .center
-        leftLabel.font = systemFont(16)
-        view.addSubview(leftLabel)
-        leftLabel.snp.makeConstraints { (make) in
-            make.right.equalTo(leftArrow.snp.left).offset(-5)
-            make.centerY.equalTo(leftArrow)
-            make.width.equalTo(leftLabel.rpk_textWith() + 10)
-            make.height.equalTo(20)
-        }
-        
-        rightLabel.textColor = hexColor999
-        rightLabel.text = "修改成功"
-        rightLabel.textAlignment = .center
-        rightLabel.font = systemFont(16)
-        view.addSubview(rightLabel)
-        rightLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(rightArrow.snp.right).offset(5)
-            make.centerY.equalTo(rightArrow)
-            make.width.equalTo(rightLabel.rpk_textWith() + 10)
-            make.height.equalTo(20)
-        }
+//        middleLabel.text = "短信验证"
+//        middleLabel.textColor = hexColor999
+//        middleLabel.textAlignment = .center
+//        middleLabel.font = systemFont(16)
+//        view.addSubview(middleLabel)
+//        middleLabel.snp.makeConstraints { (make) in
+//            make.centerX.equalTo(view)
+//            make.top.equalTo(18)
+//            make.width.equalTo(middleLabel.rpk_textWith() + 10)
+//            make.height.equalTo(20)
+//        }
+//
+//        leftArrow.image = R.image.通用右箭头()
+//        leftArrow.sizeToFit()
+//        view.addSubview(leftArrow)
+//        leftArrow.snp.makeConstraints { (make) in
+//            make.right.equalTo(middleLabel.snp.left).offset(-5)
+//            make.centerY.equalTo(middleLabel)
+//            make.size.equalTo(leftArrow.mj_size)
+//        }
+//
+//        rightArrow.image = R.image.通用右箭头()
+//        rightArrow.sizeToFit()
+//        view.addSubview(rightArrow)
+//        rightArrow.snp.makeConstraints { (make) in
+//            make.left.equalTo(middleLabel.snp.right).offset(5)
+//            make.centerY.equalTo(middleLabel)
+//            make.size.equalTo(rightArrow.mj_size)
+//        }
+//
+//        leftLabel.textColor = themeColor
+//        leftLabel.text = "身份证验证"
+//        leftLabel.textAlignment = .center
+//        leftLabel.font = systemFont(16)
+//        view.addSubview(leftLabel)
+//        leftLabel.snp.makeConstraints { (make) in
+//            make.right.equalTo(leftArrow.snp.left).offset(-5)
+//            make.centerY.equalTo(leftArrow)
+//            make.width.equalTo(leftLabel.rpk_textWith() + 10)
+//            make.height.equalTo(20)
+//        }
+//
+//        rightLabel.textColor = hexColor999
+//        rightLabel.text = "修改成功"
+//        rightLabel.textAlignment = .center
+//        rightLabel.font = systemFont(16)
+//        view.addSubview(rightLabel)
+//        rightLabel.snp.makeConstraints { (make) in
+//            make.left.equalTo(rightArrow.snp.right).offset(5)
+//            make.centerY.equalTo(rightArrow)
+//            make.width.equalTo(rightLabel.rpk_textWith() + 10)
+//            make.height.equalTo(20)
+//        }
         
         scrollView.backgroundColor = UIColor.white
         view.addSubview(scrollView)
@@ -130,14 +130,28 @@ extension RChangePasswordViewController {
             make.width.equalTo(kScreenWidth)
         }
         
+        let leftView1    = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 50, height: 48))
+        let imageView1   = UIImageView()
+        imageView1.image = R.image.登录密码()
+        imageView1.sizeToFit()
+        leftView1.addSubview(imageView1)
+        imageView1.snp.makeConstraints { (make) in
+            make.centerX.equalTo(leftView1)
+            make.centerY.equalTo(leftView1)
+            make.size.equalTo(imageView1.mj_size)
+        }
+        
         let IDCardTextField = RTextField()
         IDCardTextField.textColor = hexColor666
         IDCardTextField.font = systemFont(16)
+        IDCardTextField.leftView = leftView1;
+        IDCardTextField.leftViewMode = .always
         IDCardTextField.layer.cornerRadius = 2
         IDCardTextField.layer.masksToBounds = true
         IDCardTextField.layer.borderColor = UIColor.hexInt(0xCCCCCC).cgColor
         IDCardTextField.layer.borderWidth = 1
-        IDCardTextField.placeholder = "请输入身份证号码"
+        IDCardTextField.isSecureTextEntry = true
+        IDCardTextField.placeholder = "请输入旧密码"//"请输入身份证号码"
         authView.addSubview(IDCardTextField)
         IDCardTextField.snp.makeConstraints { (make) in
             make.left.equalTo(25)
@@ -146,14 +160,28 @@ extension RChangePasswordViewController {
             make.top.equalTo(18)
         }
         
+        let leftView2    = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 50, height: 48))
+        let imageView2   = UIImageView()
+        imageView2.image = R.image.登录密码()
+        imageView2.sizeToFit()
+        leftView2.addSubview(imageView2)
+        imageView2.snp.makeConstraints { (make) in
+            make.centerX.equalTo(leftView2)
+            make.centerY.equalTo(leftView2)
+            make.size.equalTo(imageView2.mj_size)
+        }
+        
         let phoneNumber = RTextField()
         phoneNumber.textColor = hexColor666
         phoneNumber.font = systemFont(16)
+        phoneNumber.leftView = leftView2
+        phoneNumber.leftViewMode = .always
         phoneNumber.layer.cornerRadius = 2
         phoneNumber.layer.masksToBounds = true
         phoneNumber.layer.borderColor = UIColor.hexInt(0xCCCCCC).cgColor
         phoneNumber.layer.borderWidth = 1
-        phoneNumber.placeholder = "请输入身份证号码"
+        phoneNumber.placeholder = "请输入新密码"//"请输电话号码"
+        phoneNumber.isSecureTextEntry = true
         authView.addSubview(phoneNumber)
         phoneNumber.snp.makeConstraints { (make) in
             make.left.equalTo(25)
@@ -163,7 +191,7 @@ extension RChangePasswordViewController {
         }
         
         let nextButton = UIButton()
-        nextButton.setTitle("下一步", for: UIControl.State.normal)
+        nextButton.setTitle("确定", for: UIControl.State.normal)
         nextButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         nextButton.backgroundColor = themeColor
         nextButton.layer.cornerRadius = 2
@@ -177,10 +205,22 @@ extension RChangePasswordViewController {
         nextButton.rx.tap
             .subscribe(onNext: { [weak self] (_) in
 //                if IDCardTextField.text?.count ?? 0 > 0 && phoneNumber.text?.count ?? 0 > 0 {
-                    self?.middleLabel.textColor = themeColor
-                    self?.leftArrow.image = R.image.blueRightArrow()
-                    self?.scrollView.contentOffset = CGPoint.init(x: kScreenWidth, y: 0)
+//                    self?.middleLabel.textColor = themeColor
+//                    self?.leftArrow.image = R.image.blueRightArrow()
+//                    self?.scrollView.contentOffset = CGPoint.init(x: kScreenWidth, y: 0)
 //                }
+                if IDCardTextField.text?.count == 0 {
+                    BAProgressHUD.ba_showWithStatus("请输入旧密码")
+                }
+                if phoneNumber.text?.count == 0 {
+                    BAProgressHUD.ba_showWithStatus("请输入新密码")
+                }
+                let viewModel = RLoginViewModel()
+                viewModel.changePassword(oldPsw: IDCardTextField.text!, newPsw: phoneNumber.text!)
+                    .subscribe(onNext: { (httpResult) in
+                        self?.navigationController?.pushViewController(RLoginViewController(), animated: true)
+                    })
+                    .disposed(by: self!.disposeBag)
             })
             .disposed(by: disposeBag)
         

@@ -11,12 +11,15 @@ import UIKit
 class RMineViewController: RBaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     let tableView = UITableView.init(frame: .zero, style: UITableView.Style.plain)
-    let images : [UIImage] = [R.image.个人中心通知公告()!, R.image.个人中心个人信息()!, R.image.个人中心常见问题()!, R.image.个人中心设置()!]
-    let titles = ["通知公告", "个人信息", "常见问题", "设置"]
+    let images : [UIImage] = [R.image.个人中心通知公告()!, R.image.个人中心个人信息()!, R.image.个人中心常见问题()!, R.image.个人中心设置()!, R.image.个人中心检查更新()!, R.image.个人中心联系我们()!]
+    let titles = ["通知公告", "个人信息", "常见问题", "设置", "检查更新", "关于我们"]
+    let headerView = RMineHeaderView()
+    var userInfo : RMemberInfo!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initView()
+        initData()
         // Do any additional setup after loading the view.
     }
     
@@ -33,6 +36,13 @@ class RMineViewController: RBaseViewController, UITableViewDelegate, UITableView
 }
 
 extension RMineViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.kNavigationColor = UIColor.clear
+        self.kTitleFontColor  = hexColor333
+    }
     private func initView() {
         
         self.title = "个人中心"
@@ -46,7 +56,7 @@ extension RMineViewController {
 //        self.modalPresentationCapturesStatusBarAppearance = false
 //        self.automaticallyAdjustsScrollViewInsets = false
         
-        let headerView = RMineHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 200 + 100 + 10 + kStatusBarHeight))
+        headerView.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 200 + 100 + 10 + kStatusBarHeight)
         
     
         headerView.clickButtonAction = { [weak self] (button) in
@@ -77,11 +87,34 @@ extension RMineViewController {
     }
 }
 
+extension RMineViewController {
+    func initData() {
+        let viewModel = RMineViewModel()
+        viewModel.getUserInfo()
+            .subscribe(onNext:{ (info) in
+                self.userInfo = info
+                if ((info.credit?.count) != nil) {
+                    self.headerView.balanceLabel.text = info.credit
+                }
+                else {
+                    self.headerView.balanceLabel.text = "0"
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
 
 extension RMineViewController {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if scrollView.contentOffset.y < 0 {
+//            scrollView.contentOffset = CGPoint.init(x: 0, y: 0)
+//        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return titles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,7 +145,9 @@ extension RMineViewController {
             self.navigationController?.pushViewController(announcementNotice, animated: true)
             break;
         case 1:
-            let login = RRegisterViewController()//RLoginViewController()
+            let login = RAuthViewController()//RRegisterViewController()//RLoginViewController()
+            login.checkInfo = true
+            login.oldUserInfo = userInfo
             self.navigationController?.pushViewController(login, animated: true)
             break
         case 2:
@@ -123,11 +158,15 @@ extension RMineViewController {
             let setting = RSettingViewController()
             self.navigationController?.pushViewController(setting, animated: true)
             break
+        case 4:
+            let about = RAboutUsViewController()
+            self.navigationController?.pushViewController(about, animated: true)
         default:
             break
         }
     }
 }
+
 
 
 

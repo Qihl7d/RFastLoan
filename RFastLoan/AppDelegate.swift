@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,11 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         NotificationCenter.default.addObserver(self, selector: #selector(setMainController), name: alreadyLogin, object: nil)
+        
+//        自定义数据库
+//        let modesConfig = Realm.Configuration.init(fileURL: modelsRealm, inMemoryIdentifier: nil, syncConfiguration: nil, encryptionKey: nil, readOnly: false, schemaVersion: 0, migrationBlock: nil, deleteRealmIfMigrationNeeded: false, shouldCompactOnLaunch: nil, objectTypes: nil)
+//        _ = try! Realm.init(configuration: accountConfig)
+//        _ = try! Realm.init(configuration: modesConfig)
+//        let path = RLMRealmConfiguration.default()
+//        print("数据库路径 \(path)")
+        
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
-//        window?.rootViewController = RMainTabBarViewController()
-        window?.rootViewController = RBaseNavViewController.init(rootViewController: RLoginViewController())
+        if (RAccessToken.userAccessToken().count == 0) {
+            window?.rootViewController = RBaseNavViewController.init(rootViewController: RLoginViewController())
+        }
+        else {
+            window?.rootViewController = RMainTabBarViewController()
+        }
         // Override point for customization after application launch.
         return true
     }

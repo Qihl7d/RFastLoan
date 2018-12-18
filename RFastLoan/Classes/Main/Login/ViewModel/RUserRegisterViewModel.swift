@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 
 class RUserRegisterViewModel: NSObject {
+    
     let disposeBag = DisposeBag()
     func userRegister(_ userName:String,_ password:String) -> Observable<RRequestResult> {
         let repository = RRegisterRemoteDataSource()
@@ -22,12 +23,10 @@ class RUserRegisterViewModel: NSObject {
             let commonRequest = RCommonRequest()
             commonRequest.sendSmsCode(userPhone: userPhone)
                 .subscribe(onNext: { (result) in
-                    observe.onNext((result.code == 200, result.msg))
+                    observe.onNext((result.code == 0, result.msg))
                 })
                 .disposed(by: self.disposeBag)
             return Disposables.create()
         })
-        
     }
-
 }

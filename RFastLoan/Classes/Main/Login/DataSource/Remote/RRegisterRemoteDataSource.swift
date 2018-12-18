@@ -61,10 +61,10 @@ class RRegisterRemoteDataSource: RRegisterDataSource {
                 dump(httpResult)
                 BAProgressHUD.dismiss()
                 if httpResult.code == 200 {
-                    BAProgressHUD.showSuccess("登录成功")
+                    BAProgressHUD.ba_showWithStatus("登录成功")
                 }
                 else {
-                    BAProgressHUD.showError(httpResult.msg)
+                    BAProgressHUD.ba_showError(withStatus: httpResult.msg)
                 }
                 return httpResult.code == 200
             })

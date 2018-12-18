@@ -8,12 +8,14 @@
 
 import UIKit
 
-class RAuthTableViewCell: UITableViewCell {
+class RAuthTableViewCell: UITableViewCell, UITextFieldDelegate {
+    public typealias TextFieldDidChangeBlock = (_ textField: UITextField) -> Void
     
     let titleLabel = UILabel()
     let textField = UITextField()
     let rightBtn  = UIButton()
     let verificationBtn = UIButton()
+    var textFieldDidChangeBlock : TextFieldDidChangeBlock?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -48,13 +50,15 @@ class RAuthTableViewCell: UITableViewCell {
         }
         
         rightBtn.frame = CGRect.init(x: 0, y: 0, width: 20, height: 30)
-        rightBtn.isUserInteractionEnabled = false
+//        rightBtn.isUserInteractionEnabled = false
         rightBtn.setImage(R.image.通用右箭头(), for: UIControl.State.normal)
         
         textField.textColor = hexColor333
         textField.font = systemFont(14)
         textField.textAlignment = .right
-        textField.placeholder = "请输入"
+//        textField.placeholder = "请输入"
+        textField.delegate = self
+        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         addSubview(textField)
         textField.snp.makeConstraints { (make) in
             make.left.equalTo(verificationBtn.snp.right).offset(10)
@@ -103,6 +107,16 @@ class RAuthTableViewCell: UITableViewCell {
         })
     }
     
+    func setTextFieldTag(tag:NSInteger) {
+        textField.tag = tag;
+    }
+    
+    @objc func textFieldDidChange(_ textField:UITextField) {
+        if textFieldDidChangeBlock != nil {
+            textFieldDidChangeBlock!(textField)
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -119,3 +133,65 @@ class RAuthTableViewCell: UITableViewCell {
     }
 
 }
+
+class RSelectAuthTableViewCell: UITableViewCell {
+    
+    lazy var leftLabel: UILabel = {
+        let leftLabel = UILabel()
+        leftLabel.textColor = hexColor333
+        leftLabel.font = systemFont(14)
+        return leftLabel
+    }()
+    
+    lazy var rightLabel: UILabel = {
+        let rightLabel = UILabel()
+        rightLabel.textColor = hexColor333
+        rightLabel.font = systemFont(14)
+        rightLabel.textAlignment = .right
+        rightLabel.text = "请选择"
+        return rightLabel
+    }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
+        
+        addSubview(leftLabel)
+        leftLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(10)
+            make.centerY.equalTo(self)
+            make.width.equalTo(80)
+            make.height.equalTo(20)
+        }
+        
+        addSubview(rightLabel)
+        rightLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(leftLabel.snp.right).offset(10)
+            make.centerY.equalTo(self)
+            make.right.equalTo(-10)
+            make.height.equalTo(30)
+        }
+        
+    }
+    
+    func setAccessoryType(_ showRightArrow : Bool) {
+        if showRightArrow {
+            self.accessoryType = .disclosureIndicator
+            rightLabel.snp.updateConstraints { (make) in
+                make.right.equalTo(-28)
+            }
+        }
+        else {
+            self.accessoryType = .none
+            rightLabel.snp.updateConstraints { (make) in
+                make.right.equalTo(-10)
+            }
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+

@@ -15,6 +15,10 @@ class RLoanApplicationViewController: RBaseViewController {
     var leftButton   : UIButton!
     var middleButton : UIButton!
     var rightButton  : UIButton!
+    var currentViewContrller : UIViewController?
+    let allLoan = RAllLoanViewController()
+    let application = RApplicationPassedViewController()
+    let appFailed = RApplicationFailedViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +66,27 @@ extension RLoanApplicationViewController {
             make.width.equalTo(leftButton.titleLabel!.rpk_textWith())
             make.height.equalTo(2)
         }
+        removeChildViewContrller(viewController: nil, newViewController: allLoan)
         
+    }
+    
+    func removeChildViewContrller(viewController:UIViewController?, newViewController:UIViewController) {
+        
+        if newViewController == currentViewContrller {
+            return
+        }
+        
+        if viewController != nil {
+            viewController?.willMove(toParent: nil)
+            viewController?.removeFromParent()
+            viewController?.view.removeFromSuperview()
+        }
+        
+//        newViewController.view.frame = CGRect.init(x: 0, y: 42, width: kScreenWidth, height: kScreenHeight - kNavigationBarAndStatusHeight - 42)
+        newViewController.view.frame = CGRect.init(x: 0, y: 42, width: kScreenWidth, height: self.view.bounds.size.height - 42)
+        self.addChild(newViewController)
+        self.view.addSubview(newViewController.view)
+        currentViewContrller = newViewController
     }
     
     // 事件绑定
@@ -70,18 +94,21 @@ extension RLoanApplicationViewController {
         leftButton.rx.tap
             .subscribe(onNext: { [weak self] (_) in
                 self?.updateLineConstraints(self!.leftButton)
+                self?.removeChildViewContrller(viewController: self?.currentViewContrller, newViewController: self!.allLoan)
             })
             .disposed(by: disposeBag)
         
         middleButton.rx.tap
             .subscribe(onNext: { [weak self] (_) in
                 self?.updateLineConstraints(self!.middleButton)
+                self?.removeChildViewContrller(viewController: self?.currentViewContrller, newViewController: self!.application)
             })
             .disposed(by: disposeBag)
         
         rightButton.rx.tap
             .subscribe(onNext: { [weak self] (_) in
                 self?.updateLineConstraints(self!.rightButton)
+                self?.removeChildViewContrller(viewController: self?.currentViewContrller, newViewController: self!.appFailed)
             })
             .disposed(by: disposeBag)
     }

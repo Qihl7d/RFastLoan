@@ -20,6 +20,7 @@ class RUploadIDCardTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        self.selectionStyle = .none
         let label = UILabel()
         label.text = "上传身份证照片"
         label.textColor = UIColor.hexInt(0x333333)
@@ -33,6 +34,7 @@ class RUploadIDCardTableViewCell: UITableViewCell {
         }
         
         frontPhoto.image = R.image.实名认证上传身份证正面()
+        frontPhoto.tag = 50
         frontPhoto.isUserInteractionEnabled = true
         frontPhoto.sizeToFit()
         frontPhoto.addGestureRecognizer(frontPhotoTap)
@@ -44,6 +46,7 @@ class RUploadIDCardTableViewCell: UITableViewCell {
         }
         
         reversePhoto.image = R.image.实名认证上传身份证反面()
+        reversePhoto.tag = 51;
         reversePhoto.isUserInteractionEnabled = true
         reversePhoto.sizeToFit()
         reversePhoto.addGestureRecognizer(reversePhotoTap)
@@ -67,6 +70,7 @@ class RUploadIDCardTableViewCell: UITableViewCell {
         }
         
         handHeldPhoto.image = R.image.实名认证手持身份证()
+        handHeldPhoto.tag = 52;
         handHeldPhoto.isUserInteractionEnabled = true
         handHeldPhoto.sizeToFit()
         handHeldPhoto.addGestureRecognizer(handHeldPhotoTap)

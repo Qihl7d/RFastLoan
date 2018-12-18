@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160310C321C15B8B008C24C7 /* province.json in Resources */ = {isa = PBXBuildFile; fileRef = 160310C221C15B8B008C24C7 /* province.json */; };
+		160310C521C15BDF008C24C7 /* SelecteAddressPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160310C421C15BDF008C24C7 /* SelecteAddressPopView.swift */; };
+		160310C721C15C6A008C24C7 /* ProviceCityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160310C621C15C6A008C24C7 /* ProviceCityList.swift */; };
+		160310CC21C162C6008C24C7 /* RSelectBulletBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160310CB21C162C6008C24C7 /* RSelectBulletBox.swift */; };
+		16040B3721C80D2C00CD2467 /* SystemPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = 16040B3621C80D2C00CD2467 /* SystemPublic.m */; };
 		160B59D621A2F6C40084E4E0 /* RAllBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59D521A2F6C40084E4E0 /* RAllBillsViewController.swift */; };
 		160B59D821A2F7170084E4E0 /* RRepaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59D721A2F7170084E4E0 /* RRepaymentViewController.swift */; };
 		160B59DA21A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59D921A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift */; };
@@ -15,10 +20,25 @@
 		160B59E021A303A00084E4E0 /* RAllLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59DF21A303A00084E4E0 /* RAllLoanViewController.swift */; };
 		160B59E221A3066A0084E4E0 /* RApplicationPassedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59E121A3066A0084E4E0 /* RApplicationPassedViewController.swift */; };
 		160B59E421A306F10084E4E0 /* RApplicationFailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59E321A306F10084E4E0 /* RApplicationFailedViewController.swift */; };
+		1634C24321BEC76000E5EA35 /* RAboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1634C24221BEC76000E5EA35 /* RAboutUsViewController.swift */; };
 		163567DB219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163567DA219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift */; };
 		163567DD219DCF4B00E8DD81 /* RBillingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163567DC219DCF4B00E8DD81 /* RBillingDetailsViewController.swift */; };
+		1638D03A21C924BE0019BAE9 /* RContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1638D03921C924BE0019BAE9 /* RContacts.m */; };
+		1639214C21C52CB0007EB189 /* RCommonFuncation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639214B21C52CB0007EB189 /* RCommonFuncation.swift */; };
+		1639214E21C66DFD007EB189 /* RBillingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639214D21C66DFD007EB189 /* RBillingItem.swift */; };
+		1639215021C67E2B007EB189 /* RLoanItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639214F21C67E2B007EB189 /* RLoanItem.swift */; };
 		16393758218F1C1900D2794D /* RMineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16393757218F1C1900D2794D /* RMineHeaderView.swift */; };
 		1639375A218F26AC00D2794D /* RButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16393759218F26AC00D2794D /* RButton.swift */; };
+		163BC6AC21BBF7AA00AE0301 /* RLoanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163BC6AB21BBF7AA00AE0301 /* RLoanModel.swift */; };
+		163BC6AE21BC229900AE0301 /* RLoanDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163BC6AD21BC229900AE0301 /* RLoanDataSource.swift */; };
+		163BC6B021BC231000AE0301 /* RLoanRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163BC6AF21BC231000AE0301 /* RLoanRemoteDataSource.swift */; };
+		163BC6B221BCF0B900AE0301 /* RLoanType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163BC6B121BCF0B900AE0301 /* RLoanType.swift */; };
+		163BC6B421BD26D800AE0301 /* RLoanTypeRepositoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163BC6B321BD26D800AE0301 /* RLoanTypeRepositoryDataSource.swift */; };
+		163BC6B621BD28F100AE0301 /* RLoanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163BC6B521BD28F100AE0301 /* RLoanViewModel.swift */; };
+		163BC6B821BD5C1500AE0301 /* RPopListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163BC6B721BD5C1500AE0301 /* RPopListView.swift */; };
+		163BC6C321BE492600AE0301 /* RChangePasswordRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163BC6C221BE492600AE0301 /* RChangePasswordRemoteDataSource.swift */; };
+		163BC6C521BE493C00AE0301 /* RChangePasswordDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163BC6C421BE493C00AE0301 /* RChangePasswordDataSource.swift */; };
+		163BC6C721BE4B6500AE0301 /* RChangePasswordRepositoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163BC6C621BE4B6500AE0301 /* RChangePasswordRepositoryDataSource.swift */; };
 		163CAA512188A27F00A6F834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAA502188A27F00A6F834 /* AppDelegate.swift */; };
 		163CAA562188A27F00A6F834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 163CAA542188A27F00A6F834 /* Main.storyboard */; };
 		163CAA582188A28000A6F834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 163CAA572188A28000A6F834 /* Assets.xcassets */; };
@@ -59,6 +79,7 @@
 		164485DB218B57C50005124F /* RHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DA218B57C50005124F /* RHomeViewController.swift */; };
 		164485DD218B59620005124F /* RHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DC218B59620005124F /* RHomeHeaderView.swift */; };
 		164485DF218B5CC10005124F /* RHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DE218B5CC10005124F /* RHomeTableViewCell.swift */; };
+		164C752F21BABA5D004B5607 /* RAnnouncement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C752E21BABA5D004B5607 /* RAnnouncement.swift */; };
 		1651BA922197FFD00054D7F3 /* RTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA912197FFD00054D7F3 /* RTextField.swift */; };
 		1651BA94219800DA0054D7F3 /* RChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA93219800DA0054D7F3 /* RChangePasswordViewController.swift */; };
 		1651BA96219801410054D7F3 /* RCommonProblemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA95219801410054D7F3 /* RCommonProblemViewController.swift */; };
@@ -66,6 +87,13 @@
 		1651BA9A219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA99219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift */; };
 		1651BA9C219851540054D7F3 /* RLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1651BA9B219851540054D7F3 /* RLoanViewController.swift */; };
 		1652D093219B1C5100A501D4 /* UILabel+RPK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652D092219B1C5100A501D4 /* UILabel+RPK.swift */; };
+		1656DAA721B6BC07004190E5 /* RHomeBannerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656DAA621B6BC07004190E5 /* RHomeBannerItem.swift */; };
+		1656DAAB21B6C0DD004190E5 /* RAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656DAAA21B6C0DD004190E5 /* RAccessToken.swift */; };
+		1656DAAD21B6C91C004190E5 /* RHomeBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656DAAC21B6C91C004190E5 /* RHomeBannerViewModel.swift */; };
+		1656DAB521B6D013004190E5 /* RHomeBannerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656DAB121B6D013004190E5 /* RHomeBannerDataSource.swift */; };
+		1656DAB621B6D013004190E5 /* RHomeBannerRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656DAB421B6D013004190E5 /* RHomeBannerRemoteDataSource.swift */; };
+		1656DAB821B6D448004190E5 /* RCommonCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656DAB721B6D448004190E5 /* RCommonCategory.swift */; };
+		1656DB8921B810BB004190E5 /* RSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656DB8821B810BB004190E5 /* RSettingViewModel.swift */; };
 		1680BD1C219C611900464434 /* RAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1680BD1B219C611900464434 /* RAuthViewController.swift */; };
 		1680BD1E219C65F400464434 /* RAuthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1680BD1D219C65F400464434 /* RAuthTableViewCell.swift */; };
 		1694691C2191F57A00AA6503 /* RSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1694691B2191F57A00AA6503 /* RSettingViewController.swift */; };
@@ -76,9 +104,18 @@
 		16B7054F21B3DFCD00273CF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7054E21B3DFCD00273CF3 /* ViewController.swift */; };
 		16B7055121B4244500273CF3 /* BAProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7055021B4244500273CF3 /* BAProgressHUD.swift */; };
 		16B7055321B424E700273CF3 /* RCommonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7055221B424E700273CF3 /* RCommonRequest.swift */; };
+		16B7056521B5687000273CF3 /* RLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7056421B5687000273CF3 /* RLoginViewModel.swift */; };
+		16EF4FE621B954F600D18DE9 /* RRHomeBannerLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF4FE521B954F600D18DE9 /* RRHomeBannerLocalDataSource.swift */; };
+		16EF4FE821B9553100D18DE9 /* RHomeBannerRepositoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF4FE721B9553100D18DE9 /* RHomeBannerRepositoryDataSource.swift */; };
+		16EF4FEE21B9688A00D18DE9 /* RMineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF4FED21B9688A00D18DE9 /* RMineDataSource.swift */; };
+		16EF4FF021B9692200D18DE9 /* RMineRemotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF4FEF21B9692200D18DE9 /* RMineRemotoDataSource.swift */; };
+		16EF4FF221B96A2700D18DE9 /* RMineLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF4FF121B96A2700D18DE9 /* RMineLocalDataSource.swift */; };
+		16EF4FF421B96A7700D18DE9 /* RMineRepositoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF4FF321B96A7700D18DE9 /* RMineRepositoryDataSource.swift */; };
+		16EF4FF621B96E6100D18DE9 /* RMineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF4FF521B96E6100D18DE9 /* RMineViewModel.swift */; };
+		16EF4FF821B9857C00D18DE9 /* RCommonProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF4FF721B9857C00D18DE9 /* RCommonProblem.swift */; };
 		5C4E5C399ABFA73CD571A913 /* Pods_RFastLoanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1656ED2694F6EA835F72F599 /* Pods_RFastLoanTests.framework */; };
 		6536E155CD516BF33F9DBB55 /* Pods_RFastLoanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819ADEBE2BF4FD877264FE84 /* Pods_RFastLoanUITests.framework */; };
-		C96212B04DB46244C226F5DF /* Pods_RFastLoan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F47CBC36829F114A632CAC2 /* Pods_RFastLoan.framework */; };
+		859044FBB942FEA6BD7EC5DC /* Pods_RFastLoan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F47CBC36829F114A632CAC2 /* Pods_RFastLoan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +137,13 @@
 
 /* Begin PBXFileReference section */
 		10DD111FC1682C58ABCD0075 /* Pods-RFastLoan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoan/Pods-RFastLoan.debug.xcconfig"; sourceTree = "<group>"; };
+		160310C221C15B8B008C24C7 /* province.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = province.json; sourceTree = "<group>"; };
+		160310C421C15BDF008C24C7 /* SelecteAddressPopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelecteAddressPopView.swift; sourceTree = "<group>"; };
+		160310C621C15C6A008C24C7 /* ProviceCityList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviceCityList.swift; sourceTree = "<group>"; };
+		160310CB21C162C6008C24C7 /* RSelectBulletBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSelectBulletBox.swift; sourceTree = "<group>"; };
+		16040B3321C7FCDE00CD2467 /* RFastLoan.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = RFastLoan.xcworkspace; sourceTree = "<group>"; };
+		16040B3521C80D2C00CD2467 /* SystemPublic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemPublic.h; sourceTree = "<group>"; };
+		16040B3621C80D2C00CD2467 /* SystemPublic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemPublic.m; sourceTree = "<group>"; };
 		160B59D521A2F6C40084E4E0 /* RAllBillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAllBillsViewController.swift; sourceTree = "<group>"; };
 		160B59D721A2F7170084E4E0 /* RRepaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRepaymentViewController.swift; sourceTree = "<group>"; };
 		160B59D921A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRepaymentCompletedViewController.swift; sourceTree = "<group>"; };
@@ -108,10 +152,26 @@
 		160B59DF21A303A00084E4E0 /* RAllLoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAllLoanViewController.swift; sourceTree = "<group>"; };
 		160B59E121A3066A0084E4E0 /* RApplicationPassedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RApplicationPassedViewController.swift; sourceTree = "<group>"; };
 		160B59E321A306F10084E4E0 /* RApplicationFailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RApplicationFailedViewController.swift; sourceTree = "<group>"; };
+		1634C24221BEC76000E5EA35 /* RAboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAboutUsViewController.swift; sourceTree = "<group>"; };
 		163567DA219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUploadIDCardTableViewCell.swift; sourceTree = "<group>"; };
 		163567DC219DCF4B00E8DD81 /* RBillingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBillingDetailsViewController.swift; sourceTree = "<group>"; };
+		1638D03821C924BE0019BAE9 /* RContacts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RContacts.h; sourceTree = "<group>"; };
+		1638D03921C924BE0019BAE9 /* RContacts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RContacts.m; sourceTree = "<group>"; };
+		1639214B21C52CB0007EB189 /* RCommonFuncation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCommonFuncation.swift; sourceTree = "<group>"; };
+		1639214D21C66DFD007EB189 /* RBillingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBillingItem.swift; sourceTree = "<group>"; };
+		1639214F21C67E2B007EB189 /* RLoanItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanItem.swift; sourceTree = "<group>"; };
 		16393757218F1C1900D2794D /* RMineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMineHeaderView.swift; sourceTree = "<group>"; };
 		16393759218F26AC00D2794D /* RButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RButton.swift; sourceTree = "<group>"; };
+		163BC6AB21BBF7AA00AE0301 /* RLoanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanModel.swift; sourceTree = "<group>"; };
+		163BC6AD21BC229900AE0301 /* RLoanDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanDataSource.swift; sourceTree = "<group>"; };
+		163BC6AF21BC231000AE0301 /* RLoanRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanRemoteDataSource.swift; sourceTree = "<group>"; };
+		163BC6B121BCF0B900AE0301 /* RLoanType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanType.swift; sourceTree = "<group>"; };
+		163BC6B321BD26D800AE0301 /* RLoanTypeRepositoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanTypeRepositoryDataSource.swift; sourceTree = "<group>"; };
+		163BC6B521BD28F100AE0301 /* RLoanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanViewModel.swift; sourceTree = "<group>"; };
+		163BC6B721BD5C1500AE0301 /* RPopListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPopListView.swift; sourceTree = "<group>"; };
+		163BC6C221BE492600AE0301 /* RChangePasswordRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RChangePasswordRemoteDataSource.swift; sourceTree = "<group>"; };
+		163BC6C421BE493C00AE0301 /* RChangePasswordDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RChangePasswordDataSource.swift; sourceTree = "<group>"; };
+		163BC6C621BE4B6500AE0301 /* RChangePasswordRepositoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RChangePasswordRepositoryDataSource.swift; sourceTree = "<group>"; };
 		163CAA4D2188A27F00A6F834 /* RFastLoan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RFastLoan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		163CAA502188A27F00A6F834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		163CAA552188A27F00A6F834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,6 +218,7 @@
 		164485DA218B57C50005124F /* RHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeViewController.swift; sourceTree = "<group>"; };
 		164485DC218B59620005124F /* RHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeHeaderView.swift; sourceTree = "<group>"; };
 		164485DE218B5CC10005124F /* RHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeTableViewCell.swift; sourceTree = "<group>"; };
+		164C752E21BABA5D004B5607 /* RAnnouncement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAnnouncement.swift; sourceTree = "<group>"; };
 		1651BA912197FFD00054D7F3 /* RTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTextField.swift; sourceTree = "<group>"; };
 		1651BA93219800DA0054D7F3 /* RChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RChangePasswordViewController.swift; sourceTree = "<group>"; };
 		1651BA95219801410054D7F3 /* RCommonProblemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCommonProblemViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +226,13 @@
 		1651BA99219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAnnouncementNoticeTableViewCell.swift; sourceTree = "<group>"; };
 		1651BA9B219851540054D7F3 /* RLoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoanViewController.swift; sourceTree = "<group>"; };
 		1652D092219B1C5100A501D4 /* UILabel+RPK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+RPK.swift"; sourceTree = "<group>"; };
+		1656DAA621B6BC07004190E5 /* RHomeBannerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeBannerItem.swift; sourceTree = "<group>"; };
+		1656DAAA21B6C0DD004190E5 /* RAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAccessToken.swift; sourceTree = "<group>"; };
+		1656DAAC21B6C91C004190E5 /* RHomeBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeBannerViewModel.swift; sourceTree = "<group>"; };
+		1656DAB121B6D013004190E5 /* RHomeBannerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RHomeBannerDataSource.swift; sourceTree = "<group>"; };
+		1656DAB421B6D013004190E5 /* RHomeBannerRemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RHomeBannerRemoteDataSource.swift; sourceTree = "<group>"; };
+		1656DAB721B6D448004190E5 /* RCommonCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCommonCategory.swift; sourceTree = "<group>"; };
+		1656DB8821B810BB004190E5 /* RSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSettingViewModel.swift; sourceTree = "<group>"; };
 		1656ED2694F6EA835F72F599 /* Pods_RFastLoanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RFastLoanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1680BD1B219C611900464434 /* RAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAuthViewController.swift; sourceTree = "<group>"; };
 		1680BD1D219C65F400464434 /* RAuthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAuthTableViewCell.swift; sourceTree = "<group>"; };
@@ -176,6 +244,16 @@
 		16B7054E21B3DFCD00273CF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		16B7055021B4244500273CF3 /* BAProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAProgressHUD.swift; sourceTree = "<group>"; };
 		16B7055221B424E700273CF3 /* RCommonRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCommonRequest.swift; sourceTree = "<group>"; };
+		16B7056421B5687000273CF3 /* RLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLoginViewModel.swift; sourceTree = "<group>"; };
+		16EF4FE521B954F600D18DE9 /* RRHomeBannerLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRHomeBannerLocalDataSource.swift; sourceTree = "<group>"; };
+		16EF4FE721B9553100D18DE9 /* RHomeBannerRepositoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeBannerRepositoryDataSource.swift; sourceTree = "<group>"; };
+		16EF4FE921B9597600D18DE9 /* RBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBridgingHeader.h; sourceTree = "<group>"; };
+		16EF4FED21B9688A00D18DE9 /* RMineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMineDataSource.swift; sourceTree = "<group>"; };
+		16EF4FEF21B9692200D18DE9 /* RMineRemotoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMineRemotoDataSource.swift; sourceTree = "<group>"; };
+		16EF4FF121B96A2700D18DE9 /* RMineLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMineLocalDataSource.swift; sourceTree = "<group>"; };
+		16EF4FF321B96A7700D18DE9 /* RMineRepositoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMineRepositoryDataSource.swift; sourceTree = "<group>"; };
+		16EF4FF521B96E6100D18DE9 /* RMineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMineViewModel.swift; sourceTree = "<group>"; };
+		16EF4FF721B9857C00D18DE9 /* RCommonProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCommonProblem.swift; sourceTree = "<group>"; };
 		24C5E82D31C19BFD5B4A43E6 /* Pods-RFastLoanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoanUITests/Pods-RFastLoanUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3EE0D1D477C09B915350A308 /* Pods-RFastLoan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoan.release.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoan/Pods-RFastLoan.release.xcconfig"; sourceTree = "<group>"; };
 		44DEF383712466C12032942E /* Pods-RFastLoanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RFastLoanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RFastLoanUITests/Pods-RFastLoanUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,7 +268,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C96212B04DB46244C226F5DF /* Pods_RFastLoan.framework in Frameworks */,
+				859044FBB942FEA6BD7EC5DC /* Pods_RFastLoan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +291,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1639214721C52C3E007EB189 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				1639214B21C52CB0007EB189 /* RCommonFuncation.swift */,
+				16040B3521C80D2C00CD2467 /* SystemPublic.h */,
+				16040B3621C80D2C00CD2467 /* SystemPublic.m */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		163CAA442188A27F00A6F834 = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +355,7 @@
 		163CAA802188A82000A6F834 /* Supporting File */ = {
 			isa = PBXGroup;
 			children = (
+				160310C221C15B8B008C24C7 /* province.json */,
 				163CAACF2188B2F700A6F834 /* R.generated.swift */,
 				163CAA502188A27F00A6F834 /* AppDelegate.swift */,
 				163EF8E9218A06A90070B814 /* PrefixHeader.swift */,
@@ -314,6 +403,7 @@
 				163CAA842188AC0500A6F834 /* UIDevice+Extension.swift */,
 				163CAA852188AC0500A6F834 /* UIColor+Extension.swift */,
 				1652D092219B1C5100A501D4 /* UILabel+RPK.swift */,
+				1656DAB721B6D448004190E5 /* RCommonCategory.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -322,6 +412,9 @@
 			isa = PBXGroup;
 			children = (
 				16B7055021B4244500273CF3 /* BAProgressHUD.swift */,
+				16EF4FE921B9597600D18DE9 /* RBridgingHeader.h */,
+				1638D03821C924BE0019BAE9 /* RContacts.h */,
+				1638D03921C924BE0019BAE9 /* RContacts.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -329,6 +422,7 @@
 		163CAA872188AC0500A6F834 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1656DAAA21B6C0DD004190E5 /* RAccessToken.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -336,6 +430,7 @@
 		163CAA882188AC0500A6F834 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1639214721C52C3E007EB189 /* Others */,
 				163CAACC2188B1D400A6F834 /* View */,
 				163CAACB2188B1C000A6F834 /* Base */,
 			);
@@ -356,6 +451,7 @@
 		163CAA8E2188AC0500A6F834 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1656DAAE21B6D013004190E5 /* DataSource */,
 				163CAA8F2188AC0500A6F834 /* ViewModel */,
 				163CAA902188AC0500A6F834 /* Model */,
 				163CAA912188AC0500A6F834 /* View */,
@@ -366,6 +462,7 @@
 		163CAA8F2188AC0500A6F834 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1656DAAC21B6C91C004190E5 /* RHomeBannerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -373,6 +470,8 @@
 		163CAA902188AC0500A6F834 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				163BC6AB21BBF7AA00AE0301 /* RLoanModel.swift */,
+				1656DAA621B6BC07004190E5 /* RHomeBannerItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -406,6 +505,7 @@
 		163CAA952188AC0500A6F834 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				1656DB7F21B80A6A004190E5 /* DataSource */,
 				163CAA962188AC0500A6F834 /* ViewModel */,
 				163CAA972188AC0500A6F834 /* Model */,
 				163CAA982188AC0500A6F834 /* View */,
@@ -416,6 +516,8 @@
 		163CAA962188AC0500A6F834 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1656DB8821B810BB004190E5 /* RSettingViewModel.swift */,
+				16EF4FF521B96E6100D18DE9 /* RMineViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -423,6 +525,11 @@
 		163CAA972188AC0500A6F834 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				160310C621C15C6A008C24C7 /* ProviceCityList.swift */,
+				1639214D21C66DFD007EB189 /* RBillingItem.swift */,
+				16EF4FF721B9857C00D18DE9 /* RCommonProblem.swift */,
+				164C752E21BABA5D004B5607 /* RAnnouncement.swift */,
+				1639214F21C67E2B007EB189 /* RLoanItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -439,11 +546,13 @@
 		163CAA992188AC0500A6F834 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				160310C421C15BDF008C24C7 /* SelecteAddressPopView.swift */,
 				16393757218F1C1900D2794D /* RMineHeaderView.swift */,
 				1651BA99219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift */,
 				1680BD1D219C65F400464434 /* RAuthTableViewCell.swift */,
 				163567DA219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift */,
 				160B59DB21A2FA640084E4E0 /* RBillsCommonTableViewCell.swift */,
+				160310CB21C162C6008C24C7 /* RSelectBulletBox.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -464,6 +573,7 @@
 				160B59DF21A303A00084E4E0 /* RAllLoanViewController.swift */,
 				160B59E121A3066A0084E4E0 /* RApplicationPassedViewController.swift */,
 				160B59E321A306F10084E4E0 /* RApplicationFailedViewController.swift */,
+				1634C24221BEC76000E5EA35 /* RAboutUsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -483,6 +593,7 @@
 			isa = PBXGroup;
 			children = (
 				16B7054A21B3D63100273CF3 /* RUserRegisterViewModel.swift */,
+				16B7056421B5687000273CF3 /* RLoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -532,6 +643,7 @@
 		163CAAC52188AC5300A6F834 /* Loan */ = {
 			isa = PBXGroup;
 			children = (
+				1656DA9E21B6B8F8004190E5 /* DataSource */,
 				163CAAC92188AC8B00A6F834 /* Model */,
 				163CAAC62188AC8B00A6F834 /* View */,
 				163CAACA2188AC8B00A6F834 /* ViewModel */,
@@ -551,6 +663,7 @@
 		163CAAC72188AC8B00A6F834 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				163BC6B721BD5C1500AE0301 /* RPopListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -566,6 +679,7 @@
 		163CAAC92188AC8B00A6F834 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				163BC6B121BCF0B900AE0301 /* RLoanType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -573,6 +687,7 @@
 		163CAACA2188AC8B00A6F834 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				163BC6B521BD28F100AE0301 /* RLoanViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -617,6 +732,7 @@
 				16B7055221B424E700273CF3 /* RCommonRequest.swift */,
 				163D58D921B39AE600377013 /* RUserLoginRepository.swift */,
 				16B7054821B3D44D00273CF3 /* RRegisterRepositoryDataSource.swift */,
+				163BC6C621BE4B6500AE0301 /* RChangePasswordRepositoryDataSource.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -626,6 +742,7 @@
 			children = (
 				163D58CE21B39AB100377013 /* RUserLoginDataSource.swift */,
 				163D58E321B3CA7000377013 /* RRegisterDataSource.swift */,
+				163BC6C421BE493C00AE0301 /* RChangePasswordDataSource.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -644,6 +761,135 @@
 			children = (
 				163D58D321B39AB100377013 /* RUserLoginRemoteDataSource.swift */,
 				16B7054621B3D26D00273CF3 /* RRegisterRemoteDataSource.swift */,
+				163BC6C221BE492600AE0301 /* RChangePasswordRemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		1656DA9E21B6B8F8004190E5 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				1656DAA321B6B96E004190E5 /* Protocol */,
+				1656DA9F21B6B910004190E5 /* Remote */,
+				1656DAA121B6B939004190E5 /* Local */,
+				1656DAA221B6B953004190E5 /* Repository */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		1656DA9F21B6B910004190E5 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				163BC6AF21BC231000AE0301 /* RLoanRemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		1656DAA121B6B939004190E5 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		1656DAA221B6B953004190E5 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				163BC6B321BD26D800AE0301 /* RLoanTypeRepositoryDataSource.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1656DAA321B6B96E004190E5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				163BC6AD21BC229900AE0301 /* RLoanDataSource.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		1656DAAE21B6D013004190E5 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				1656DAAF21B6D013004190E5 /* Repository */,
+				1656DAB021B6D013004190E5 /* Protocol */,
+				1656DAB221B6D013004190E5 /* Local */,
+				1656DAB321B6D013004190E5 /* Remote */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		1656DAAF21B6D013004190E5 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				16EF4FE721B9553100D18DE9 /* RHomeBannerRepositoryDataSource.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1656DAB021B6D013004190E5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1656DAB121B6D013004190E5 /* RHomeBannerDataSource.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		1656DAB221B6D013004190E5 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				16EF4FE521B954F600D18DE9 /* RRHomeBannerLocalDataSource.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		1656DAB321B6D013004190E5 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				1656DAB421B6D013004190E5 /* RHomeBannerRemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		1656DB7F21B80A6A004190E5 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				1656DB8021B80A6A004190E5 /* Repository */,
+				1656DB8121B80A6A004190E5 /* Protocol */,
+				1656DB8221B80A6A004190E5 /* Local */,
+				1656DB8321B80A6A004190E5 /* Remote */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		1656DB8021B80A6A004190E5 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				16EF4FF321B96A7700D18DE9 /* RMineRepositoryDataSource.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1656DB8121B80A6A004190E5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				16EF4FED21B9688A00D18DE9 /* RMineDataSource.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		1656DB8221B80A6A004190E5 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				16EF4FF121B96A2700D18DE9 /* RMineLocalDataSource.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		1656DB8321B80A6A004190E5 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				16EF4FEF21B9692200D18DE9 /* RMineRemotoDataSource.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -664,6 +910,7 @@
 		C195BED6106DEA74914835C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16040B3321C7FCDE00CD2467 /* RFastLoan.xcworkspace */,
 				9F47CBC36829F114A632CAC2 /* Pods_RFastLoan.framework */,
 				1656ED2694F6EA835F72F599 /* Pods_RFastLoanTests.framework */,
 				819ADEBE2BF4FD877264FE84 /* Pods_RFastLoanUITests.framework */,
@@ -745,6 +992,7 @@
 				TargetAttributes = {
 					163CAA4C2188A27F00A6F834 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 					};
 					163CAA602188A28100A6F834 = {
 						CreatedOnToolsVersion = 10.0;
@@ -784,6 +1032,7 @@
 				163CAA5B2188A28000A6F834 /* LaunchScreen.storyboard in Resources */,
 				163CAA582188A28000A6F834 /* Assets.xcassets in Resources */,
 				163CAA562188A27F00A6F834 /* Main.storyboard in Resources */,
+				160310C321C15B8B008C24C7 /* province.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,7 +1094,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RFastLoan/Pods-RFastLoan-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-RFastLoan/Pods-RFastLoan-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -886,7 +1135,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RFastLoan/Pods-RFastLoan-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RFastLoan/Pods-RFastLoan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D0890A5D7573FE9C64B4942D /* [CP] Check Pods Manifest.lock */ = {
@@ -933,55 +1182,87 @@
 			buildActionMask = 2147483647;
 			files = (
 				16B7055321B424E700273CF3 /* RCommonRequest.swift in Sources */,
+				163BC6B021BC231000AE0301 /* RLoanRemoteDataSource.swift in Sources */,
 				163D58E421B3CA7000377013 /* RRegisterDataSource.swift in Sources */,
 				1652D093219B1C5100A501D4 /* UILabel+RPK.swift in Sources */,
+				1656DAAB21B6C0DD004190E5 /* RAccessToken.swift in Sources */,
 				163EF900218A073A0070B814 /* MoyaProvider+Extension.swift in Sources */,
 				163CAAC02188AC0600A6F834 /* RMineViewController.swift in Sources */,
 				163CAAD02188B2F700A6F834 /* R.generated.swift in Sources */,
+				163BC6C321BE492600AE0301 /* RChangePasswordRemoteDataSource.swift in Sources */,
 				163CAABD2188AC0600A6F834 /* RTableViewViewController.swift in Sources */,
 				16B7054D21B3DEF200273CF3 /* RNotificationName.swift in Sources */,
 				163CAAC32188AC0600A6F834 /* RRegisterViewController.swift in Sources */,
+				163BC6B821BD5C1500AE0301 /* RPopListView.swift in Sources */,
 				164485DD218B59620005124F /* RHomeHeaderView.swift in Sources */,
 				16B7054921B3D44D00273CF3 /* RRegisterRepositoryDataSource.swift in Sources */,
 				1651BA922197FFD00054D7F3 /* RTextField.swift in Sources */,
 				164485DB218B57C50005124F /* RHomeViewController.swift in Sources */,
+				1656DB8921B810BB004190E5 /* RSettingViewModel.swift in Sources */,
+				1656DAB521B6D013004190E5 /* RHomeBannerDataSource.swift in Sources */,
 				160B59DC21A2FA640084E4E0 /* RBillsCommonTableViewCell.swift in Sources */,
+				16EF4FF221B96A2700D18DE9 /* RMineLocalDataSource.swift in Sources */,
+				160310C721C15C6A008C24C7 /* ProviceCityList.swift in Sources */,
 				163D58D521B39AB100377013 /* RUserLoginDataSource.swift in Sources */,
 				163EF8FC218A073A0070B814 /* UIButton+Extension.swift in Sources */,
+				16B7056521B5687000273CF3 /* RLoginViewModel.swift in Sources */,
 				163CAAB92188AC0600A6F834 /* UIDevice+Extension.swift in Sources */,
+				163BC6C521BE493C00AE0301 /* RChangePasswordDataSource.swift in Sources */,
 				163CAA512188A27F00A6F834 /* AppDelegate.swift in Sources */,
 				163CAACE2188B1F100A6F834 /* RTabBar.swift in Sources */,
+				163BC6B221BCF0B900AE0301 /* RLoanType.swift in Sources */,
 				163EF8FA218A073A0070B814 /* Observable+ObjectMapper.swift in Sources */,
 				163D58DE21B3AA9F00377013 /* RRequestResult.swift in Sources */,
+				163BC6AC21BBF7AA00AE0301 /* RLoanModel.swift in Sources */,
 				163EF8F6218A073A0070B814 /* UILabel+Extension.swift in Sources */,
 				163567DD219DCF4B00E8DD81 /* RBillingDetailsViewController.swift in Sources */,
 				163D58DA21B39AE600377013 /* RUserLoginRepository.swift in Sources */,
 				163EF8EA218A06A90070B814 /* PrefixHeader.swift in Sources */,
+				16EF4FEE21B9688A00D18DE9 /* RMineDataSource.swift in Sources */,
 				160B59E221A3066A0084E4E0 /* RApplicationPassedViewController.swift in Sources */,
 				163D58DC21B39B7500377013 /* RUserInfo.swift in Sources */,
+				163BC6AE21BC229900AE0301 /* RLoanDataSource.swift in Sources */,
 				16B7054721B3D26D00273CF3 /* RRegisterRemoteDataSource.swift in Sources */,
 				160B59DA21A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift in Sources */,
+				1639214C21C52CB0007EB189 /* RCommonFuncation.swift in Sources */,
 				163EF8FB218A073A0070B814 /* ConstraintRelatableTarget+Extension.swift in Sources */,
 				1651BA94219800DA0054D7F3 /* RChangePasswordViewController.swift in Sources */,
+				1639214E21C66DFD007EB189 /* RBillingItem.swift in Sources */,
+				16EF4FF621B96E6100D18DE9 /* RMineViewModel.swift in Sources */,
 				160B59DE21A300940084E4E0 /* RLoanApplicationViewController.swift in Sources */,
 				163EF8E62189F06B0070B814 /* MainTabBarItem.swift in Sources */,
 				1694691C2191F57A00AA6503 /* RSettingViewController.swift in Sources */,
 				1651BA9C219851540054D7F3 /* RLoanViewController.swift in Sources */,
 				16B7054B21B3D63100273CF3 /* RUserRegisterViewModel.swift in Sources */,
+				160310CC21C162C6008C24C7 /* RSelectBulletBox.swift in Sources */,
+				163BC6B421BD26D800AE0301 /* RLoanTypeRepositoryDataSource.swift in Sources */,
 				1651BA96219801410054D7F3 /* RCommonProblemViewController.swift in Sources */,
+				16040B3721C80D2C00CD2467 /* SystemPublic.m in Sources */,
+				16EF4FF821B9857C00D18DE9 /* RCommonProblem.swift in Sources */,
+				163BC6C721BE4B6500AE0301 /* RChangePasswordRepositoryDataSource.swift in Sources */,
 				163567DB219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift in Sources */,
 				163D58D821B39AB100377013 /* RUserLoginRemoteDataSource.swift in Sources */,
 				164485DF218B5CC10005124F /* RHomeTableViewCell.swift in Sources */,
 				163EF8FE218A073A0070B814 /* String+Extension.swift in Sources */,
+				1656DAB821B6D448004190E5 /* RCommonCategory.swift in Sources */,
 				16B7054F21B3DFCD00273CF3 /* ViewController.swift in Sources */,
+				1656DAAD21B6C91C004190E5 /* RHomeBannerViewModel.swift in Sources */,
+				16EF4FF421B96A7700D18DE9 /* RMineRepositoryDataSource.swift in Sources */,
 				160B59D821A2F7170084E4E0 /* RRepaymentViewController.swift in Sources */,
+				164C752F21BABA5D004B5607 /* RAnnouncement.swift in Sources */,
 				1651BA9A219806300054D7F3 /* RAnnouncementNoticeTableViewCell.swift in Sources */,
 				1680BD1C219C611900464434 /* RAuthViewController.swift in Sources */,
+				16EF4FF021B9692200D18DE9 /* RMineRemotoDataSource.swift in Sources */,
 				163D58D621B39AB100377013 /* RUserLoginLocalDataSource.swift in Sources */,
+				1634C24321BEC76000E5EA35 /* RAboutUsViewController.swift in Sources */,
 				1651BA98219805940054D7F3 /* RAnnouncementNoticeViewController.swift in Sources */,
+				1638D03A21C924BE0019BAE9 /* RContacts.m in Sources */,
 				163D58E621B3D00700377013 /* RRegisterLocalDataSource.swift in Sources */,
+				1639215021C67E2B007EB189 /* RLoanItem.swift in Sources */,
+				1656DAB621B6D013004190E5 /* RHomeBannerRemoteDataSource.swift in Sources */,
 				163CAABB2188AC0600A6F834 /* RBaseNavViewController.swift in Sources */,
 				163CAABA2188AC0600A6F834 /* UIColor+Extension.swift in Sources */,
+				160310C521C15BDF008C24C7 /* SelecteAddressPopView.swift in Sources */,
 				163EF8E82189FD390070B814 /* MainTabBarView.swift in Sources */,
 				16393758218F1C1900D2794D /* RMineHeaderView.swift in Sources */,
 				163CAABC2188AC0600A6F834 /* RBaseViewController.swift in Sources */,
@@ -991,10 +1272,14 @@
 				163CAABE2188AC0600A6F834 /* RMainTabBarViewController.swift in Sources */,
 				160B59E421A306F10084E4E0 /* RApplicationFailedViewController.swift in Sources */,
 				163EF8FF218A073A0070B814 /* UIImage+Extension.swift in Sources */,
+				163BC6B621BD28F100AE0301 /* RLoanViewModel.swift in Sources */,
+				16EF4FE621B954F600D18DE9 /* RRHomeBannerLocalDataSource.swift in Sources */,
+				1656DAA721B6BC07004190E5 /* RHomeBannerItem.swift in Sources */,
 				160B59E021A303A00084E4E0 /* RAllLoanViewController.swift in Sources */,
 				163EF8F9218A073A0070B814 /* UIViewController+Extension.swift in Sources */,
 				163EF8F8218A073A0070B814 /* UIFont+Extension.swift in Sources */,
 				163CAAC42188AC0600A6F834 /* RLoginViewController.swift in Sources */,
+				16EF4FE821B9553100D18DE9 /* RHomeBannerRepositoryDataSource.swift in Sources */,
 				160B59D621A2F6C40084E4E0 /* RAllBillsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1143,7 +1428,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1171,15 +1456,21 @@
 			baseConfigurationReference = 10DD111FC1682C58ABCD0075 /* Pods-RFastLoan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YV4ZF7ET37;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = Y23RFAQM29;
 				INFOPLIST_FILE = RFastLoan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aotoo.RFastLoan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shoux.RFastLoan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = FastLoan_Dev;
+				SWIFT_OBJC_BRIDGING_HEADER = RFastLoan/Classes/Others/RBridgingHeader.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1190,15 +1481,20 @@
 			baseConfigurationReference = 3EE0D1D477C09B915350A308 /* Pods-RFastLoan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YV4ZF7ET37;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = Y23RFAQM29;
 				INFOPLIST_FILE = RFastLoan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aotoo.RFastLoan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shoux.RFastLoan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = FastLoan_Dis;
+				SWIFT_OBJC_BRIDGING_HEADER = RFastLoan/Classes/Others/RBridgingHeader.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

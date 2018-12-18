@@ -10,8 +10,10 @@ import UIKit
 import RxSwift
 
 class RRegisterRepositoryDataSource: RRegisterDataSource {
-    private var local = RRegisterLocalDataSource()
+    
+    private var local  = RRegisterLocalDataSource()
     private var remote = RRegisterRemoteDataSource()
+    
     func userRegister(userName: String, password: String) -> Observable<RRequestResult> {
         return Observable.concat(
             local.userRegister(userName:userName, password:password),

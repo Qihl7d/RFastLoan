@@ -14,6 +14,8 @@ import ObjectMapper_Realm
 class RRequestResult: Object, Mappable {
     var code : Int = 0
     var msg : String = ""
+    var data : (Any)? = nil
+    
     required convenience init?(map: Map) {
         self.init()
     }
@@ -21,6 +23,7 @@ class RRequestResult: Object, Mappable {
     func mapping(map: Map) {
         code <- map["code"]
         msg <- map["msg"]
+        data <- map["data"]
     }
 }
 

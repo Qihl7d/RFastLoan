@@ -62,12 +62,24 @@ class RHomeTableViewCell: UITableViewCell {
             make.width.equalTo(100)
             make.height.equalTo(20)
         }
-        
-        
-        titleLabel.text = "房屋装修"
-        priceLabel.text = "20000元"
-        timeLabel.text  = "刚刚"
-        nameLabel.text  = "海***月"
+    
+    }
+    
+//    public func settingData(_ data:RHomeBannerItem)  {
+//        titleLabel.text = data.title
+//        priceLabel.text = "\(data.rzmoney)" + "元"
+//        timeLabel.text  = data.updateDate
+//        nameLabel.text  = data.resource
+//        priceLabel.snp.updateConstraints { (make) in
+//            make.width.equalTo(priceLabel.rpk_textWith(height: 20))
+//        }
+//    }
+    
+    public func settingData(_ data:RLoanModel)  {
+        titleLabel.text = data.loanPurpose
+        priceLabel.text = data.cost! + "元"
+        timeLabel.text  = data.updateDate
+        nameLabel.text  = data.memberName
         priceLabel.snp.updateConstraints { (make) in
             make.width.equalTo(priceLabel.rpk_textWith(height: 20))
         }

@@ -27,7 +27,12 @@ class BAProgressHUD: NSObject {
     }
 
     class func showSuccess(_ success:String) {
-        SVProgressHUD.showSuccess(withStatus: success)
+        SVProgressHUD.show(R.image.形状1()!, status: success)
+        SVProgressHUD.setDefaultAnimationType(SVProgressHUDAnimationType.native)
+        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.custom)
+        SVProgressHUD.setForegroundColor(UIColor.white)
+        SVProgressHUD.setBackgroundColor(UIColor.white)
+        SVProgressHUD.setBackgroundLayerColor(UIColor.clear)
         SVProgressHUD.dismiss(withDelay: 2)
     }
 

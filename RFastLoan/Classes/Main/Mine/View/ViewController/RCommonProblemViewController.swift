@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import MJRefresh
 
 class RCommonProblemViewController: RTableViewViewController {
 
-    let titles : [String] = ["我的可贷额度和什么有关?", "实名认证提供材料信息", "如何还款", "预期带来的影响", "良好的信用带来的好处", "其他常见问题"]
+//    let titles : [String] = ["我的可贷额度和什么有关?", "实名认证提供材料信息", "如何还款", "预期带来的影响", "良好的信用带来的好处", "其他常见问题"]
+    var dataSource : Array<RCommonProblem>!
+    let pageSize = 20
+    var pageIndex = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initView()
+        initData()
         // Do any additional setup after loading the view.
     }
     
@@ -36,6 +41,7 @@ extension RCommonProblemViewController {
     func initView() {
         
         self.title = "常见问题"
+        self.dataSource = Array()
         tableView.backgroundColor = RbackgroundColor
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,9 +53,45 @@ extension RCommonProblemViewController {
     }
 }
 
+extension RCommonProblemViewController {
+    func initData() {
+        let viewModel = RMineViewModel()
+        viewModel.getCommonProblem(code: "problem", page: self.pageIndex, pageSize: self.pageSize)
+            .subscribe(onNext:{ list in
+                self.dataSource = list.toArray()
+                self.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func loadMoreData() {
+        let viewModel = RMineViewModel()
+        tableView.mj_header = MJRefreshHeader.init(refreshingBlock: {
+            self.pageIndex = 1
+            viewModel.getCommonProblem(code: "problem", page: self.pageIndex, pageSize: self.pageSize)
+                .subscribe(onNext: { (list) in
+                    self.dataSource.removeAll()
+                    self.dataSource = list.toArray()
+                    self.tableView.reloadData()
+                })
+                .disposed(by: self.disposeBag)
+        })
+        
+        tableView.mj_footer = MJRefreshAutoFooter.init(refreshingBlock: {
+            self.pageIndex += 1;
+            viewModel.getCommonProblem(code: "problem", page: self.pageIndex, pageSize: self.pageSize)
+                .subscribe(onNext:{ list in
+                    self.dataSource.append(contentsOf: list.toArray())
+                    self.tableView.reloadData()
+                })
+                .disposed(by: self.disposeBag)
+        })
+    }
+}
+
 extension RCommonProblemViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
+        return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,14 +100,14 @@ extension RCommonProblemViewController : UITableViewDelegate, UITableViewDataSou
             cell = UITableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "kCellA")
             cell?.accessoryType = .disclosureIndicator
         }
-        cell?.textLabel?.text = titles[indexPath.row]
+        cell?.textLabel?.text = dataSource[indexPath.row].title
         cell?.textLabel?.font = systemFont(14)
         cell?.textLabel?.textColor = hexColor333
         return cell!
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == titles.count - 1 {
+        if indexPath.row == dataSource.count - 1 {
             cell.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         }
     }

@@ -58,9 +58,24 @@ extension RSettingViewController {
         
         logout.rx.tap
             .subscribe(onNext: { [weak self] (_) in
-            
+                let alertController = UIAlertController.init(title: "退出登录提示", message: "您确定要退出登录吗？", preferredStyle: UIAlertController.Style.alert)
+                let sure = UIAlertAction.init(title: "确定", style: UIAlertAction.Style.default, handler: { (_) in
+                    let viewModel = RSettingViewModel()
+                    viewModel.logout()
+                        .subscribe(onNext: { (result) in
+                            if result.code == 0 {
+                                UserDefaults.standard.removeObject(forKey: "token")
+                            }
+                            self?.navigationController?.pushViewController(RLoginViewController(), animated: true)
+                        })
+                        .disposed(by: self!.disposeBag)
+                })
+                let cancel = UIAlertAction.init(title: "取消", style: UIAlertAction.Style.cancel, handler: nil)
+                alertController.addAction(sure)
+                alertController.addAction(cancel)
+                self?.present(alertController, animated: true, completion: nil)
             })
-            .dispose()
+            .disposed(by: disposeBag)
     
     }
 }

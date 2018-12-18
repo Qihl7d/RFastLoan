@@ -16,8 +16,24 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.image` struct is generated, and contains static references to 29 images.
+  /// This `R.file` struct is generated, and contains static references to 1 files.
+  struct file {
+    /// Resource file `province.json`.
+    static let provinceJson = Rswift.FileResource(bundle: R.hostingBundle, name: "province", pathExtension: "json")
+    
+    /// `bundle.url(forResource: "province", withExtension: "json")`
+    static func provinceJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.provinceJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.image` struct is generated, and contains static references to 33 images.
   struct image {
+    /// Image `LaunchImage`.
+    static let launchImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LaunchImage")
     /// Image `blueRightArrow`.
     static let blueRightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "blueRightArrow")
     /// Image `个人中心-个人信息`.
@@ -28,12 +44,18 @@ struct R: Rswift.Validatable {
     static let 个人中心实名认证 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-实名认证")
     /// Image `个人中心-常见问题`.
     static let 个人中心常见问题 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-常见问题")
+    /// Image `个人中心-检查更新`.
+    static let 个人中心检查更新 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-检查更新")
+    /// Image `个人中心-联系我们`.
+    static let 个人中心联系我们 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-联系我们")
     /// Image `个人中心-设置`.
     static let 个人中心设置 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-设置")
     /// Image `个人中心-账单明细`.
     static let 个人中心账单明细 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-账单明细")
     /// Image `个人中心-通知公告`.
     static let 个人中心通知公告 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-通知公告")
+    /// Image `个人中心背景`.
+    static let 个人中心背景 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心背景")
     /// Image `实名认证-上传身份证反面`.
     static let 实名认证上传身份证反面 = Rswift.ImageResource(bundle: R.hostingBundle, name: "实名认证-上传身份证反面")
     /// Image `实名认证-上传身份证正面`.
@@ -77,6 +99,11 @@ struct R: Rswift.Validatable {
     /// Image `首页2`.
     static let 首页2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "首页2")
     
+    /// `UIImage(named: "LaunchImage", bundle: ..., traitCollection: ...)`
+    static func launchImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.launchImage, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "blueRightArrow", bundle: ..., traitCollection: ...)`
     static func blueRightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.blueRightArrow, compatibleWith: traitCollection)
@@ -102,6 +129,16 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.个人中心常见问题, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "个人中心-检查更新", bundle: ..., traitCollection: ...)`
+    static func 个人中心检查更新(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.个人中心检查更新, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "个人中心-联系我们", bundle: ..., traitCollection: ...)`
+    static func 个人中心联系我们(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.个人中心联系我们, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "个人中心-设置", bundle: ..., traitCollection: ...)`
     static func 个人中心设置(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.个人中心设置, compatibleWith: traitCollection)
@@ -115,6 +152,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "个人中心-通知公告", bundle: ..., traitCollection: ...)`
     static func 个人中心通知公告(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.个人中心通知公告, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "个人中心背景", bundle: ..., traitCollection: ...)`
+    static func 个人中心背景(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.个人中心背景, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "实名认证-上传身份证反面", bundle: ..., traitCollection: ...)`

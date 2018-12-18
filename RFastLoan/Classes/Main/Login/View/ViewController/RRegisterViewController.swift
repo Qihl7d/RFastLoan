@@ -127,7 +127,7 @@ extension RRegisterViewController {
         verificationCode.backgroundColor     = UIColor.hexInt(0xF4F4F4)
         verificationCode.textColor           = hexColor666
         verificationCode.font                = systemFont(16)
-        verificationCode.isSecureTextEntry   = true
+//        verificationCode.isSecureTextEntry   = true
         verificationCode.layer.cornerRadius  = 2;
         verificationCode.layer.masksToBounds = true
         verificationCode.placeholder         = "请输入密码"
@@ -221,15 +221,17 @@ extension RRegisterViewController {
     func attachEvent() {
         sendVerificationCode.rx.tap
             .subscribe(onNext: { (_) in
-                self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.countdownCountDegressive), userInfo: nil, repeats: true )
-                self.timer?.fireDate = NSDate.distantPast
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.countdownCountDegressive), userInfo: nil, repeats: true )
+                self.timer?.fire()
+                
+//                self.timer?.fireDate = NSDate.distantPast
                 self.viewModel.sendVerificationCode(self.phoneNumber.text!)
                     .subscribe(onNext:{ (success, msg) in
                         if success {
-                            BAProgressHUD.showSuccess(msg)
+                            BAProgressHUD.ba_showWithStatus("获取验证码成功")
                         }
                         else {
-                            BAProgressHUD.showError(msg)
+                            BAProgressHUD.ba_showError(withStatus: msg)
                         }
                     })
                     .disposed(by: self.disposeBag)
@@ -238,7 +240,40 @@ extension RRegisterViewController {
         
         registerBtn.rx.tap
             .subscribe(onNext:{ _ in
-                
+                let str = self.phoneNumber.text ?? ""
+                let verStr = self.verificationCode.text ?? ""
+                let pswStr = self.passwordInput.text ?? ""
+                if RCommonFuncation.isTelNumber(num: str as NSString) {
+                    if verStr.count > 0 {
+                        if pswStr.count > 0 {
+//                            let viewModel = RLoginViewModel()
+//                            viewModel.userRegister(userPhone: str, authCode: verStr, password: pswStr)
+//                                .subscribe(onNext: { (httpResult) in
+//                                    if httpResult.code == requestSuccess {
+//                                        BAProgressHUD.ba_showWithStatus("注册成功")
+//                                    }
+//                                })
+//                                .disposed(by: self.disposeBag)
+                            let commonRequest = RCommonRequest()
+                            commonRequest.userRegister(userPhone: str, authCode: verStr, password: pswStr, success: { (dic) in
+                                if dic["code"] == "0" {
+                                    self.navigationController?.popViewController(animated: true)
+                                }
+                            }, failture: { (error) in
+                                
+                            })
+                        }
+                        else {
+                            BAProgressHUD.ba_showWithStatus("请输入密码")
+                        }
+                    }
+                    else {
+                        BAProgressHUD.ba_showWithStatus("请输入验证码")
+                    }
+                }
+                else {
+                    BAProgressHUD.ba_showWithStatus("请输入正确的手机号")
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -246,5 +281,15 @@ extension RRegisterViewController {
     //MARK: 倒计时数字递减
     @objc func countdownCountDegressive() {
         countdown.value = countdown.value - 1
+        if countdown.value != 0 {
+            sendVerificationCode.setTitle("\(countdown.value)秒后重试", for: UIControl.State.normal)
+            sendVerificationCode.isEnabled = false
+        }
+        else {
+            sendVerificationCode.setTitle("获取验证码", for: UIControl.State.normal)
+            sendVerificationCode.isEnabled = true
+            timer?.invalidate()
+            timer = nil
+        }
     }
 }

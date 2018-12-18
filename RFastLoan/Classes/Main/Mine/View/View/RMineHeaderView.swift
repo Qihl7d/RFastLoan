@@ -12,7 +12,7 @@ class RMineHeaderView: UIView {
     //返回值是String
     typealias ClickButtonAction = (RButton) -> Void
     
-    let balanceLabel = UILabel()
+    public let balanceLabel = UILabel()
     var clickButtonAction : ClickButtonAction!
     
     override init(frame: CGRect) {
@@ -29,7 +29,7 @@ class RMineHeaderView: UIView {
         
         self.backgroundColor = RbackgroundColor
         
-        let backgroundView = UIImageView.init(image: UIImage())
+        let backgroundView = UIImageView.init(image: R.image.个人中心背景())
         self.addSubview(backgroundView)
         backgroundView.backgroundColor = RbackgroundColor
         backgroundView.snp.makeConstraints { (make) in
@@ -39,7 +39,7 @@ class RMineHeaderView: UIView {
         
         balanceLabel.textColor = .white
         balanceLabel.font = systemFont(40)
-        balanceLabel.text = "3600.00"
+        balanceLabel.text = "0"
         balanceLabel.textAlignment = .center
         backgroundView.addSubview(balanceLabel)
         balanceLabel.snp.makeConstraints { (make) in

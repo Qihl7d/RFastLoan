@@ -54,8 +54,13 @@ class RAnnouncementNoticeTableViewCell: UITableViewCell {
         
         separatorInset = UIEdgeInsets.init(top: 0, left: 25, bottom: 0, right: 0)
         
-        titleLabel.text = "您的10月份贷款即将到期，请准时还款"
-        timeLabel.text = "2019-07-31 22:08"
+//        titleLabel.text = "您的10月份贷款即将到期，请准时还款"
+//        timeLabel.text = "2019-07-31 22:08"
+    }
+    
+    func settingData(_ data:RAnnouncement) {
+        titleLabel.text = data.content
+        timeLabel.text = data.updateDate
     }
     
     required init?(coder aDecoder: NSCoder) {

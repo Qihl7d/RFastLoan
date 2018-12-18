@@ -15,6 +15,11 @@ class RBillingDetailsViewController: RBaseViewController {
     var leftButton   : UIButton!
     var middleButton : UIButton!
     var rightButton  : UIButton!
+    var currentViewContrller : UIViewController?
+    
+    let allBills = RAllBillsViewController()
+    let repayment = RRepaymentViewController()
+    let repaymentCompleted = RRepaymentCompletedViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +68,8 @@ extension RBillingDetailsViewController {
             make.height.equalTo(2)
         }
         
+        removeChildViewContrller(viewController: nil, newViewController: allBills)
+        
     }
     
     // 事件绑定
@@ -70,18 +77,21 @@ extension RBillingDetailsViewController {
         leftButton.rx.tap
             .subscribe(onNext: { [weak self] (_) in
                 self?.updateLineConstraints(self!.leftButton)
+                self?.removeChildViewContrller(viewController: self?.currentViewContrller, newViewController: self!.allBills)
             })
             .disposed(by: disposeBag)
         
         middleButton.rx.tap
             .subscribe(onNext: { [weak self] (_) in
                 self?.updateLineConstraints(self!.middleButton)
+                self?.removeChildViewContrller(viewController: self?.currentViewContrller, newViewController: self!.repayment)
             })
             .disposed(by: disposeBag)
         
         rightButton.rx.tap
             .subscribe(onNext: { [weak self] (_) in
                 self?.updateLineConstraints(self!.rightButton)
+                self?.removeChildViewContrller(viewController: self?.currentViewContrller, newViewController: self!.repaymentCompleted)
             })
             .disposed(by: disposeBag)
     }
@@ -94,6 +104,32 @@ extension RBillingDetailsViewController {
             make.centerX.equalTo(button)
         }
     }
+    
+    
+    func removeChildViewContrller(viewController:UIViewController?, newViewController:UIViewController) {
+        
+        if newViewController == currentViewContrller {
+            return
+        }
+        
+        if viewController != nil {
+            viewController?.willMove(toParent: nil)
+            viewController?.removeFromParent()
+            viewController?.view.removeFromSuperview()
+        }
+        
+//        newViewController.view.frame = CGRect.init(x: 0, y: 42, width: kScreenWidth, height: kScreenHeight - 42 - kNavigationBarAndStatusHeight)
+        newViewController.view.frame = CGRect.init(x: 0, y: 42, width: kScreenWidth, height: self.view.bounds.size.height - 42)
+        self.addChild(newViewController)
+        self.view.addSubview(newViewController.view)
+        currentViewContrller = newViewController
+    }
 }
+
+
+extension RBillingDetailsViewController {
+    
+}
+
 
 

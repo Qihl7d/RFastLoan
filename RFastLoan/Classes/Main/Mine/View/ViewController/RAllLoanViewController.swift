@@ -11,7 +11,7 @@ import UIKit
 // 借款申请记录 -- 全部
 class RAllLoanViewController: RTableViewViewController {
     let identifier = "RBillsCommonTableViewCell"
-    
+    var dataSource = Array<RLoanItem>()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +39,8 @@ extension RAllLoanViewController {
         tableView = UITableView.init(frame: CGRect.zero, style: UITableView.Style.plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 50
+        tableView.rowHeight = 70
+        tableView.tableFooterView = UIView()
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(0)
@@ -49,21 +50,28 @@ extension RAllLoanViewController {
     }
     
     private func initData() {
-        
+        let viewModel = RMineViewModel()
+        viewModel.getLoanList(status: 0)
+            .subscribe(onNext: { (list) in
+                self.dataSource = list.toArray()
+                self.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 extension RAllLoanViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-        if cell == nil {
-            cell = RBillsCommonTableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: identifier)
-        }
-        return cell!
+        let cell : RBillsCommonTableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier) as! RBillsCommonTableViewCell
+//        if cell == nil {
+//            cell = RBillsCommonTableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: identifier)
+//        }
+        cell.setModel(self.dataSource[indexPath.row])
+        return cell
     }
     
     

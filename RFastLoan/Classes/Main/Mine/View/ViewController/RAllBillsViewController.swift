@@ -12,6 +12,7 @@ import UIKit
 class RAllBillsViewController: RTableViewViewController {
 
     let identifier = "RBillsCommonTableViewCell"
+    var dataSource = Array<RBillingItem>()
     
     
     override func viewDidLoad() {
@@ -37,11 +38,13 @@ class RAllBillsViewController: RTableViewViewController {
 
 extension RAllBillsViewController {
     private func initView() {
-        
+//        self.view.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: kScreenWidth - 42 - kNavigationBarAndStatusHeight)
         tableView = UITableView.init(frame: CGRect.zero, style: UITableView.Style.plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 50
+        tableView.rowHeight = 70
+        tableView.tableFooterView = UIView()
+        tableView.register(RBillsCommonTableViewCell.classForCoder(), forCellReuseIdentifier: identifier)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(0)
@@ -51,21 +54,29 @@ extension RAllBillsViewController {
     }
     
     private func initData() {
-        
+        let viewModel = RMineViewModel()
+        viewModel.getBillingList(status: 1)
+            .subscribe(onNext: { (list) in
+                self.dataSource = list.toArray()
+                self.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
+    
 }
 
 extension RAllBillsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-        if cell == nil {
-            cell = RBillsCommonTableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: identifier)
-        }
-        return cell!
+        var cell : RBillsCommonTableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier) as! RBillsCommonTableViewCell
+//        if cell == nil {
+//            cell = RBillsCommonTableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: identifier)
+//        }
+        cell.setDataModel(self.dataSource[indexPath.row])
+        return cell
     }
     
     
