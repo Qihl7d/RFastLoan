@@ -30,12 +30,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 33 images.
+  /// This `R.image` struct is generated, and contains static references to 35 images.
   struct image {
     /// Image `LaunchImage`.
     static let launchImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LaunchImage")
     /// Image `blueRightArrow`.
     static let blueRightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "blueRightArrow")
+    /// Image `del`.
+    static let del = Rswift.ImageResource(bundle: R.hostingBundle, name: "del")
+    /// Image `point`.
+    static let point = Rswift.ImageResource(bundle: R.hostingBundle, name: "point")
     /// Image `个人中心-个人信息`.
     static let 个人中心个人信息 = Rswift.ImageResource(bundle: R.hostingBundle, name: "个人中心-个人信息")
     /// Image `个人中心-借款申请记录`.
@@ -107,6 +111,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "blueRightArrow", bundle: ..., traitCollection: ...)`
     static func blueRightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.blueRightArrow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "del", bundle: ..., traitCollection: ...)`
+    static func del(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.del, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "point", bundle: ..., traitCollection: ...)`
+    static func point(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.point, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "个人中心-个人信息", bundle: ..., traitCollection: ...)`
@@ -307,8 +321,8 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try launchScreen.validate()
       try main.validate()
+      try launchScreen.validate()
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {

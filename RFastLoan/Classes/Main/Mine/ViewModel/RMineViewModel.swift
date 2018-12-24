@@ -39,4 +39,8 @@ class RMineViewModel: NSObject {
     func commitProfileInfo(userInfo: Dictionary<String, String>) -> Observable<RRequestResult> {
         return repository.commitProfileInfo(userInfo:userInfo)
     }
+    
+    func getNewVersion() -> Observable<RRequestResult> {
+        return repository.getNewVersion()
+    }
 }

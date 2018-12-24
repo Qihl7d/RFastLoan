@@ -130,7 +130,7 @@ class BAProgressHUD: NSObject {
         switch type {
         case .success:
 //            SVProgressHUD.showSuccess(withStatus: status)
-            SVProgressHUD.show(#imageLiteral(resourceName: "tipsPoint"), status: status)
+            SVProgressHUD.show(R.image.point()!, status: status)
             break
         case .errorObject:
             guard let newError = error else {
@@ -152,7 +152,9 @@ class BAProgressHUD: NSObject {
             break
         case .loading:
             SVProgressHUD.setDefaultMaskType(.clear)
-            SVProgressHUD.show(withStatus: status)
+            SVProgressHUD.setImageViewSize(CGSize.zero)
+            SVProgressHUD.show(SystemPublic.publicManage()!.image(from: UIColor.clear, rect: CGRect.init(x: 0, y: 0, width: 1, height: 1)), status: status)
+//            SVProgressHUD.show(withStatus: status)
             break
         }
         SVProgressHUD.dismiss(withDelay: 1.5)

@@ -53,4 +53,10 @@ class RMineRepositoryDataSource: RMineDataSource {
             remote.commitProfileInfo(userInfo:userInfo)
         )
     }
+    
+    func getNewVersion() -> Observable<RRequestResult> {
+        return Observable.concat(
+            remote.getNewVersion()
+        )
+    }
 }

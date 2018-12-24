@@ -54,6 +54,12 @@ class RChangePasswordRemoteDataSource: RChangePasswordDataSource {
             .asObservable()
             .mapObject(RRequestResultObject<RMemberInfo>.self)
             .filter({ (httpResult) -> Bool in
+                if httpResult.code == requestSuccess {
+                    BAProgressHUD.ba_showWithStatus("修改密码成功")
+                }
+                else {
+                    BAProgressHUD.ba_showWithStatus("修改密码失败")
+                }
                 return httpResult.code == requestSuccess
             })
             .map({ (httpReuslt) in

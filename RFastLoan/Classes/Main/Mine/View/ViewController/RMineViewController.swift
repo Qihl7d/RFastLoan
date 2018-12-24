@@ -12,9 +12,10 @@ class RMineViewController: RBaseViewController, UITableViewDelegate, UITableView
 
     let tableView = UITableView.init(frame: .zero, style: UITableView.Style.plain)
     let images : [UIImage] = [R.image.个人中心通知公告()!, R.image.个人中心个人信息()!, R.image.个人中心常见问题()!, R.image.个人中心设置()!, R.image.个人中心检查更新()!, R.image.个人中心联系我们()!]
-    let titles = ["通知公告", "个人信息", "常见问题", "设置", "检查更新", "关于我们"]
+    let titles = ["通知公告", "个人信息", "常见问题", "安全设置", "检查更新", "关于我们"]
     let headerView = RMineHeaderView()
     var userInfo : RMemberInfo!
+    let currentVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,15 +40,34 @@ extension RMineViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.kNavigationColor = UIColor.clear
-        self.kTitleFontColor  = hexColor333
+        self.kTitleFontColor  = UIColor.white
+        let tabbarController = self.tabBarController
+        self.tabBarController?.tabBar.removeFromSuperview()
+        for view in (tabbarController?.view.subviews)! {
+            if view.isKind(of: MainTabBarView.classForCoder()) {
+                view.isHidden = false
+            }
+            else if (view.isKind(of: UITabBar.classForCoder())) {
+                view.isHidden = true
+            }
+        }
+        
+        var image = UIImage.imageWithColor(color: UIColor.clear)
+        UIGraphicsBeginImageContext(CGSize.init(width: kScreenWidth, height: kNavigationBarAndStatusHeight))
+        image.draw(in: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: kNavigationBarAndStatusHeight))
+        image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        navigationController?.navigationBar.setBackgroundImage(image, for: UIBarMetrics.default)
+        
     }
+    
     private func initView() {
         
         self.title = "个人中心"
         self.kNavigationColor = UIColor.clear
-        self.kTitleFontColor  = hexColor333
+        self.kTitleFontColor  = UIColor.white
         view.backgroundColor  = RbackgroundColor
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
@@ -61,8 +81,16 @@ extension RMineViewController {
     
         headerView.clickButtonAction = { [weak self] (button) in
             if button.titleLabel.text == "实名认证" {
-                let viewController = RAuthViewController()
-                self?.navigationController?.pushViewController(viewController, animated: true)
+                if self?.userInfo.status == "1" {
+                    let login = RAuthViewController()
+                    login.checkInfo = true
+                    login.oldUserInfo = self!.userInfo
+                    self?.navigationController?.pushViewController(login, animated: true)
+                }
+                else {
+                    let viewController = RAuthViewController()
+                    self?.navigationController?.pushViewController(viewController, animated: true)
+                }
             }
             else if (button.titleLabel.text == "账单明细") {
                 let billingDetails = RBillingDetailsViewController()
@@ -95,6 +123,8 @@ extension RMineViewController {
                 self.userInfo = info
                 if ((info.credit?.count) != nil) {
                     self.headerView.balanceLabel.text = info.credit
+                    let name = info.name ?? ""
+                    self.headerView.tipsLabel.text = name + " | 可用额度(元)"
                 }
                 else {
                     self.headerView.balanceLabel.text = "0"
@@ -124,7 +154,17 @@ extension RMineViewController {
             cell = UITableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: identifier)
             cell?.accessoryType = .disclosureIndicator
         }
-        
+        if indexPath.row == 4 {
+            let rightLabel = UILabel()
+            rightLabel.textColor = hexColor666
+            rightLabel.font = systemFont(16)
+            rightLabel.text = currentVersion
+            cell?.addSubview(rightLabel)
+            rightLabel.snp.makeConstraints { (make) in
+                make.right.equalTo(-30)
+                make.centerY.equalTo(cell!)
+            }
+        }
         cell?.imageView?.image     = images[indexPath.row]
         cell?.textLabel?.text      = titles[indexPath.row]
         cell?.textLabel?.font      = systemFont(16)
@@ -159,7 +199,20 @@ extension RMineViewController {
             self.navigationController?.pushViewController(setting, animated: true)
             break
         case 4:
-            let about = RAboutUsViewController()
+//            let about = RAboutUsViewController()
+//            self.navigationController?.pushViewController(about, animated: true)
+//            do {
+                let viewModel = RMineViewModel()
+                viewModel.getNewVersion()
+                    .subscribe(onNext: { (httpResult) in
+                        
+                    })
+                    .disposed(by: self.disposeBag)
+//            }
+            break
+        case 5:
+            let about = RCommonWebViewController.init(htmlName:"http://dk.shoux.net:9999/loanManage/api/article/v1/getArticleOne?code=contactUs")
+            about.title = "关于我们"
             self.navigationController?.pushViewController(about, animated: true)
         default:
             break

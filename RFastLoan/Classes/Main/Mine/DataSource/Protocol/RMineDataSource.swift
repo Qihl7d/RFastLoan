@@ -18,5 +18,6 @@ protocol RMineDataSource {
     func getBillingList(status:Int) -> Observable<List<RBillingItem>>
     func getLoanList(status:Int) -> Observable<List<RLoanItem>>
     func getAboutUs() -> Observable<RRequestResult>
-    func commitProfileInfo(userInfo:Dictionary<String, String>) -> Observable<RRequestResult> 
+    func commitProfileInfo(userInfo:Dictionary<String, String>) -> Observable<RRequestResult>
+    func getNewVersion() -> Observable<RRequestResult>
 }

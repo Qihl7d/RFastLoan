@@ -153,4 +153,12 @@
 //获取视频的第一帧
 - (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time;
 
+/**
+ 根据rect和颜色创建图片
+ 
+ @param color 颜色
+ @param rect <#rect description#>
+ @return <#return value description#>
+ */
+- (UIImage *)imageFromColor:(UIColor *)color rect:(CGRect)rect;
 @end

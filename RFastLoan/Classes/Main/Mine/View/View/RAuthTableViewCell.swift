@@ -52,7 +52,7 @@ class RAuthTableViewCell: UITableViewCell, UITextFieldDelegate {
         rightBtn.frame = CGRect.init(x: 0, y: 0, width: 20, height: 30)
 //        rightBtn.isUserInteractionEnabled = false
         rightBtn.setImage(R.image.通用右箭头(), for: UIControl.State.normal)
-        
+        textField.returnKeyType = .done
         textField.textColor = hexColor333
         textField.font = systemFont(14)
         textField.textAlignment = .right
@@ -115,6 +115,11 @@ class RAuthTableViewCell: UITableViewCell, UITextFieldDelegate {
         if textFieldDidChangeBlock != nil {
             textFieldDidChangeBlock!(textField)
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.endEditing(true)
+        return true
     }
     
     required init?(coder aDecoder: NSCoder) {

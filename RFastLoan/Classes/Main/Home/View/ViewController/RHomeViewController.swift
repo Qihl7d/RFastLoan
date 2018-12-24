@@ -54,11 +54,17 @@ extension RHomeViewController {
         
         self.navigationItem.title = "速贷管理平台"
         dataSource = Array()
+//        if #available(iOS 11.0, *) {
+//            UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
         homeHeaderView = RHomeHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 160 + 10 + 40))
+        homeHeaderView.delegate = self
         homeHeaderView.backgroundColor = .white
         
-        tableView = UITableView.init(frame: CGRect.zero, style: UITableView.Style.plain)
+        tableView = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight - kNavigationBarAndStatusHeight - kTabbarHeight), style: UITableView.Style.plain)
         tableView?.delegate        = self
         tableView?.dataSource      = self
         tableView?.rowHeight       = 70
@@ -66,11 +72,9 @@ extension RHomeViewController {
         tableView?.tableFooterView = UIView()
         view.addSubview(tableView!)
         tableView?.register(RHomeTableViewCell.classForCoder(), forCellReuseIdentifier: cellIdentifier)
-        tableView?.snp.makeConstraints({ (make) in
-            make.edges.equalTo(UIEdgeInsets.init(top: 0, left: 0, bottom: kTabbarHeight, right: 0))
-        })
-        
-        
+//        tableView?.snp.makeConstraints({ (make) in
+//            make.edges.equalTo(UIEdgeInsets.init(top: 0, left: 0, bottom: kTabbarHeight, right: 0))
+//        })
     }
 }
 
@@ -148,7 +152,7 @@ extension RHomeViewController {
 
 }
 
-extension RHomeViewController: UITableViewDataSource, UITableViewDelegate {
+extension RHomeViewController: UITableViewDataSource, UITableViewDelegate, RHomeHeaderViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
@@ -163,6 +167,13 @@ extension RHomeViewController: UITableViewDataSource, UITableViewDelegate {
         let cell : RHomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! RHomeTableViewCell
         cell.settingData(dataSource[indexPath.row])
         return cell
+    }
+    
+    func homeHeaderView(_ headerView: RHomeHeaderView, didSelectItemAtIndex model: RHomeBannerItem) {
+        let str = hostUrlStr + "loanManage/api/article/v1/getArticleDetailNews?id=" + model.id!
+        let commonWebView = RCommonWebViewController.init(htmlName: str)
+        commonWebView.title = model.title ?? ""
+        self.navigationController?.pushViewController(commonWebView, animated: true)
     }
     
 }

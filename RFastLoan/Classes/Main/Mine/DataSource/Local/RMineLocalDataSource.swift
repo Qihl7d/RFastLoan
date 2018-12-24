@@ -38,4 +38,8 @@ class RMineLocalDataSource: RMineDataSource {
     func commitProfileInfo(userInfo: Dictionary<String, String>) -> Observable<RRequestResult> {
         return Observable.empty()
     }
+    
+    func getNewVersion() -> Observable<RRequestResult> {
+        return Observable.empty()
+    }
 }

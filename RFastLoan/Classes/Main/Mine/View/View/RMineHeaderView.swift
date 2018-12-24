@@ -11,7 +11,7 @@ import UIKit
 class RMineHeaderView: UIView {
     //返回值是String
     typealias ClickButtonAction = (RButton) -> Void
-    
+    let tipsLabel = UILabel()
     public let balanceLabel = UILabel()
     var clickButtonAction : ClickButtonAction!
     
@@ -44,12 +44,11 @@ class RMineHeaderView: UIView {
         backgroundView.addSubview(balanceLabel)
         balanceLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(backgroundView)
-            make.top.equalTo(90 + kStatusBarHeight)
+            make.top.equalTo(85 + kStatusBarHeight)
             make.width.equalTo(kScreenWidth - 100)
-            make.height.equalTo(30)
+            make.height.equalTo(40)
         }
         
-        let tipsLabel = UILabel()
         tipsLabel.textColor = .white
         tipsLabel.font = systemFont(13)
         tipsLabel.text = "可用额度(元)"
@@ -58,7 +57,7 @@ class RMineHeaderView: UIView {
         tipsLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(backgroundView)
             make.top.equalTo(balanceLabel.snp.bottom).offset(10)
-            make.width.equalTo(100)
+            make.width.equalTo(200)
             make.height.equalTo(16)
         }
         
@@ -72,7 +71,7 @@ class RMineHeaderView: UIView {
         }
         
         let images : [UIImage] = [R.image.个人中心实名认证()!, R.image.个人中心账单明细()!, R.image.个人中心借款申请记录()!]
-        let titles = ["实名认证", "账单明细", "借款申请记录"]
+        let titles = ["实名认证", "账单明细", "申请记录"]
         
         for i in 0 ..< 3 {
             let button = RButton.init(frame: CGRect.zero)

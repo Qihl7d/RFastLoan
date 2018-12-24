@@ -9,15 +9,19 @@
 import UIKit
 import Kingfisher
 
-class RHomeHeaderView: UIView, UIScrollViewDelegate {
+protocol RHomeHeaderViewDelegate {
+    func homeHeaderView(_ headerView:RHomeHeaderView, didSelectItemAtIndex model: RHomeBannerItem)
+}
 
-    let scrollView  = UIScrollView()
-    let contentView = UIView()
-    let pageControl = UIPageControl()
+class RHomeHeaderView: UIView, SDCycleScrollViewDelegate {
+
+    var cycleScrollView : SDCycleScrollView!
     var timer : Timer?
     var currentIndex : Int = 0
     var totalCount : Int = 0
-    
+    var imagesURLStrings = Array<String>()
+    var bannerList:Array<RHomeBannerItem>!
+    var delegate : RHomeHeaderViewDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -27,38 +31,29 @@ class RHomeHeaderView: UIView, UIScrollViewDelegate {
     private func initView() {
         
         backgroundColor = UIColor.hexInt(0xFFFFFF)
-        scrollView.delegate = self
-        scrollView.isPagingEnabled = true
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
-        addSubview(scrollView)
-        scrollView.snp.makeConstraints { (make) in
+
+        cycleScrollView = SDCycleScrollView.init(frame: CGRect.zero, delegate: self, placeholderImage:UIImage())
+        cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+        cycleScrollView.currentPageDotColor = UIColor.white;
+        cycleScrollView.imageURLStringsGroup = imagesURLStrings;
+        cycleScrollView.autoScrollTimeInterval = 5;
+        cycleScrollView.currentPageDotColor = themeColor;
+        cycleScrollView.pageDotColor = UIColor.white;
+        cycleScrollView.layer.masksToBounds = true;
+        cycleScrollView.layer.cornerRadius  = 4;
+        addSubview(cycleScrollView)
+        cycleScrollView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(0)
             make.height.equalTo(160)
         }
         
-        scrollView.addSubview(contentView)
-        contentView.snp.makeConstraints { (make) in
-            make.edges.equalTo(scrollView)
-            make.height.equalTo(scrollView)
-            make.width.greaterThanOrEqualTo(0)
-        }
-        
-        pageControl.pageIndicatorTintColor = UIColor.gray
-        addSubview(pageControl)
-        pageControl.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self)
-            make.bottom.equalTo(scrollView.snp.bottom).offset(-10)
-            make.width.equalTo(200);
-            make.height.equalTo(10)
-        }
         
         let emptyView = UIView.init(frame: .zero)
         emptyView.backgroundColor = UIColor.hexInt(0xF0F2F5)
         addSubview(emptyView)
         emptyView.snp.makeConstraints { (make) in
             make.left.right.equalTo(0);
-            make.top.equalTo(scrollView.snp.bottom)
+            make.top.equalTo(cycleScrollView.snp.bottom)
             make.height.equalTo(10)
         }
         
@@ -90,65 +85,26 @@ class RHomeHeaderView: UIView, UIScrollViewDelegate {
         }
     }
     
-    func setupTimer() {
-        timer = Timer.init(timeInterval: 3, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer!, forMode: RunLoop.Mode.common)
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     public func settingBannerList(_ list:Array<RHomeBannerItem>) {
-        totalCount = list.count;
-        for i in 0 ..< list.count + 2 {
-            let imageView = UIImageView()
-            let index = i % list.count
-            let url = downloadImageUrl + list[index].coverImageUrl!
-            imageView.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: url)!))
-            contentView.addSubview(imageView)
-            imageView.snp.makeConstraints { (make) in
-                make.left.equalTo(CGFloat(i) * kScreenWidth)
-                make.top.equalTo(0);
-                make.bottom.equalTo(0)
-                make.width.equalTo(kScreenWidth)
-                if i == list.count + 1 {
-                    make.right.equalTo(contentView.snp.right)
-                }
-            }
-            
-            pageControl.numberOfPages = list.count
-            
+        bannerList = list
+        var titlesGroup = Array<String>()
+        for item in list {
+            imagesURLStrings.append(downloadImageUrl + item.coverImageUrl!)
+            titlesGroup.append(item.title!)
         }
-        setupTimer()
+        cycleScrollView.imageURLStringsGroup = imagesURLStrings
+        cycleScrollView.titlesGroup = titlesGroup
+
     }
     
-    @objc func timerAction() {
-        currentIndex += 1
-        if currentIndex == totalCount {
-            currentIndex = 0
+    func cycleScrollView(_ cycleScrollView: SDCycleScrollView!, didSelectItemAt index: Int) {
+        if (self.delegate != nil) {
+            self.delegate?.homeHeaderView(self, didSelectItemAtIndex: bannerList[index])
         }
-        if currentIndex == currentIndex + 1 {
-            currentIndex = 1
-        }
-        pageControl.currentPage = currentIndex
-        scrollView.contentOffset = CGPoint.init(x: CGFloat(currentIndex) * kScreenWidth, y: 0)
-        
-    }
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        setupTimer()
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let index = scrollView.contentOffset.x / kScreenWidth;
-        let page = Int(index) % totalCount;
-        scrollView.contentOffset = CGPoint.init(x: page * Int(kScreenWidth), y: 0)
     }
     
     

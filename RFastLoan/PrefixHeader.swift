@@ -45,6 +45,7 @@ let modelsRealm = URL(fileURLWithPath: RLMRealmPathForFile("modes.realm"), isDir
 let accountConfig = Realm.Configuration.init(fileURL:accountRealm , inMemoryIdentifier: nil, syncConfiguration: nil, encryptionKey: realmKey, readOnly: false, schemaVersion: 0, migrationBlock: nil, deleteRealmIfMigrationNeeded: false, shouldCompactOnLaunch: nil, objectTypes: nil)
 //MARK: - 请求部分
 let hostUrl = URL.init(string: "http://dk.shoux.net:9999/")!
+let hostUrlStr = "http://dk.shoux.net:9999/"
 let downloadImageUrl = "http://dk.shoux.net:9999/download"
 // 请求成功时，返回结果
 let requestSuccess = 0

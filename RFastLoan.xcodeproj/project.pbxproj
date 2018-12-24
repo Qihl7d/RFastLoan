@@ -23,6 +23,10 @@
 		1634C24321BEC76000E5EA35 /* RAboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1634C24221BEC76000E5EA35 /* RAboutUsViewController.swift */; };
 		163567DB219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163567DA219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift */; };
 		163567DD219DCF4B00E8DD81 /* RBillingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163567DC219DCF4B00E8DD81 /* RBillingDetailsViewController.swift */; };
+		1636A18E21CAAFD400C0B67C /* RBaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1636A18D21CAAFD400C0B67C /* RBaseWebViewController.swift */; };
+		1636A19121CAB04100C0B67C /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1636A19021CAB04000C0B67C /* NJKWebViewProgressView.m */; };
+		1636A19421CAB19400C0B67C /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1636A19321CAB19400C0B67C /* NJKWebViewProgress.m */; };
+		1636A19621CAB3ED00C0B67C /* RCommonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1636A19521CAB3ED00C0B67C /* RCommonWebViewController.swift */; };
 		1638D03A21C924BE0019BAE9 /* RContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1638D03921C924BE0019BAE9 /* RContacts.m */; };
 		1639214C21C52CB0007EB189 /* RCommonFuncation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639214B21C52CB0007EB189 /* RCommonFuncation.swift */; };
 		1639214E21C66DFD007EB189 /* RBillingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639214D21C66DFD007EB189 /* RBillingItem.swift */; };
@@ -76,6 +80,7 @@
 		163EF8FE218A073A0070B814 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8F3218A073A0070B814 /* String+Extension.swift */; };
 		163EF8FF218A073A0070B814 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8F4218A073A0070B814 /* UIImage+Extension.swift */; };
 		163EF900218A073A0070B814 /* MoyaProvider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EF8F5218A073A0070B814 /* MoyaProvider+Extension.swift */; };
+		163FBD2721CC08A500C19649 /* RCacheTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163FBD2621CC08A500C19649 /* RCacheTool.swift */; };
 		164485DB218B57C50005124F /* RHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DA218B57C50005124F /* RHomeViewController.swift */; };
 		164485DD218B59620005124F /* RHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DC218B59620005124F /* RHomeHeaderView.swift */; };
 		164485DF218B5CC10005124F /* RHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164485DE218B5CC10005124F /* RHomeTableViewCell.swift */; };
@@ -155,6 +160,12 @@
 		1634C24221BEC76000E5EA35 /* RAboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAboutUsViewController.swift; sourceTree = "<group>"; };
 		163567DA219DBA2F00E8DD81 /* RUploadIDCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUploadIDCardTableViewCell.swift; sourceTree = "<group>"; };
 		163567DC219DCF4B00E8DD81 /* RBillingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBillingDetailsViewController.swift; sourceTree = "<group>"; };
+		1636A18D21CAAFD400C0B67C /* RBaseWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBaseWebViewController.swift; sourceTree = "<group>"; };
+		1636A18F21CAB04000C0B67C /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		1636A19021CAB04000C0B67C /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		1636A19221CAB19300C0B67C /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		1636A19321CAB19400C0B67C /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		1636A19521CAB3ED00C0B67C /* RCommonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCommonWebViewController.swift; sourceTree = "<group>"; };
 		1638D03821C924BE0019BAE9 /* RContacts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RContacts.h; sourceTree = "<group>"; };
 		1638D03921C924BE0019BAE9 /* RContacts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RContacts.m; sourceTree = "<group>"; };
 		1639214B21C52CB0007EB189 /* RCommonFuncation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCommonFuncation.swift; sourceTree = "<group>"; };
@@ -215,6 +226,7 @@
 		163EF8F3218A073A0070B814 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		163EF8F4218A073A0070B814 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		163EF8F5218A073A0070B814 /* MoyaProvider+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Extension.swift"; sourceTree = "<group>"; };
+		163FBD2621CC08A500C19649 /* RCacheTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCacheTool.swift; sourceTree = "<group>"; };
 		164485DA218B57C50005124F /* RHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeViewController.swift; sourceTree = "<group>"; };
 		164485DC218B59620005124F /* RHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeHeaderView.swift; sourceTree = "<group>"; };
 		164485DE218B5CC10005124F /* RHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RHomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -295,8 +307,13 @@
 			isa = PBXGroup;
 			children = (
 				1639214B21C52CB0007EB189 /* RCommonFuncation.swift */,
+				1636A19221CAB19300C0B67C /* NJKWebViewProgress.h */,
+				1636A19321CAB19400C0B67C /* NJKWebViewProgress.m */,
+				1636A18F21CAB04000C0B67C /* NJKWebViewProgressView.h */,
+				1636A19021CAB04000C0B67C /* NJKWebViewProgressView.m */,
 				16040B3521C80D2C00CD2467 /* SystemPublic.h */,
 				16040B3621C80D2C00CD2467 /* SystemPublic.m */,
+				163FBD2621CC08A500C19649 /* RCacheTool.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -574,6 +591,8 @@
 				160B59E121A3066A0084E4E0 /* RApplicationPassedViewController.swift */,
 				160B59E321A306F10084E4E0 /* RApplicationFailedViewController.swift */,
 				1634C24221BEC76000E5EA35 /* RAboutUsViewController.swift */,
+				1636A18D21CAAFD400C0B67C /* RBaseWebViewController.swift */,
+				1636A19521CAB3ED00C0B67C /* RCommonWebViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1096,6 +1115,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RFastLoan/Pods-RFastLoan-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -1109,6 +1129,8 @@
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxViewController/RxViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
@@ -1116,6 +1138,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -1129,6 +1152,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
@@ -1190,6 +1215,7 @@
 				163CAAC02188AC0600A6F834 /* RMineViewController.swift in Sources */,
 				163CAAD02188B2F700A6F834 /* R.generated.swift in Sources */,
 				163BC6C321BE492600AE0301 /* RChangePasswordRemoteDataSource.swift in Sources */,
+				1636A19621CAB3ED00C0B67C /* RCommonWebViewController.swift in Sources */,
 				163CAABD2188AC0600A6F834 /* RTableViewViewController.swift in Sources */,
 				16B7054D21B3DEF200273CF3 /* RNotificationName.swift in Sources */,
 				163CAAC32188AC0600A6F834 /* RRegisterViewController.swift in Sources */,
@@ -1221,6 +1247,7 @@
 				16EF4FEE21B9688A00D18DE9 /* RMineDataSource.swift in Sources */,
 				160B59E221A3066A0084E4E0 /* RApplicationPassedViewController.swift in Sources */,
 				163D58DC21B39B7500377013 /* RUserInfo.swift in Sources */,
+				1636A19421CAB19400C0B67C /* NJKWebViewProgress.m in Sources */,
 				163BC6AE21BC229900AE0301 /* RLoanDataSource.swift in Sources */,
 				16B7054721B3D26D00273CF3 /* RRegisterRemoteDataSource.swift in Sources */,
 				160B59DA21A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift in Sources */,
@@ -1230,6 +1257,7 @@
 				1639214E21C66DFD007EB189 /* RBillingItem.swift in Sources */,
 				16EF4FF621B96E6100D18DE9 /* RMineViewModel.swift in Sources */,
 				160B59DE21A300940084E4E0 /* RLoanApplicationViewController.swift in Sources */,
+				1636A19121CAB04100C0B67C /* NJKWebViewProgressView.m in Sources */,
 				163EF8E62189F06B0070B814 /* MainTabBarItem.swift in Sources */,
 				1694691C2191F57A00AA6503 /* RSettingViewController.swift in Sources */,
 				1651BA9C219851540054D7F3 /* RLoanViewController.swift in Sources */,
@@ -1237,6 +1265,7 @@
 				160310CC21C162C6008C24C7 /* RSelectBulletBox.swift in Sources */,
 				163BC6B421BD26D800AE0301 /* RLoanTypeRepositoryDataSource.swift in Sources */,
 				1651BA96219801410054D7F3 /* RCommonProblemViewController.swift in Sources */,
+				1636A18E21CAAFD400C0B67C /* RBaseWebViewController.swift in Sources */,
 				16040B3721C80D2C00CD2467 /* SystemPublic.m in Sources */,
 				16EF4FF821B9857C00D18DE9 /* RCommonProblem.swift in Sources */,
 				163BC6C721BE4B6500AE0301 /* RChangePasswordRepositoryDataSource.swift in Sources */,
@@ -1259,6 +1288,7 @@
 				1638D03A21C924BE0019BAE9 /* RContacts.m in Sources */,
 				163D58E621B3D00700377013 /* RRegisterLocalDataSource.swift in Sources */,
 				1639215021C67E2B007EB189 /* RLoanItem.swift in Sources */,
+				163FBD2721CC08A500C19649 /* RCacheTool.swift in Sources */,
 				1656DAB621B6D013004190E5 /* RHomeBannerRemoteDataSource.swift in Sources */,
 				163CAABB2188AC0600A6F834 /* RBaseNavViewController.swift in Sources */,
 				163CAABA2188AC0600A6F834 /* UIColor+Extension.swift in Sources */,
@@ -1493,7 +1523,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shoux.RFastLoan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = FastLoan_Dis;
+				PROVISIONING_PROFILE_SPECIFIER = FastLoan_Hoc;
 				SWIFT_OBJC_BRIDGING_HEADER = RFastLoan/Classes/Others/RBridgingHeader.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

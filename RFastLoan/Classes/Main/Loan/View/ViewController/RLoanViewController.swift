@@ -23,9 +23,12 @@ class RLoanViewController: RBaseViewController, RPopListViewDelegate, UITextView
     let uploadBtn    = UIButton()
     let label        = UILabel()
     let textView     = UITextView()
+    var lastImageView : UIImageView? = nil
     var costTextField : UITextField?
     var loanTypeTextField :UITextField?
     var loanTypeList = Array<RLoanType>()
+    var selectImages = Array<UIImage>()
+    var selectImageUrls = Array<String>()
     // 一行显示的图片张数
     let rowCount = 4
     
@@ -256,22 +259,28 @@ extension RLoanViewController {
         protocolTips.setImage(R.image.我要借款未选择灰(), for: UIControl.State.normal)
         protocolTips.setImage(R.image.我要借款同意(), for: UIControl.State.selected)
         protocolTips.titleLabel?.font = systemFont(13)
-        protocolTips.setTitle("我已仔细阅读", for: UIControl.State.normal)
+        protocolTips.setTitle("我已阅读并同意", for: UIControl.State.normal)
         protocolTips.setTitleColor(hexColor999, for: UIControl.State.normal)
         protocolTips.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 5)
         protocolTips.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: 5, bottom: 0, right: 5)
         protocolTips.contentHorizontalAlignment = .left
+        protocolTips.addTarget(self, action: #selector(protocolTipsAction(_:)), for: UIControl.Event.touchUpInside)
         contentView.addSubview(protocolTips)
         protocolTips.snp.makeConstraints { (make) in
             make.left.equalTo(10)
             make.top.equalTo(bottomView.snp.bottom).offset(14)
             make.height.equalTo(20)
-            make.width.equalTo(110)
+            make.width.equalTo(117)
         }
         
-        loanRule.setTitle("《借款规则》", for: UIControl.State.normal)
+        let loanRuleAtt = NSMutableAttributedString.init(string: "借款规则", attributes: [NSAttributedString.Key.foregroundColor : themeColor, NSAttributedString.Key.font : systemFont(13)])
+//        loanRuleAtt.addAttribute(NSAttributedString.Key.underlineColor, value: themeColor, range: NSRange.init(location: 0, length: loanRuleAtt.length))
+        loanRuleAtt.addAttribute(NSAttributedString.Key.underlineStyle, value: NSNumber.init(value: NSUnderlineStyle.single.rawValue), range: NSRange.init(location: 0, length: loanRuleAtt.length))
+//        loanRule.setTitle("借款规则", for: UIControl.State.normal)
         loanRule.titleLabel?.font = systemFont(13)
+        loanRule.setAttributedTitle(loanRuleAtt, for: UIControl.State.normal)
         loanRule.setTitleColor(themeColor, for: UIControl.State.normal)
+        loanRule.contentHorizontalAlignment = .left
         contentView.addSubview(loanRule)
         loanRule.snp.makeConstraints { (make) in
             make.left.equalTo(protocolTips.snp.right)
@@ -302,49 +311,56 @@ extension RLoanViewController {
         commitButton.rx.tap
             .subscribe(onNext: { (_) in
                 self.view.endEditing(true)
-                let str0 = self.loanTypeTextField?.text ?? ""
-                if self.loanType.count > 0 {
-                    self.parameters["loanPurpose"] = self.loanTypeTextField?.text
+                if self.protocolTips.isSelected {
+                    let str0 = self.loanTypeTextField?.text ?? ""
+                    self.paths = self.selectImageUrls.joined(separator: ",")
+                    if self.loanType.count > 0 {
+                        self.parameters["loanPurpose"] = self.loanTypeTextField?.text
+                    }
+                    else {
+                        BAProgressHUD.ba_showWithStatus("请输入借款类型")
+                    }
+                    let str = self.costTextField?.text ?? ""
+                    if str.count > 0 {
+                        self.parameters["cost"] = self.costTextField?.text
+                    }
+                    else {
+                        BAProgressHUD.ba_showWithStatus("请输入借款金额")
+                    }
+                    let str1 = self.textView.text ?? ""
+                    if str1.count > 0 {
+                        self.parameters["remark"] = self.textView.text
+                    }
+                    else {
+                        BAProgressHUD.ba_showWithStatus("请输入备注信息")
+                    }
+                    if self.paths.count > 0 {
+                        self.parameters["paths"] = self.paths
+                    }
+                    else {
+                        BAProgressHUD.ba_showWithStatus("请上传证件图片")
+                    }
+                    let viewModel = RLoanViewModel()
+                    viewModel.commitLoanInfo(loanPurpose: str0, cost: str, remark: str1, paths: self.paths)
+                        .subscribe(onNext: { (httpResult) in
+                            // self .dismiss(animated: true, completion: nil)
+                            let str = httpResult.url
+                            let commonWebView = RCommonWebViewController.init(htmlName: str)
+                            commonWebView.title = "提示信息"
+                            self.navigationController?.pushViewController(commonWebView, animated: true)
+                        })
+                        .disposed(by: self.disposeBag)
                 }
                 else {
-                    BAProgressHUD.ba_showWithStatus("请输入借款类型")
+                    BAProgressHUD.ba_showWithStatus("请查看并同意借款协议")
                 }
-                let str = self.costTextField?.text ?? ""
-                if str.count > 0 {
-                    self.parameters["cost"] = self.costTextField?.text
-                }
-                else {
-                    BAProgressHUD.ba_showWithStatus("请输入借款金额")
-                }
-                let str1 = self.textView.text ?? ""
-                if str1.count > 0 {
-                    self.parameters["remark"] = self.textView.text
-                }
-                else {
-                    BAProgressHUD.ba_showWithStatus("请输入备注信息")
-                }
-                if self.paths.count > 0 {
-                    self.parameters["paths"] = self.paths
-                }
-                else {
-                    BAProgressHUD.ba_showWithStatus("请上传证件图片")
-                }
-                let viewModel = RLoanViewModel()
-                viewModel.commitLoanInfo(loanPurpose: str0, cost: str, remark: str1, paths: self.paths)
-                    .subscribe(onNext: { (httpResult) in
-                        if httpResult.code == requestSuccess {
-                        BAProgressHUD.ba_showWithStatus("上传证件照成功")
-                            self .dismiss(animated: true, completion: nil)
-                        }
-                        
-                    })
-                    .disposed(by: self.disposeBag)
-                
-                
-                
             })
             .disposed(by: disposeBag)
         
+    }
+    
+    @objc func protocolTipsAction(_ sender:UIButton) {
+        sender.isSelected = !sender.isSelected;
     }
     
     @objc func cancelAction(_ sender:UIBarButtonItem) {
@@ -371,10 +387,67 @@ extension RLoanViewController {
     }
     
     func open(_ type:UIImagePickerController.SourceType)  {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = type
-        self.present(imagePicker, animated: true, completion: nil)
+        if self.selectImages.count < 3 {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = type
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else {
+            BAProgressHUD.ba_showWithStatus("最多只能上传3张图片")
+        }
+    }
+    
+    @objc func deleteAction(_ sender:UIButton) {
+        
+        let height = (kScreenWidth - CGFloat((rowCount + 1) * 10))/CGFloat(rowCount);
+        let imageView = sender.superview as! UIImageView
+        let curTag = imageView.tag
+        let preImageView = middleView.viewWithTag(curTag - 1)
+        let nextImageView = middleView.viewWithTag(curTag + 1)
+        imageView.removeFromSuperview()
+        if preImageView == nil && nextImageView == nil {
+            lastImageView = nil
+            uploadBtn.snp.remakeConstraints { (make) in
+                make.left.equalTo(10)
+                make.top.equalTo(label.snp.bottom).offset(8)
+                make.width.height.equalTo(height)
+            }
+        }
+        else if preImageView == nil && nextImageView != nil {
+            nextImageView!.snp.remakeConstraints { (make) in
+                make.left.equalTo(10)
+                make.top.equalTo(label.snp.bottom).offset(8)
+                make.width.height.equalTo(height)
+            }
+        }
+        else if preImageView != nil && nextImageView == nil {
+            lastImageView = preImageView as? UIImageView
+            uploadBtn.snp.remakeConstraints { (make) in
+                make.left.equalTo(preImageView!.snp.right).offset(10)
+                make.top.equalTo(label.snp.bottom).offset(8)
+                make.width.height.equalTo(height)
+            }
+        }
+        else {
+            nextImageView!.snp.remakeConstraints { (make) in
+                make.left.equalTo(preImageView!.snp.right).offset(10)
+                make.top.equalTo(label.snp.bottom).offset(8)
+                make.width.height.equalTo(height)
+            }
+        }
+        if curTag - 10 + 1 < selectImages.count {
+            for index in curTag - 10 + 1 ... selectImages.count {
+                let imageView = middleView.viewWithTag(index + 10) as! UIImageView
+                imageView.tag = index + 10 - 1
+            }
+        }
+        
+        
+        selectImages.remove(at: curTag - 11)
+        if selectImageUrls.count > curTag - 11 {
+            selectImageUrls.remove(at: curTag - 11)
+        }
     }
     
 //    @objc func commitAction(_ sender:UIBarButtonItem) {
@@ -431,13 +504,33 @@ extension RLoanViewController {
         
         let selectImage = info[.originalImage] as! UIImage
         
+        selectImages.append(selectImage)
         let height = (kScreenWidth - CGFloat((rowCount + 1) * 10))/CGFloat(rowCount);
+        
         let imageView = UIImageView.init(image: selectImage)
-        middleView.addSubview(imageView);
+        imageView.isUserInteractionEnabled = true
+        imageView.tag = 10 + selectImages.count
+        middleView.addSubview(imageView)
         imageView.snp.makeConstraints { (make) in
-            make.left.equalTo(10)
+            if lastImageView == nil {
+                make.left.equalTo(10)
+            }
+            else {
+                make.left.equalTo(lastImageView!.snp.right).offset(10)
+            }
             make.top.equalTo(label.snp.bottom).offset(8)
             make.width.height.equalTo(height)
+        }
+    
+        lastImageView = imageView
+        
+        let delete = UIButton()
+        delete.setImage(R.image.del(), for: .normal)
+        delete.addTarget(self, action: #selector(deleteAction(_:)), for: UIControl.Event.touchUpInside)
+        imageView.addSubview(delete)
+        delete.snp.makeConstraints { (make) in
+            make.right.top.equalTo(0)
+            make.width.height.equalTo(20)
         }
         
         uploadBtn.snp.remakeConstraints { (make) in
@@ -449,8 +542,8 @@ extension RLoanViewController {
         let data = selectImage.jpegData(compressionQuality: 0.5)!
         let request = RCommonRequest()
         request.upload(urlString: "http://dk.shoux.net:9999/loanManage/api/common/v1/upload", params: nil, imageData: data, success: { (result) in
-            
-            self.paths = result["data"] ?? ""
+            self.selectImageUrls.append(result["data"] ?? "")
+//            self.paths = result["data"] ?? ""
         }) { (error) in
             BAProgressHUD.ba_showWithStatus("图片上传失败")
         };

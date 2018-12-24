@@ -4,3 +4,6 @@
 
 #import "SystemPublic.h"
 #import "RContacts.h"
+#import <SDCycleScrollView.h>
+#import "NJKWebViewProgress.h"
+#import "NJKWebViewProgressView.h"

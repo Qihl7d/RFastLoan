@@ -15,12 +15,14 @@ class RAnnouncementNoticeViewController: RTableViewViewController {
     var dataSource : Array<RAnnouncement>!
     let pageSize = 20
     var pageIndex = 1
+    let readBtn = UIButton()
+    let unreadBtn = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initView()
-        initData()
+        loadData(0)
         // Do any additional setup after loading the view.
     }
     
@@ -41,6 +43,72 @@ extension RAnnouncementNoticeViewController {
     func initView() {
         
         self.title = "通知公告"
+        
+        readBtn.setTitle("未读", for: .normal)
+        readBtn.setTitleColor(themeColor, for: UIControl.State.normal)
+        readBtn.titleLabel?.font = systemFont(15);
+        readBtn.backgroundColor = UIColor.white
+        view.addSubview(readBtn)
+        readBtn.snp.makeConstraints { (make) in
+            make.left.top.equalTo(0)
+            make.right.equalTo(view.snp.centerX)
+            make.height.equalTo(40)
+        }
+        
+        let line1 = UIView()
+        line1.backgroundColor = themeColor
+        readBtn.addSubview(line1)
+        line1.bringSubviewToFront(readBtn)
+        line1.snp.makeConstraints { (make) in
+            make.centerX.equalTo(readBtn)
+            make.bottom.equalTo(0)
+            make.width.equalTo(50)
+            make.height.equalTo(2)
+        }
+        
+        unreadBtn.setTitle("已读", for: .normal)
+        unreadBtn.setTitleColor(hexColor666, for: .normal)
+        unreadBtn.titleLabel?.font = systemFont(15)
+        unreadBtn.backgroundColor = UIColor.white
+        view.addSubview(unreadBtn)
+        unreadBtn.snp.makeConstraints { (make) in
+            make.top.right.equalTo(0)
+            make.left.equalTo(view.snp.centerX)
+            make.height.equalTo(40)
+        }
+        
+        
+        let line2 = UIView()
+        line2.backgroundColor = UIColor.white
+        unreadBtn.addSubview(line2)
+        line2.bringSubviewToFront(unreadBtn)
+        line2.snp.makeConstraints { (make) in
+            make.centerX.equalTo(unreadBtn)
+            make.bottom.equalTo(0)
+            make.width.equalTo(50)
+            make.height.equalTo(2)
+        }
+        
+        unreadBtn.rx.tap
+            .subscribe(onNext: { (_) in
+                self.unreadBtn.setTitleColor(themeColor, for: UIControl.State.normal)
+                line2.backgroundColor = themeColor
+                self.readBtn.setTitleColor(hexColor666, for: UIControl.State.normal)
+                line1.backgroundColor = UIColor.white
+                self.loadData(1)
+            })
+            .disposed(by: disposeBag)
+        
+        readBtn.rx.tap
+            .subscribe(onNext: { (_) in
+                self.unreadBtn.setTitleColor(hexColor666, for: UIControl.State.normal)
+                line2.backgroundColor = UIColor.white
+                self.readBtn.setTitleColor(themeColor, for: UIControl.State.normal)
+                line1.backgroundColor = themeColor
+                self.loadData(0)
+            })
+            .disposed(by: disposeBag)
+        
         self.dataSource = Array()
         tableView.backgroundColor = RbackgroundColor
         tableView.delegate   = self
@@ -51,16 +119,16 @@ extension RAnnouncementNoticeViewController {
         // tableView.separatorStyle = .none
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.edges.equalTo(UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0))
+            make.edges.equalTo(UIEdgeInsets.init(top: 40, left: 0, bottom: 0, right: 0))
         }
     }
 }
 
 extension RAnnouncementNoticeViewController {
-    func initData() {
+    func loadData(_ readeStatus:Int) {
         
         let viewModel = RMineViewModel()
-        viewModel.getAnnouncement(code: "notice", readeStatus: 0)
+        viewModel.getAnnouncement(code: "notice", readeStatus: readeStatus)
             .subscribe(onNext:{ list in
                 self.dataSource = list.toArray()
                 self.tableView.reloadData()
@@ -77,6 +145,7 @@ extension RAnnouncementNoticeViewController : UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! RAnnouncementNoticeTableViewCell
+        cell.selectionStyle = .none
 //        if cell == nil {
 //            cell = RAnnouncementNoticeTableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: identifier)
 //        }
@@ -84,7 +153,13 @@ extension RAnnouncementNoticeViewController : UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model : RAnnouncement = self.dataSource[indexPath.row]
+        let str = hostUrlStr + "loanManage/api/article/v1/getNoticeDetail?id=" + model.id! + "&token=" + RAccessToken.userAccessToken()
+        let commonWebView = RCommonWebViewController.init(htmlName: str)
+        commonWebView.title = model.title ?? ""
+        self.navigationController?.pushViewController(commonWebView, animated: true)
+    }
 }
 
 

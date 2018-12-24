@@ -100,7 +100,8 @@ extension RCommonProblemViewController : UITableViewDelegate, UITableViewDataSou
             cell = UITableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "kCellA")
             cell?.accessoryType = .disclosureIndicator
         }
-        cell?.textLabel?.text = dataSource[indexPath.row].title
+        cell?.selectionStyle  = .none
+        cell?.textLabel?.text = dataSource[indexPath.row].content
         cell?.textLabel?.font = systemFont(14)
         cell?.textLabel?.textColor = hexColor333
         return cell!
@@ -110,5 +111,14 @@ extension RCommonProblemViewController : UITableViewDelegate, UITableViewDataSou
         if indexPath.row == dataSource.count - 1 {
             cell.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let model : RCommonProblem = self.dataSource[indexPath.row]
+        let str = hostUrlStr + "loanManage/api/article/v1/getArticleDetailNews?id=" + model.id!
+        let commonWebView = RCommonWebViewController.init(htmlName: str)
+        commonWebView.title = model.title ?? ""
+        self.navigationController?.pushViewController(commonWebView, animated: true)
     }
 }

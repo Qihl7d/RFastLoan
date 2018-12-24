@@ -54,6 +54,7 @@ extension RRegisterViewController {
         self.title            = "注册"
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: R.image.通用返回箭头(), style: UIBarButtonItem.Style.plain, target: self, action: #selector(back))
         
         let logoImageView = UIImageView.init(image: R.image.登录页面logo())
         view.addSubview(logoImageView)
@@ -217,24 +218,36 @@ extension RRegisterViewController {
     private func initData() {
         
     }
+    
+    @objc func back() {
+        self.navigationController?.popViewController(animated: true)
+    }
 
     func attachEvent() {
         sendVerificationCode.rx.tap
             .subscribe(onNext: { (_) in
-                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.countdownCountDegressive), userInfo: nil, repeats: true )
-                self.timer?.fire()
-                
-//                self.timer?.fireDate = NSDate.distantPast
-                self.viewModel.sendVerificationCode(self.phoneNumber.text!)
-                    .subscribe(onNext:{ (success, msg) in
-                        if success {
-                            BAProgressHUD.ba_showWithStatus("获取验证码成功")
-                        }
-                        else {
-                            BAProgressHUD.ba_showError(withStatus: msg)
-                        }
-                    })
-                    .disposed(by: self.disposeBag)
+                let phone = self.phoneNumber.text ?? ""
+                if phone.count == 0 {
+                    BAProgressHUD.ba_showWithStatus("请输入手机号")
+                }
+                else if RCommonFuncation.isTelNumber(num:phone as NSString) {
+    //                self.timer?.fireDate = NSDate.distantPast
+                    self.viewModel.sendVerificationCode(self.phoneNumber.text!)
+                        .subscribe(onNext:{ (success, msg) in
+                            if success {
+                                BAProgressHUD.ba_showWithStatus("获取验证码成功")
+                                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.countdownCountDegressive), userInfo: nil, repeats: true )
+                                self.timer?.fire()
+                            }
+                            else {
+                                BAProgressHUD.ba_showError(withStatus: msg)
+                            }
+                        })
+                        .disposed(by: self.disposeBag)
+                }
+                else {
+                    BAProgressHUD.ba_showWithStatus("请输入手机号")
+                }
             })
             .disposed(by: disposeBag)
         
@@ -285,11 +298,16 @@ extension RRegisterViewController {
             sendVerificationCode.setTitle("\(countdown.value)秒后重试", for: UIControl.State.normal)
             sendVerificationCode.isEnabled = false
         }
-        else {
+        else if countdown.value == 0 || countdown.value < 0 {
+
             sendVerificationCode.setTitle("获取验证码", for: UIControl.State.normal)
             sendVerificationCode.isEnabled = true
             timer?.invalidate()
             timer = nil
         }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

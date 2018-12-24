@@ -18,6 +18,8 @@ target 'RFastLoan' do
     pod 'SVProgressHUD'
     #    日志框架
     pod 'SwiftyBeaver'
+    pod 'SDCycleScrollView'
+    pod 'IQKeyboardManagerSwift'
   # Pods for RFastLoan
 
   target 'RFastLoanTests' do

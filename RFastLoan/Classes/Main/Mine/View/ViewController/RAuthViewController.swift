@@ -33,7 +33,7 @@ class RAuthViewController: RTableViewViewController, RSelectBulletBoxDelegate, U
     let uploadPhotoIdentifier = "RUploadIDCardTableViewCell"
     let selectIdentifier = "RSelectAuthTableViewCell"
     var userInfo = Dictionary<String,String>()
-    let dictionary : Dictionary<String, Array<String>> = ["24":["男", "女"], "25":["博士", "研究生", "本科", "大专", "高中及高中以下"], "26":["未婚", "已婚", "离异"], "28":["1年" ,"2年", "3年", "4年"], "42":["父亲","母亲","兄弟姐妹", "好友", "妻子","女友","其它"]]
+    let dictionary : Dictionary<String, Array<String>> = ["24":["男", "女"], "25":["博士", "研究生", "本科", "大专", "高中及高中以下"], "26":["未婚", "已婚", "离异"], "28":["1年" ,"2年", "3年", "4年", "4年以上"], "42":["父亲","母亲","兄弟姐妹", "好友", "妻子","女友","其它"]]
     var clickImageView : UIImageView?
     
     override func viewDidLoad() {
@@ -74,11 +74,19 @@ extension RAuthViewController {
         commitBtn.rx.tap
             .subscribe(onNext: { (_) in
                 let viewModel = RMineViewModel()
-                viewModel.commitProfileInfo(userInfo: self.userInfo)
-                    .subscribe(onNext: { (httpResult) in
-                        
-                    })
-                    .disposed(by: self.disposeBag)
+                if self.parameterCheck() {
+                    viewModel.commitProfileInfo(userInfo: self.userInfo)
+                        .subscribe(onNext: { (httpResult) in
+                            if httpResult.code == requestSuccess {
+                                BAProgressHUD.ba_showWithStatus("实名认证成功")
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                            else {
+                                BAProgressHUD.ba_showWithStatus("实名认证失败")
+                            }
+                        })
+                        .disposed(by: self.disposeBag)
+                }
             })
             .disposed(by: disposeBag)
         
@@ -104,6 +112,89 @@ extension RAuthViewController {
         
     }
     
+    func parameterCheck() -> Bool {
+        if userInfo["name"] == nil || userInfo["name"]?.count == 0 {
+            BAProgressHUD.ba_showWithStatus("请输入真实姓名")
+            return false
+        }
+        else if (userInfo["tel"] == nil || userInfo["tel"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请输入手机号")
+            return false
+        }
+        else if (RCommonFuncation.isTelNumber(num: userInfo["tel"]! as NSString) == false) {
+            BAProgressHUD.ba_showWithStatus("请输入正确的手机号")
+            return false
+        }
+        else if (userInfo["idcard"] == nil || userInfo["idcard"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请输入银行卡号")
+            return false
+        }
+        else if (userInfo["birthday"] == nil || userInfo["birthday"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请输入出生日期")
+            return false
+        }
+        else if (userInfo["sex"] == nil || userInfo["sex"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请选择性别")
+            return false
+        }
+        else if (userInfo["education"] == nil || userInfo["education"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请选择学历")
+            return false
+        }
+        else if (userInfo["marriageStatus"] == nil || userInfo["marriageStatus"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请选择婚姻状况")
+            return false
+        }
+        else if (userInfo["jobName"] == nil || userInfo["jobName"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请输入职业职位")
+            return false
+        }
+        else if (userInfo["workYears"] == nil || userInfo["workYears"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请选择工作年限")
+            return false
+        }
+        else if (userInfo["qqcode"] == nil || userInfo["qqcode"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请输入QQ号")
+            return false
+        }
+        else if (userInfo["wechatCode"] == nil || userInfo["wechatCode"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请输入微信号")
+            return false
+        }
+        else if (userInfo["address"] == nil || userInfo["address"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请输入地址")
+            return false
+        }
+        else if (userInfo["contactName"] == nil || userInfo["contactName"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请输入联系人")
+            return false
+        }
+        else if (userInfo["contactTel"] == nil || userInfo["contactTel"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请输入联系人手机号")
+            return false
+        }
+        else if (userInfo["contactNexus"] == nil || userInfo["contactNexus"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请选择联系人关系")
+            return false
+        }
+        else if (userInfo["idcardImg01"] == nil || userInfo["idcardImg01"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请上传身份证正面照")
+            return false
+        }
+        else if (userInfo["contactNexus"] == nil || userInfo["contactNexus"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请上传身份证反面照")
+            return false
+        }
+        else if (userInfo["contactNexus"] == nil || userInfo["contactNexus"]?.count == 0) {
+            BAProgressHUD.ba_showWithStatus("请上传手持身份证照片")
+            return false
+        }
+        else {
+            return true
+        }
+
+    }
+    
     func inputDataManipulate(textField:UITextField) {
         switch textField.tag {
         case 20:
@@ -115,7 +206,8 @@ extension RAuthViewController {
         case 23:
             userInfo["birthday"] = textField.text
         case 24:
-            userInfo["sex"] = textField.text
+//            userInfo["sex"] = textField.text
+            break
         case 25:
             userInfo["education"] = textField.text;
         case 26:
@@ -194,7 +286,9 @@ extension RAuthViewController {
             .disposed(by: disposeBag)
     }
 
-    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 
 extension RAuthViewController : UITableViewDelegate, UITableViewDataSource {
@@ -288,6 +382,9 @@ extension RAuthViewController : UITableViewDelegate, UITableViewDataSource {
                 if (indexPath.section == 0 && (indexPath.row == 1 || indexPath.row == 9)) || (indexPath.section == 1 && indexPath.row == 1) {
                     cell.textField.keyboardType = .numberPad
                 }
+                else {
+                    cell.textField.keyboardType = .default
+                }
                 cell.setText(string)
                 // 20 + / 40 + //
                 cell.setTextFieldTag(tag: (indexPath.section + 1) * 20 + indexPath.row)
@@ -343,7 +440,7 @@ extension RAuthViewController : UITableViewDelegate, UITableViewDataSource {
         else {
             let cell : RUploadIDCardTableViewCell = tableView.dequeueReusableCell(withIdentifier: uploadPhotoIdentifier) as! RUploadIDCardTableViewCell
             if checkInfo {
-                cell.frontPhoto.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: oldUserInfo.promoteCode ?? "")!))
+                cell.frontPhoto.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: oldUserInfo.idcardImg01 ?? "")!))
                 cell.reversePhoto.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: oldUserInfo.idcardImg02 ?? "")!))
                 cell.handHeldPhoto.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: oldUserInfo.idcardImg03 ?? "")!))
             }
@@ -396,6 +493,7 @@ extension RAuthViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        self.view.endEditing(true)
         if ((indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 6 || indexPath.row == 8) && indexPath.section == 0) || ((indexPath.row == 2) && indexPath.section == 1) {
             self.view.endEditing(true)
             let bulletBox = RSelectBulletBox.init(frame: UIScreen.main.bounds)

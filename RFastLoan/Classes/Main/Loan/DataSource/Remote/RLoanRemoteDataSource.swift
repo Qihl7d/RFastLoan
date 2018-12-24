@@ -50,7 +50,8 @@ extension RLoanApi : TargetType {
         case .getLoanType(let code):
             return .requestParameters(parameters: ["code":code], encoding: URLEncoding.httpBody)
         case .commitLoanInfo(let loanPurpose, let cost, let remark, let paths):
-            return .requestParameters(parameters: ["loanPurpose": loanPurpose, "cost":cost, "remark":remark, "paths":paths], encoding: URLEncoding.httpBody)
+            let parameters = ["loanPurpose": loanPurpose, "cost":cost, "remark":remark, "paths":paths]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.httpBody)
         case .uploadImage(let imageData):
 //            let formData = MultipartFormData.init(provider: MultipartFormData.FormDataProvider.data(imageData), name: "uploadImg", fileName: "xxxx.jpg", mimeType: "image/png")
             let formData = MultipartFormData.init(provider: MultipartFormData.FormDataProvider.data(imageData), name: "uploadImg")
@@ -93,6 +94,12 @@ class RLoanRemoteDataSource: RLoanDataSource {
             .asObservable()
             .mapObject(RRequestResult.self)
             .filter({ (httpResult) -> Bool in
+                if httpResult.code == requestSuccess {
+                    BAProgressHUD.ba_showWithStatus("借款申请提交成功")
+                }
+                else {
+                    BAProgressHUD.ba_showWithStatus("借款申请提交失败")
+                }
                 return httpResult.code == requestSuccess
             })
             .map({ (httpResult) in

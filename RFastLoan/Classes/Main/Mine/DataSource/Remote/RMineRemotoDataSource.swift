@@ -19,6 +19,7 @@ enum RMineApi {
     case getLoanList(status: Int)
     case getAboutUs()
     case commitProfileInfo(userInfo:Dictionary<String, String>)
+    case getNewVersion()
 }
 
 extension RMineApi : TargetType {
@@ -31,7 +32,7 @@ extension RMineApi : TargetType {
         case .userInfo():
             return "loanManage/api/member/v1/getMemberInfo"
         case .commonProblem(_, _, _):
-            return "loanManage/api/article/v1/getArticleDetailNews"
+            return "loanManage/api/article/v1/findArticleLimtList"
         case .announcement(_, _):
             return "loanManage/api/article/v1/findNoticeList"
         case .getBillingList(_):
@@ -42,6 +43,8 @@ extension RMineApi : TargetType {
             return "loanManage/api/article/v1/getArticleOne"
         case .commitProfileInfo(_):
             return "loanManage/api/member/v1/updateMember"
+        case .getNewVersion():
+            return "loanManage/api/common/v1/getLatestVersion"
         default:
             break
         }
@@ -71,6 +74,8 @@ extension RMineApi : TargetType {
             return .requestParameters(parameters: ["code":"contactUs"], encoding: URLEncoding.httpBody)
         case .commitProfileInfo(let userInfo):
             return .requestParameters(parameters: userInfo, encoding: URLEncoding.httpBody)
+        case .getNewVersion():
+            return .requestParameters(parameters: ["system":"ios"], encoding: URLEncoding.httpBody)
         default:
             break
         }
@@ -173,6 +178,19 @@ class RMineRemotoDataSource: RMineDataSource {
                 else {
                     BAProgressHUD.ba_showWithStatus(httpResult.msg)
                 }
+                return httpResult.code == requestSuccess
+            })
+            .map({ (httpResult) in
+                return httpResult
+            })
+    }
+    
+    func getNewVersion() -> Observable<RRequestResult> {
+        return provider.rx.request(.getNewVersion())
+            .debug()
+            .asObservable()
+            .mapObject(RRequestResult.self)
+            .filter({ (httpResult) -> Bool in
                 return httpResult.code == requestSuccess
             })
             .map({ (httpResult) in

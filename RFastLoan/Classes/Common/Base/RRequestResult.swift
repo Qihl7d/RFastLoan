@@ -13,37 +13,38 @@ import ObjectMapper_Realm
 
 class RRequestResult: Object, Mappable {
     var code : Int = 0
-    var msg : String = ""
+    var msg  : String = ""
     var data : (Any)? = nil
-    
+    var url  : String = ""
     required convenience init?(map: Map) {
         self.init()
     }
     
     func mapping(map: Map) {
         code <- map["code"]
-        msg <- map["msg"]
+        msg  <- map["msg"]
         data <- map["data"]
+        url  <- map["url"]
     }
 }
 
 class RRequestResultObject<T:Object & Mappable>: Object, Mappable {
     var code : Int?
-    var msg : String = ""
+    var msg  : String = ""
     var data : T?
     required convenience init?(map: Map) {
         self.init()
     }
     func mapping(map: Map) {
         code <- map["code"]
-        msg <- map["message"]
+        msg  <- map["message"]
         data <- map["data"]
     }
 }
 
 class RRequestResultList<T:Object & Mappable>: Object, Mappable {
     var code : Int = 0
-    var msg : String = ""
+    var msg  : String = ""
     var data : List<T>?
     required convenience init?(map: Map) {
         self.init()
@@ -51,7 +52,7 @@ class RRequestResultList<T:Object & Mappable>: Object, Mappable {
     
     func mapping(map: Map) {
         code <- map["code"]
-        msg <- map["msg"]
+        msg  <- map["msg"]
         if (map["data"].currentValue != nil) {
             data <- (map["data"], ListTransform<T>())
         }

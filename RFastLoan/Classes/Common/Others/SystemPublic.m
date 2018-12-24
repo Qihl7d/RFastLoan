@@ -709,4 +709,23 @@ static SystemPublic *systemPublic = nil;
     return thumbnailImage;
 }
 
+/**
+ 根据rect和颜色创建图片
+
+ @param color 颜色
+ @param rect <#rect description#>
+ @return <#return value description#>
+ */
+- (UIImage *)imageFromColor:(UIColor *)color rect:(CGRect)rect {
+    
+//    CGRect rect = CGRectMake(0, 0, 3, 3);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
 @end

@@ -18,6 +18,7 @@ class RSettingViewController: RTableViewViewController {
         initView()
         // Do any additional setup after loading the view.
     }
+
     
 
     /*
@@ -35,7 +36,7 @@ class RSettingViewController: RTableViewViewController {
 extension RSettingViewController {
     func initView() {
         
-        self.title = "设置"
+        self.title = "安全设置"
         
         let bottomView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 140))
         bottomView.backgroundColor = RbackgroundColor
@@ -91,6 +92,18 @@ extension RSettingViewController : UITableViewDataSource, UITableViewDelegate {
             cell = UITableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "kCellA")
             cell?.accessoryType    = .disclosureIndicator
         }
+        if indexPath.row == 1 {
+            let rightLabel = UILabel()
+            rightLabel.tag = 50
+            rightLabel.textColor = hexColor666
+            rightLabel.font = systemFont(16)
+            rightLabel.text = RCacheTool.cacheSize
+            cell?.addSubview(rightLabel)
+            rightLabel.snp.makeConstraints { (make) in
+                make.right.equalTo(-15)
+                make.centerY.equalTo(cell!)
+            }
+        }
         cell?.textLabel?.text      = indexPath.row == 1 ? "清理缓存" : "修改登录密码"
         cell?.textLabel?.textColor = hexColor333
         cell?.textLabel?.font      = systemFont(16)
@@ -110,11 +123,21 @@ extension RSettingViewController : UITableViewDataSource, UITableViewDelegate {
             self.navigationController?.pushViewController(changePassword, animated: true)
         }
         else {
+            
+            let cell = tableView.cellForRow(at: indexPath)
+            let rightLabel : UILabel = cell?.viewWithTag(50) as! UILabel
             let alertController = UIAlertController.init(title: "提示", message: "是否清理缓存？", preferredStyle: UIAlertController.Style.alert)
             let cancelAction = UIAlertAction.init(title: "取消", style: UIAlertAction.Style.cancel, handler: nil);
             // 清理缓存
             let confirmAction = UIAlertAction.init(title: "确认", style: UIAlertAction.Style.default) { (_) in
-                
+                let success = RCacheTool.clearCache()
+                if success {
+                    BAProgressHUD.ba_showWithStatus("清理缓存失败")
+                }
+                else {
+                    BAProgressHUD.ba_showWithStatus("清理缓存成功")
+                }
+                rightLabel.text = RCacheTool.cacheSize
             }
             alertController.addAction(cancelAction)
             alertController.addAction(confirmAction)
