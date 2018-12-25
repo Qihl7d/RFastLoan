@@ -81,7 +81,7 @@ extension RMineViewController {
     
         headerView.clickButtonAction = { [weak self] (button) in
             if button.titleLabel.text == "实名认证" {
-                if self?.userInfo.status == "1" {
+                if self?.userInfo.status == "1" || self?.userInfo.status == "0" {
                     let login = RAuthViewController()
                     login.checkInfo = true
                     login.oldUserInfo = self!.userInfo
@@ -185,10 +185,15 @@ extension RMineViewController {
             self.navigationController?.pushViewController(announcementNotice, animated: true)
             break;
         case 1:
-            let login = RAuthViewController()//RRegisterViewController()//RLoginViewController()
-            login.checkInfo = true
-            login.oldUserInfo = userInfo
-            self.navigationController?.pushViewController(login, animated: true)
+            if self.userInfo.status == "1" || self.userInfo.status == "0" {
+                let login = RAuthViewController()//RRegisterViewController()//RLoginViewController()
+                login.checkInfo = true
+                login.oldUserInfo = userInfo
+                self.navigationController?.pushViewController(login, animated: true)
+            }
+            else {
+                BAProgressHUD.ba_showWithStatus("请先实名认证")
+            }
             break
         case 2:
             let commonProblem = RCommonProblemViewController()

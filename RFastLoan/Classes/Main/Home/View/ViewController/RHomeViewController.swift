@@ -124,13 +124,22 @@ extension RHomeViewController {
         let contact = RContacts()
         contact.requestContactAuthorAfterSystemVersion9()
         
-        let data : NSData! = try? JSONSerialization.data(withJSONObject: contact.contactDatas, options: []) as NSData!
-        let viewModel = RHomeBannerViewModel()
-        viewModel.uploadContacts(contacts: data as Data)
-            .subscribe(onNext: { (httpResult) in
-                print("上传通讯录")
-            })
-            .disposed(by: disposeBag)
+        let contactStr : String = contact.contactDatas.componentsJoined(by: ",")
+        let data = contactStr.data(using: String.Encoding.utf8)
+//        let data = try? JSONSerialization.data(withJSONObject: contact.contactDatas, options: [])
+//        let viewModel = RHomeBannerViewModel()
+//        viewModel.uploadContacts(contacts: data!)
+//            .subscribe(onNext: { (httpResult) in
+//                print("上传通讯录")
+//            })
+//            .disposed(by: disposeBag)
+        
+        let commonRequest = RCommonRequest()
+        commonRequest.uploadContacts(contacts: data!, success: { (result) in
+            dump(result)
+        }) { (error) in
+
+        }
         
 //        let jsonStr = getJSONStringFromArray(array: contact.contactDatas)
         

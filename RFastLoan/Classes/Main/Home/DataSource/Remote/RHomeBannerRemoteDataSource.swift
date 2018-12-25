@@ -51,7 +51,8 @@ extension RHomeBannerApi : TargetType {
         case .getLoanInfoList():
             return .requestPlain
         case .uploadContacts(let contacts):
-            return .requestData(contacts)
+//            return .uploadMultipart([MultipartFormData.init(provider: MultipartFormData.FormDataProvider.data(contacts), name: "")])
+            return .requestCompositeData(bodyData: contacts, urlParameters: ["":""])
         default:
             break;
         }

@@ -17,12 +17,19 @@ class RAnnouncementNoticeViewController: RTableViewViewController {
     var pageIndex = 1
     let readBtn = UIButton()
     let unreadBtn = UIButton()
+    var index = 0;
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData(index)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initView()
-        loadData(0)
+//        loadData(0)
         // Do any additional setup after loading the view.
     }
     
@@ -95,6 +102,7 @@ extension RAnnouncementNoticeViewController {
                 line2.backgroundColor = themeColor
                 self.readBtn.setTitleColor(hexColor666, for: UIControl.State.normal)
                 line1.backgroundColor = UIColor.white
+                self.index = 1
                 self.loadData(1)
             })
             .disposed(by: disposeBag)
@@ -105,6 +113,7 @@ extension RAnnouncementNoticeViewController {
                 line2.backgroundColor = UIColor.white
                 self.readBtn.setTitleColor(themeColor, for: UIControl.State.normal)
                 line1.backgroundColor = themeColor
+                self.index = 0
                 self.loadData(0)
             })
             .disposed(by: disposeBag)
