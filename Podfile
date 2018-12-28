@@ -9,7 +9,7 @@ target 'RFastLoan' do
     pod 'Moya/RxSwift'
     pod 'SnapKit'
     pod 'RxRealm'
-    pod 'R.swift', '~> 5.0.0.alpha.2'
+    pod 'R.swift', '~> 5.0.0'
     pod 'ObjectMapper'
     pod 'Kingfisher'
     pod 'ObjectMapper+Realm'

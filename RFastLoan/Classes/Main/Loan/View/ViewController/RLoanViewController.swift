@@ -314,42 +314,42 @@ extension RLoanViewController {
                 if self.protocolTips.isSelected {
                     let str0 = self.loanTypeTextField?.text ?? ""
                     self.paths = self.selectImageUrls.joined(separator: ",")
+                    let str = self.costTextField?.text ?? ""
+                    let str1 = self.textView.text ?? ""
                     if self.loanType.count > 0 {
                         self.parameters["loanPurpose"] = self.loanTypeTextField?.text
+                        if str.count > 0 {
+                            self.parameters["cost"] = self.costTextField?.text
+                            if str1.count > 0 {
+                                self.parameters["remark"] = self.textView.text
+                                if self.paths.count > 0 {
+                                    self.parameters["paths"] = self.paths
+                                    let viewModel = RLoanViewModel()
+                                    viewModel.commitLoanInfo(loanPurpose: str0, cost: str, remark: str1, paths: self.paths)
+                                        .subscribe(onNext: { (httpResult) in
+                                            // self .dismiss(animated: true, completion: nil)
+                                            let str = httpResult.url
+                                            let commonWebView = RCommonWebViewController.init(htmlName: str)
+                                            commonWebView.title = "提示信息"
+                                            self.navigationController?.pushViewController(commonWebView, animated: true)
+                                        })
+                                        .disposed(by: self.disposeBag)
+                                }
+                                else {
+                                    BAProgressHUD.ba_showWithStatus("请上传证件图片")
+                                }
+                            }
+                            else {
+                                BAProgressHUD.ba_showWithStatus("请输入备注信息")
+                            }
+                        }
+                        else {
+                            BAProgressHUD.ba_showWithStatus("请输入借款金额")
+                        }
                     }
                     else {
                         BAProgressHUD.ba_showWithStatus("请输入借款类型")
                     }
-                    let str = self.costTextField?.text ?? ""
-                    if str.count > 0 {
-                        self.parameters["cost"] = self.costTextField?.text
-                    }
-                    else {
-                        BAProgressHUD.ba_showWithStatus("请输入借款金额")
-                    }
-                    let str1 = self.textView.text ?? ""
-                    if str1.count > 0 {
-                        self.parameters["remark"] = self.textView.text
-                    }
-                    else {
-                        BAProgressHUD.ba_showWithStatus("请输入备注信息")
-                    }
-                    if self.paths.count > 0 {
-                        self.parameters["paths"] = self.paths
-                    }
-                    else {
-                        BAProgressHUD.ba_showWithStatus("请上传证件图片")
-                    }
-                    let viewModel = RLoanViewModel()
-                    viewModel.commitLoanInfo(loanPurpose: str0, cost: str, remark: str1, paths: self.paths)
-                        .subscribe(onNext: { (httpResult) in
-                            // self .dismiss(animated: true, completion: nil)
-                            let str = httpResult.url
-                            let commonWebView = RCommonWebViewController.init(htmlName: str)
-                            commonWebView.title = "提示信息"
-                            self.navigationController?.pushViewController(commonWebView, animated: true)
-                        })
-                        .disposed(by: self.disposeBag)
                 }
                 else {
                     BAProgressHUD.ba_showWithStatus("请查看并同意借款协议")

@@ -12,6 +12,7 @@
 		160310C721C15C6A008C24C7 /* ProviceCityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160310C621C15C6A008C24C7 /* ProviceCityList.swift */; };
 		160310CC21C162C6008C24C7 /* RSelectBulletBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160310CB21C162C6008C24C7 /* RSelectBulletBox.swift */; };
 		16040B3721C80D2C00CD2467 /* SystemPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = 16040B3621C80D2C00CD2467 /* SystemPublic.m */; };
+		1608415521D534060010D80D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1608415421D534060010D80D /* R.generated.swift */; };
 		160B59D621A2F6C40084E4E0 /* RAllBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59D521A2F6C40084E4E0 /* RAllBillsViewController.swift */; };
 		160B59D821A2F7170084E4E0 /* RRepaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59D721A2F7170084E4E0 /* RRepaymentViewController.swift */; };
 		160B59DA21A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B59D921A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift */; };
@@ -59,7 +60,6 @@
 		163CAAC32188AC0600A6F834 /* RRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAAB62188AC0500A6F834 /* RRegisterViewController.swift */; };
 		163CAAC42188AC0600A6F834 /* RLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAAB72188AC0500A6F834 /* RLoginViewController.swift */; };
 		163CAACE2188B1F100A6F834 /* RTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAACD2188B1F100A6F834 /* RTabBar.swift */; };
-		163CAAD02188B2F700A6F834 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CAACF2188B2F700A6F834 /* R.generated.swift */; };
 		163D58D521B39AB100377013 /* RUserLoginDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D58CE21B39AB100377013 /* RUserLoginDataSource.swift */; };
 		163D58D621B39AB100377013 /* RUserLoginLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D58D021B39AB100377013 /* RUserLoginLocalDataSource.swift */; };
 		163D58D821B39AB100377013 /* RUserLoginRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D58D321B39AB100377013 /* RUserLoginRemoteDataSource.swift */; };
@@ -149,6 +149,7 @@
 		16040B3321C7FCDE00CD2467 /* RFastLoan.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = RFastLoan.xcworkspace; sourceTree = "<group>"; };
 		16040B3521C80D2C00CD2467 /* SystemPublic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemPublic.h; sourceTree = "<group>"; };
 		16040B3621C80D2C00CD2467 /* SystemPublic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemPublic.m; sourceTree = "<group>"; };
+		1608415421D534060010D80D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		160B59D521A2F6C40084E4E0 /* RAllBillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAllBillsViewController.swift; sourceTree = "<group>"; };
 		160B59D721A2F7170084E4E0 /* RRepaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRepaymentViewController.swift; sourceTree = "<group>"; };
 		160B59D921A2F76A0084E4E0 /* RRepaymentCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRepaymentCompletedViewController.swift; sourceTree = "<group>"; };
@@ -205,7 +206,6 @@
 		163CAAB62188AC0500A6F834 /* RRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RRegisterViewController.swift; sourceTree = "<group>"; };
 		163CAAB72188AC0500A6F834 /* RLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLoginViewController.swift; sourceTree = "<group>"; };
 		163CAACD2188B1F100A6F834 /* RTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTabBar.swift; sourceTree = "<group>"; };
-		163CAACF2188B2F700A6F834 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		163D58CE21B39AB100377013 /* RUserLoginDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUserLoginDataSource.swift; sourceTree = "<group>"; };
 		163D58D021B39AB100377013 /* RUserLoginLocalDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUserLoginLocalDataSource.swift; sourceTree = "<group>"; };
 		163D58D321B39AB100377013 /* RUserLoginRemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUserLoginRemoteDataSource.swift; sourceTree = "<group>"; };
@@ -372,8 +372,8 @@
 		163CAA802188A82000A6F834 /* Supporting File */ = {
 			isa = PBXGroup;
 			children = (
+				1608415421D534060010D80D /* R.generated.swift */,
 				160310C221C15B8B008C24C7 /* province.json */,
-				163CAACF2188B2F700A6F834 /* R.generated.swift */,
 				163CAA502188A27F00A6F834 /* AppDelegate.swift */,
 				163EF8E9218A06A90070B814 /* PrefixHeader.swift */,
 				16B7054E21B3DFCD00273CF3 /* ViewController.swift */,
@@ -1080,14 +1080,16 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				$SRCROOT/RFastLoan/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/RFastLoan\"\n\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/RFastLoan\"\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/RFastLoan/R.generated.swift\"\n\n";
 		};
 		6A6511E47FF5D36836251EF7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1125,6 +1127,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -1148,6 +1151,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -1213,7 +1217,6 @@
 				1656DAAB21B6C0DD004190E5 /* RAccessToken.swift in Sources */,
 				163EF900218A073A0070B814 /* MoyaProvider+Extension.swift in Sources */,
 				163CAAC02188AC0600A6F834 /* RMineViewController.swift in Sources */,
-				163CAAD02188B2F700A6F834 /* R.generated.swift in Sources */,
 				163BC6C321BE492600AE0301 /* RChangePasswordRemoteDataSource.swift in Sources */,
 				1636A19621CAB3ED00C0B67C /* RCommonWebViewController.swift in Sources */,
 				163CAABD2188AC0600A6F834 /* RTableViewViewController.swift in Sources */,
@@ -1299,6 +1302,7 @@
 				1639375A218F26AC00D2794D /* RButton.swift in Sources */,
 				1680BD1E219C65F400464434 /* RAuthTableViewCell.swift in Sources */,
 				16B7055121B4244500273CF3 /* BAProgressHUD.swift in Sources */,
+				1608415521D534060010D80D /* R.generated.swift in Sources */,
 				163CAABE2188AC0600A6F834 /* RMainTabBarViewController.swift in Sources */,
 				160B59E421A306F10084E4E0 /* RApplicationFailedViewController.swift in Sources */,
 				163EF8FF218A073A0070B814 /* UIImage+Extension.swift in Sources */,
