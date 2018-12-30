@@ -18,7 +18,7 @@ class RLoginViewModel: NSObject {
     }
     
     func changePassword(oldPsw: String, newPsw: String) -> Observable<RMemberInfo> {
-        let repository = RChangePasswordRepositoryDataSource()
+        let repository = RUserLoginRepository()
         return repository.changePassword(oldPsw:oldPsw, newPsw:newPsw)
     }
     

@@ -208,23 +208,34 @@ extension RChangePasswordViewController {
         }
         nextButton.rx.tap
             .subscribe(onNext: { [weak self] (_) in
-//                if IDCardTextField.text?.count ?? 0 > 0 && phoneNumber.text?.count ?? 0 > 0 {
-//                    self?.middleLabel.textColor = themeColor
-//                    self?.leftArrow.image = R.image.blueRightArrow()
-//                    self?.scrollView.contentOffset = CGPoint.init(x: kScreenWidth, y: 0)
-//                }
+
                 if IDCardTextField.text?.count == 0 {
                     BAProgressHUD.ba_showWithStatus("请输入旧密码")
                 }
-                if phoneNumber.text?.count == 0 {
+                else if phoneNumber.text?.count == 0 {
                     BAProgressHUD.ba_showWithStatus("请输入新密码")
                 }
-                let viewModel = RLoginViewModel()
-                viewModel.changePassword(oldPsw: IDCardTextField.text!, newPsw: phoneNumber.text!)
-                    .subscribe(onNext: { (httpResult) in
-                        self?.navigationController?.pushViewController(RLoginViewController(), animated: true)
+                else {
+                    let commonRequest = RCommonRequest()
+                    commonRequest.changePassword(oldPsw: IDCardTextField.text!, newPsw: phoneNumber.text!, success: { (result) in
+                        if result["code"] == "0" {
+                            BAProgressHUD.ba_showWithStatus("修改密码成功")
+                            self?.navigationController?.popViewController(animated: true)
+                        }
+                        else {
+                            BAProgressHUD.ba_showWithStatus("修改密码失败")
+                        }
+                    }, failture: { (error) in
+                        BAProgressHUD.ba_showWithStatus("修改密码失败")
                     })
-                    .disposed(by: self!.disposeBag)
+                }
+//
+//                let viewModel = RLoginViewModel()
+//                viewModel.changePassword(oldPsw: IDCardTextField.text!, newPsw: phoneNumber.text!)
+//                    .subscribe(onNext: { (httpResult) in
+//                        self?.navigationController?.pushViewController(RLoginViewController(), animated: true)
+//                    })
+//                    .disposed(by: self!.disposeBag)
             })
             .disposed(by: disposeBag)
         

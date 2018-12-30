@@ -181,11 +181,11 @@ extension RAuthViewController {
             BAProgressHUD.ba_showWithStatus("请上传身份证正面照")
             return false
         }
-        else if (userInfo["contactNexus"] == nil || userInfo["contactNexus"]?.count == 0) {
+        else if (userInfo["idcardImg02"] == nil || userInfo["idcardImg02"]?.count == 0) {
             BAProgressHUD.ba_showWithStatus("请上传身份证反面照")
             return false
         }
-        else if (userInfo["contactNexus"] == nil || userInfo["contactNexus"]?.count == 0) {
+        else if (userInfo["idcardImg03"] == nil || userInfo["idcardImg03"]?.count == 0) {
             BAProgressHUD.ba_showWithStatus("请上传手持身份证照片")
             return false
         }
@@ -440,7 +440,9 @@ extension RAuthViewController : UITableViewDelegate, UITableViewDataSource {
         else {
             let cell : RUploadIDCardTableViewCell = tableView.dequeueReusableCell(withIdentifier: uploadPhotoIdentifier) as! RUploadIDCardTableViewCell
             if checkInfo {
-                cell.frontPhoto.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: oldUserInfo.idcardImg01 ?? "")!))
+                if oldUserInfo.idcardImg01 != nil {
+                    cell.frontPhoto.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: oldUserInfo.idcardImg01!)!))
+                }
                 cell.reversePhoto.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: oldUserInfo.idcardImg02 ?? "")!))
                 cell.handHeldPhoto.kf.setImage(with: ImageResource.init(downloadURL: URL.init(string: oldUserInfo.idcardImg03 ?? "")!))
             }
@@ -537,6 +539,8 @@ extension RAuthViewController : UITableViewDelegate, UITableViewDataSource {
             userInfo["qqcode"] = bulletBox.returnString
         case 30:
             userInfo["wechatCode"] = bulletBox.returnString
+        case 42:
+            userInfo["contactNexus"] = bulletBox.returnString
         default:
             break
         }

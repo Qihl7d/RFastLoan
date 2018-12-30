@@ -16,11 +16,13 @@ class RMineViewController: RBaseViewController, UITableViewDelegate, UITableView
     let headerView = RMineHeaderView()
     var userInfo : RMemberInfo!
     let currentVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initView()
-        initData()
+//        initData()
         // Do any additional setup after loading the view.
     }
     
@@ -42,17 +44,7 @@ extension RMineViewController {
         super.viewWillAppear(animated)
         self.kNavigationColor = UIColor.clear
         self.kTitleFontColor  = UIColor.white
-        let tabbarController = self.tabBarController
-        self.tabBarController?.tabBar.removeFromSuperview()
-        for view in (tabbarController?.view.subviews)! {
-            if view.isKind(of: MainTabBarView.classForCoder()) {
-                view.isHidden = false
-            }
-            else if (view.isKind(of: UITabBar.classForCoder())) {
-                view.isHidden = true
-            }
-        }
-        
+        initData()
         var image = UIImage.imageWithColor(color: UIColor.clear)
         UIGraphicsBeginImageContext(CGSize.init(width: kScreenWidth, height: kNavigationBarAndStatusHeight))
         image.draw(in: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: kNavigationBarAndStatusHeight))
@@ -70,11 +62,6 @@ extension RMineViewController {
         self.kTitleFontColor  = UIColor.white
         view.backgroundColor  = RbackgroundColor
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        
-//        self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
-//        self.extendedLayoutIncludesOpaqueBars = false
-//        self.modalPresentationCapturesStatusBarAppearance = false
-//        self.automaticallyAdjustsScrollViewInsets = false
         
         headerView.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: 200 + 100 + 10 + kStatusBarHeight)
         

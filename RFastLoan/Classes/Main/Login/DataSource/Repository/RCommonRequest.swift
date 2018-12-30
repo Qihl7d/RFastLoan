@@ -195,30 +195,6 @@ class RCommonRequest:NSObject {
         let headers:HTTPHeaders = ["Content-Type":"text/javascript",
                                    "token":RAccessToken.userAccessToken()]
         let url = hostUrlStr + "loanManage/api/userTel/v1/uploadUserTel"
-//        Alamofire.upload(multipartFormData: { multipartFormData in
-//            // 以文件流格式上传
-//            multipartFormData.append(contacts, withName: "", fileName: "", mimeType: "")
-//        },to: url, headers: headers, encodingCompletion: { encodingResult in
-//            switch encodingResult {
-//            case .success(let upload, _, _):
-//                upload.responseJSON { response in
-//                    let result = response.result
-//                    if result.isSuccess {
-//                        let str = self.toolsChangeToJson(info: response.value)
-//                        let nsdic = self.getDictionaryFromJSONString(jsonString: str)
-//                        var dic = Dictionary<String, String>()
-//                        for key in nsdic.allKeys {
-//                            let keyl = "\(key)"
-//                            dic[keyl] = "\(nsdic[key]!)"
-//                        }
-//                        BAProgressHUD.ba_showWithStatus(dic["message"])
-//                        success(dic)
-//                    }
-//                }
-//            case .failure(let encodingError):
-//                failture(encodingError)
-//            }
-//        })
         
         Alamofire.upload(InputStream.init(data: contacts), to: url, method: HTTPMethod.post, headers: headers)
             .responseJSON { response in
@@ -236,5 +212,28 @@ class RCommonRequest:NSObject {
                     }
                 }
     }
+    
+    func  changePassword(oldPsw: String, newPsw: String, success: @escaping (_ response : Dictionary<String, String>)-> (), failture : @escaping (_ error : Error)->()) {
+        let headers:HTTPHeaders = ["Content-Type":"text/javascript",
+                                   "token":RAccessToken.userAccessToken()]
+        let url = hostUrlStr + "loanManage/api/member/v1/updatePass"
+        let parameters = ["oldPass":oldPsw, "newPass":newPsw]
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers)
+            .responseJSON { response in
+                let result = response.result
+                if result.isSuccess {
+                    let str = self.toolsChangeToJson(info: response.value)
+                    let nsdic = self.getDictionaryFromJSONString(jsonString: str)
+                    var dic = Dictionary<String, String>()
+                    for key in nsdic.allKeys {
+                        let keyl = "\(key)"
+                        dic[keyl] = "\(nsdic[key]!)"
+                    }
+                    BAProgressHUD.ba_showWithStatus(dic["message"])
+                    success(dic)
+                }
+        }
+    }
+    
     
 }
